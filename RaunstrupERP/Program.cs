@@ -10,7 +10,9 @@ namespace RaunstrupERP
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("hey");   
+            Console.WriteLine("Hello World");
+            Console.WriteLine("Test");
+            Console.WriteLine("Test2");
         }
     }
 }
