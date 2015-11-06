@@ -13,6 +13,7 @@ namespace RaunstrupERP
             Console.WriteLine("Hello World");
             Console.WriteLine("Test");
             Console.WriteLine("Test2");
+            string daniel = "Hej";
         }
     }
 }
