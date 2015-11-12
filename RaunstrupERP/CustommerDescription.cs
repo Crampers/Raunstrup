@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RaunstrupERP
 {
-    public class CustommerDescription
+    public class CustomerDescription
     {
         public int customerID;
         public string FirstName;
@@ -16,7 +16,7 @@ namespace RaunstrupERP
         public string By;
         public int Tlf;
 
-        public CustommerDescription (int ID, string fn, string sn, string adress, int zip, string city, int phone)
+        public CustomerDescription (int ID, string fn, string sn, string adress, int zip, string city, int phone)
         {
             customerID = ID;
             FirstName = fn;
