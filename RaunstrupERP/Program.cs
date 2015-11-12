@@ -10,10 +10,14 @@ namespace RaunstrupERP
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World");
-            Console.WriteLine("Test");
-            Console.WriteLine("Test2");
-            Console.WriteLine("bitches");
+            //customer test
+            CustomerCatalog cc = new CustomerCatalog();
+            cc.PrintCustommer(1);
+
+            //Console.WriteLine("Hello World");
+            //Console.WriteLine("Test");
+            //Console.WriteLine("Test2");
+            //Console.WriteLine("bitches");
         }
     }
     class allThewhores

@@ -22,5 +22,15 @@ namespace RaunstrupERP
             return custommer;
         }
 
+
+        //For testing purposes
+        public void PrintCustommer(int id)
+        {
+            CustomerDescription custommer = Customers.Find(CustomerDescription => CustomerDescription.customerID == id);
+
+            Console.WriteLine(custommer.customerID + " " + custommer.FirstName + " " + custommer.SirName + " " + custommer.Adress + " " + custommer.PostNr + " " + custommer.By  + " " +  custommer.Tlf);
+       
+        }
+
     }
 }
