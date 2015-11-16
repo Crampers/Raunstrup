@@ -28,10 +28,7 @@ namespace RaunstrupERP
         }
         public void DeleteCustomer(int id)
         {
-            CustomerDescription custommer = Customers.Find(CustomerDescription => CustomerDescription.customerID == id);
-            custommer = null;
-            Customers.RemoveAll(item => item == null);
-            
+            Customers.RemoveAll(item => item.customerID == id);           
         }
         
         //For testing purposes
