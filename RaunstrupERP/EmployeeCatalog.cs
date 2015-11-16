@@ -8,6 +8,10 @@ namespace RaunstrupERP
 {
     public class EmployeeCatalog
     {
+
+        //TODO: retuner specialiceringer
+
+
         private List<EmployeeDescription> Employees = new List<EmployeeDescription>();
         public EmployeeCatalog()
         {
@@ -20,6 +24,7 @@ namespace RaunstrupERP
 
             return employee;
         }
+        
         
         public void AddEmplyee(int ID, string fn, string sn, string adress, int postalCode, string city, int phone, double salary)
         {
