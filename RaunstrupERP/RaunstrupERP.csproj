@@ -59,6 +59,8 @@
     <Compile Include="Bitches.cs" />
     <Compile Include="CustomerCatalog.cs" />
     <Compile Include="CustomerDescription.cs" />
+    <Compile Include="ItemCatalog.cs" />
+    <Compile Include="ItemDescription.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
