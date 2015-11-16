@@ -64,8 +64,11 @@
     <Compile Include="EmployeeDescription.cs" />
     <Compile Include="ItemCatalog.cs" />
     <Compile Include="ItemDescription.cs" />
+    <Compile Include="ItemLine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaskCatalog.cs" />
+    <Compile Include="TaskDescription.cs" />
     <Compile Include="SalesEmployee.cs" />
   </ItemGroup>
   <ItemGroup>
