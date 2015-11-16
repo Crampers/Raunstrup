@@ -13,15 +13,21 @@ namespace RaunstrupERP
         {
             Employees.Add(new EmployeeDescription(1, "Anders Sejr", "Thomsen", "valdemarsgade 15B 32", 7100, "Vejle", 30265894, 99999999999.99));
         }
+
         public EmployeeDescription GetEmployee(int id)
         {
             EmployeeDescription employee = Employees.Find(EmployeeDescription => EmployeeDescription.employeeID == id);
 
             return employee;
         }
+        
         public void AddEmplyee(int ID, string fn, string sn, string adress, int postalCode, string city, int phone, double salary)
         {
             Employees.Add(new EmployeeDescription(ID, fn, sn, adress, postalCode, city, phone, salary));
+        }
+        public void AddSalesEmployee(int ID, string fn, string sn, string adress, int postalCode, string city, int phone, double salary)
+        {
+            Employees.Add(new SalesEmployee(ID, fn, sn, adress, postalCode, city, phone, salary));
         }
         public void DeleteEmployee(int id)
         {
