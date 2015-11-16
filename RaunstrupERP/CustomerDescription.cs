@@ -12,23 +12,23 @@ namespace RaunstrupERP
         private string FirstName;
         private string SirName;
         private string Adress;
-        private int PostNr;
-        private string By;
+        private int PostalCode;
+        private string City;
         private int Tlf;
 
-        public CustomerDescription (int ID, string fn, string sn, string adress, int zip, string city, int phone)
+        public CustomerDescription (int ID, string fn, string sn, string adress, int postalcode, string city, int phone)
         {
             customerID = ID;
             FirstName = fn;
             SirName = sn;
             Adress = adress;
-            PostNr = zip;
-            By = city;
+            PostalCode = postalcode;
+            City = city;
             Tlf = phone;     
         }
         public void PrintCustommerDesc()
         {
-            Console.WriteLine(customerID + " " + FirstName + " " + SirName + " " + Adress + " " + PostNr + " " + By + " " + Tlf);
+            Console.WriteLine(customerID + " " + FirstName + " " + SirName + " " + Adress + " " + PostalCode + " " + City + " " + Tlf);
         }
         public void AlterFirstName(string fn)
         {
@@ -44,11 +44,11 @@ namespace RaunstrupERP
         }
         public void AlterPostNr(int postalcode)
         {
-            PostNr = postalcode;
+            PostalCode = postalcode;
         }
         public void AlterBy(string city)
         {
-            By = city;
+            City = city;
         }
         public void AlterTlf(int number)
         {

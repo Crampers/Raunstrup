@@ -13,8 +13,8 @@ namespace RaunstrupERP
         public CustomerCatalog()
         {
             //test data
-            Customers.Add(new CustomerDescription(1, "Bob", "Bobsen", "Boulevarden 5", 7100, "vejle", 12345678));
-            Customers.Add(new CustomerDescription(2, "Brian", "Bøllemand", "Genvej 2", 8723, "løsning", 23456789));
+            Customers.Add(new CustomerDescription(GetID(), "Bob", "Bobsen", "Boulevarden 5", 7100, "vejle", 12345678));
+            Customers.Add(new CustomerDescription(GetID(), "Brian", "Bøllemand", "Genvej 2", 8723, "løsning", 23456789));
         }
         public CustomerDescription GetCustommer(int id)
         {
@@ -22,9 +22,20 @@ namespace RaunstrupERP
 
             return custommer;
         }
+        private int GetID()
+        {
+            int id;
+            if (Customers[0] == null)
+            {
+                return 1;
+            }
+            else
+                id = Customers.Last().customerID + 1;
+            return id;
+        }
         public void AddCustomer(int ID, string fn, string sn, string adress, int zip, string city, int phone)
         {
-            Customers.Add(new CustomerDescription(ID, fn, sn, adress, zip, city, phone));            
+            Customers.Add(new CustomerDescription(GetID(), fn, sn, adress, zip, city, phone));            
         }
         public void DeleteCustomer(int id)
         {
