@@ -12,12 +12,21 @@ namespace RaunstrupERP
         public TaskCatalog()
         {
             tasks = new List<TaskDescription>();
-            tasks.Add(new TaskDescription(1, "Test Task"));
         }
         /*Setters*/
         public void addTask(int id, String desc)
         {
             tasks.Add(new TaskDescription(id, desc));
+        }
+        public void setTaskEmployee(int id, EmployeeDescription employee)
+        {
+            foreach (TaskDescription item in tasks)
+            {
+                if (item.getID() == id)
+                {
+                    item.setEmployee(employee);
+                }
+            }
         }
         public void addTaskItems(int id, ItemDescription item, int amount)
         {
@@ -83,6 +92,16 @@ namespace RaunstrupERP
             foreach (TaskDescription item in tasks)
             {
                 item.printTask();
+            }
+        }
+        public void print(int id)
+        {
+            foreach (TaskDescription item in tasks)
+            {
+                if (item.getID() == id)
+                {
+                    item.printTask();
+                }
             }
         }
     }

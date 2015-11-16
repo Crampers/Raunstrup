@@ -15,14 +15,17 @@ namespace RaunstrupERP
         List<ItemLine> materials;
         EmployeeDescription employee;
 
-        public TaskDescription(int id, String desc, EmployeeDescription employee)
+        public TaskDescription(int id, String desc)
         {
             materials = new List<ItemLine>();
             this.ID = id;
             this.description = desc;
-            this.employee = employee;
         }
         /*SETTERS*/
+        public void setEmployee(EmployeeDescription employee)
+        {
+            this.employee = employee;
+        }
         public void addItems(ItemDescription Item, int amount)
         {
             materials.Add(new ItemLine(Item, amount));
@@ -64,6 +67,11 @@ namespace RaunstrupERP
             foreach (ItemLine item in materials)
             {
                 item.printItemLine();
+            }
+            if (employee != null)
+            {
+                Console.Write("WorkerID: ");
+                employee.PrintEmployeeDesc();
             }
             Console.WriteLine("Completed: " + this.complete.ToString());
             Console.WriteLine();

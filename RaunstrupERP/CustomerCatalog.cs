@@ -24,13 +24,15 @@ namespace RaunstrupERP
         }
         private int GetID()
         {
-            int id;
-            if (Customers[0] == null)
+            int id = 0;
+            foreach (CustomerDescription c in Customers)
             {
-                return 1;
+                if (c.customerID > id)
+                {
+                    id = c.customerID;
+                }
             }
-            else
-                id = Customers.Last().customerID + 1;
+            id = id + 1;
             return id;
         }
         public void AddCustomer(int ID, string fn, string sn, string adress, int zip, string city, int phone)
