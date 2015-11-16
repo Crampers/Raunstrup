@@ -13,17 +13,14 @@ namespace RaunstrupERP
         String description;
         Boolean complete = false;
         List<ItemLine> materials;
+        EmployeeDescription employee;
 
-        /*
-        NEEDS COWORKER!!!
-        Dis spot reserved
-            */
-
-        public TaskDescription(int id, String desc)
+        public TaskDescription(int id, String desc, EmployeeDescription employee)
         {
+            materials = new List<ItemLine>();
             this.ID = id;
             this.description = desc;
-            materials = new List<ItemLine>();
+            this.employee = employee;
         }
         /*SETTERS*/
         public void addItems(ItemDescription Item, int amount)
