@@ -36,6 +36,7 @@ namespace RaunstrupERP
                     newID = item.getID();
                 }
             }
+            newID = newID + 1;
             return newID;
         }
 

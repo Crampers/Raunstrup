@@ -60,10 +60,10 @@ namespace RaunstrupERP
         /*TESTERS*/
         public void printItem()
         {
-            Console.WriteLine(this.description 
-                + ", ID: " + this.itemID 
-                + ", salgspris: " + this.salesPrice + "kr. " 
-                + "indkøbspris: " + this.shopsPrice + "kr. ");
+            Console.WriteLine("ID: " + this.itemID + ", " 
+                + this.description + ", Pris: " 
+                + this.salesPrice + " kr. Indkøbs Pris: " 
+                + this.shopsPrice + " kr.");
         }
     }
 }

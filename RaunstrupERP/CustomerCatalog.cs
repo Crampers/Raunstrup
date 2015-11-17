@@ -35,7 +35,7 @@ namespace RaunstrupERP
             id = id + 1;
             return id;
         }
-        public void AddCustomer(int ID, string fn, string sn, string adress, int zip, string city, int phone)
+        public void AddCustomer(string fn, string sn, string adress, int zip, string city, int phone)
         {
             Customers.Add(new CustomerDescription(GetID(), fn, sn, adress, zip, city, phone));            
         }
@@ -45,6 +45,14 @@ namespace RaunstrupERP
         }
         
         //For testing purposes
+        public void ConsolePrintAllCustomers()
+        {
+            foreach (CustomerDescription item in Customers)
+            {
+                item.PrintCustommerDesc();
+            }
+        }
+
         public void PrintCustommer(int id)
         {
             CustomerDescription custommer = Customers.Find(CustomerDescription => CustomerDescription.customerID == id);

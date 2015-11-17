@@ -14,9 +14,9 @@ namespace RaunstrupERP
             tasks = new List<TaskDescription>();
         }
         /*Setters*/
-        public void addTask(int id, String desc)
+        public void addTask(String desc)
         {
-            tasks.Add(new TaskDescription(id, desc));
+            tasks.Add(new TaskDescription(getNewId(), desc));
         }
         public void setTaskEmployee(int id, EmployeeDescription employee)
         {
@@ -72,7 +72,7 @@ namespace RaunstrupERP
             }
             return td;
         }
-        public int getNewId()
+        private int getNewId()
         {
             int newID = 0;
             foreach (TaskDescription item in tasks)

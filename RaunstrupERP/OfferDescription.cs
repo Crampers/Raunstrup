@@ -9,9 +9,9 @@ namespace RaunstrupERP
     class OfferDescription
     {
         int offerID;
-        TaskCatalog workTasks;
-        CustomerDescription buyer;
-        EmployeeDescription salesman;
+        TaskCatalog workTasks = null;
+        CustomerDescription buyer = null;
+        EmployeeDescription salesman = null;
         public OfferDescription(int id, TaskCatalog tc)
         {
             offerID = id;

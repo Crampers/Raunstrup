@@ -25,7 +25,14 @@ namespace RaunstrupERP
             Adress = adress;
             PostalCode = postalCode;
             City = city;
-            Phone = phone;   
+            Phone = phone;
+        }
+
+
+        /*GETTERS*/
+        public int getID()
+        {
+            return this.employeeID;
         }
 
         //for testing purposes

@@ -14,7 +14,7 @@ namespace RaunstrupERP
             Offers = new List<OfferDescription>();
         }
         /*GETTERS*/
-        public OfferDescription getOfferID(int id)
+        public OfferDescription getOffer(int id)
         {
             OfferDescription returnMe = null;
             foreach (OfferDescription item in Offers)
@@ -36,6 +36,7 @@ namespace RaunstrupERP
                     newID = item.getID();
                 }
             }
+            newID = newID + 1;
             return newID;
         }
 

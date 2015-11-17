@@ -24,7 +24,7 @@ namespace RaunstrupERP
         }
         /*Finds the next available ID above current existing IDs
         Like a baws!*/
-        public int getNewId()
+        private int getNewId()
         {
             int newID = 0;
             foreach (ItemDescription item in items)
@@ -39,9 +39,9 @@ namespace RaunstrupERP
         }
 
         /*Setters*/
-        public void addItem(ItemDescription item)
+        public void addItem(String desc, double salesPrice, double shopsPrice)
         {
-            items.Add(item);
+            items.Add(new ItemDescription(desc, getNewId(), salesPrice, shopsPrice));
         }
         public void updateItemDesc(int id, String newDesc)
         {

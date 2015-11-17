@@ -15,7 +15,7 @@ namespace RaunstrupERP
         private List<EmployeeDescription> Employees = new List<EmployeeDescription>();
         public EmployeeCatalog()
         {
-            Employees.Add(new EmployeeDescription(1, "Anders Sejr", "Thomsen", "valdemarsgade 15B 32", 7100, "Vejle", 30265894, 99999999999.99));
+            Employees.Add(new EmployeeDescription(getNewID(), "Anders Sejr", "Thomsen", "valdemarsgade 15B 32", 7100, "Vejle", 30265894, 99999999999.99));
         }
 
         public EmployeeDescription GetEmployee(int id)
@@ -25,10 +25,23 @@ namespace RaunstrupERP
             return employee;
         }
         
-        
-        public void AddEmplyee(int ID, string fn, string sn, string adress, int postalCode, string city, int phone, double salary)
+        private int getNewID()
         {
-            Employees.Add(new EmployeeDescription(ID, fn, sn, adress, postalCode, city, phone, salary));
+            int newID = 0;
+            foreach (EmployeeDescription item in Employees)
+            {
+                if (item.getID() > newID)
+                {
+                    newID = item.getID();
+                }
+            }
+            newID = newID + 1;
+            return newID;
+        }
+
+        public void AddEmployee(string fn, string sn, string adress, int postalCode, string city, int phone, double salary)
+        {
+            Employees.Add(new EmployeeDescription(getNewID(), fn, sn, adress, postalCode, city, phone, salary));
         }
         public void AddSalesEmployee(int ID, string fn, string sn, string adress, int postalCode, string city, int phone, double salary)
         {
@@ -37,6 +50,14 @@ namespace RaunstrupERP
         public void DeleteEmployee(int id)
         {
             Employees.RemoveAll(item => item.employeeID == id);
+        }
+
+        public void ConsolePrintAllEmployees()
+        {
+            foreach (EmployeeDescription item in Employees)
+            {
+                item.PrintEmployeeDesc();
+            }
         }
 
         //For testing purposes
