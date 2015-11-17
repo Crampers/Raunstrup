@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace RaunstrupERP
 {
-    class OfferCatalog
+    class OrderCatalog
     {
-        List<OfferDescription> Offers;
-        public OfferCatalog()
+        List<OrderDescription> orders;
+        public OrderCatalog()
         {
-            Offers = new List<OfferDescription>();
+            this.orders = new List<OrderDescription>();
         }
         /*GETTERS*/
-        public OfferDescription getOfferID(int id)
+        public OrderDescription getOrder(int id)
         {
-            OfferDescription returnMe = null;
-            foreach (OfferDescription item in Offers)
+            OrderDescription returnMe = null;
+            foreach (OrderDescription item in orders)
             {
                 if (item.getID() == id)
                 {
@@ -29,7 +29,7 @@ namespace RaunstrupERP
         private int getNewID()
         {
             int newID = 0;
-            foreach (OfferDescription item in Offers)
+            foreach (OrderDescription item in orders)
             {
                 if (item.getID() > newID)
                 {
@@ -40,9 +40,9 @@ namespace RaunstrupERP
         }
 
         /*SETTERS*/
-        public void addOffer(TaskCatalog TC)
+        public void addOrder(OfferDescription offer)
         {
-            Offers.Add(new OfferDescription(getNewID(), TC));
+            orders.Add(new OrderDescription(getNewID(), offer));
         }
         
         /*TESTERS*/
