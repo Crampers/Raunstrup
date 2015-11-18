@@ -48,7 +48,7 @@ namespace RaunstrupERP
             Console.WriteLine("Tasks!");
             /* Tasks */
             TaskCatalog tc1 = new TaskCatalog();
-            tc1.addTask("Nyt Vidue");
+            tc1.addTask("Nyt Vindue");
             tc1.addTaskItems(1, ic.getItem(1), 2);
             tc1.addTaskItems(1, ic.getItem(2), 1);
             tc1.addTaskItems(1, ic.getItem(3), 4);
