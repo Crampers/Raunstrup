@@ -26,6 +26,7 @@ namespace RaunstrupERP
             PostalCode = postalCode;
             City = city;
             Phone = phone;
+            Salary = salary;
         }
 
 
