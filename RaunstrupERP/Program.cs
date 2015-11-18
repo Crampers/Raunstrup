@@ -120,11 +120,4 @@ namespace RaunstrupERP
             //Console.WriteLine("bitches");
         }
     }
-    class allThewhores
-    {
-        public allThewhores()
-        {
-        Console.WriteLine("more bitches");
-        }
-    }
 }
