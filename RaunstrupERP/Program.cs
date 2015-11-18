@@ -85,39 +85,6 @@ namespace RaunstrupERP
             /* Order End*/
             Console.WriteLine("DONE!");
             /* TEST PROGRAM ENDS HERE*/
-            
-            //cc.PrintCustommer(1);
-            //ec.PrintEmployee(2);
-
-            //tc.addTask(ic.getNewId(), "Install Window");
-            //ic.printAllItems();
-            /*tc.addTaskItems(1, ic.getItem(1), 2);
-            tc.addTaskItems(1, ic.getItem(2), 1);
-            tc.addTaskItems(1, ic.getItem(3), 4);
-            tc.setTaskEmployee(1, ec.GetEmployee(2));
-            tc.setTaskComplete(1);*/
-
-            /*offerC.addOffer(tc);
-            offerC.getOffer(1).setBuyer(cc.GetCustommer(1));
-            //offerC.getOffer(1).getBuyer().PrintCustommerDesc();
-            //offerC.getOffer(1).getWorkTasks().printAllTasks();
-
-            oc.addOrder(offerC.getOffer(1));
-            oc.getOrder(1).getOffer().getBuyer().PrintCustommerDesc();
-            oc.getOrder(1).getOffer().getWorkTasks().printAllTasks();
-            /* remember to add employee before u ask for his info ;) 
-            otherwise u get exception! 
-                */
-            /*
-                        oc.getOrder(1).getOffer().setSalesMan(ec.GetEmployee(2));
-                        oc.getOrder(1).getOffer().getSalesMan().PrintEmployeeDesc();
-
-                */
-
-            //Console.WriteLine("Hello World");
-            //Console.WriteLine("Test");
-            //Console.WriteLine("Test2");
-            //Console.WriteLine("bitches");
         }
     }
 }
