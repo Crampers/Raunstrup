@@ -14,9 +14,13 @@ namespace RaunstrupERP
             Console.WriteLine("Employees!");
             /* Employees */
             EmployeeCatalog ec = new EmployeeCatalog();
+            ec.GetEmployee(1).setSalesMan();
             ec.AddEmployee("Daniel", "Olsen", "Nordlandsvej 87G", 7100, "Vejle", 29718990, 00);
-            ec.AddEmployee("Mathias", "Efternavn", "Adresse", 1234, "Bynanvn", 12345678, 00);
+            ec.GetEmployee(2).setCraftsMan();
+            ec.AddEmployee("Mathias", "Efternavn", "Adresse", 1234, "Bynavn", 12345678, 00);
+            ec.GetEmployee(3).setCraftsMan();
             ec.AddEmployee("Anders", "Pierre", "Adresse", 1234, "Bynavn", 12345678, 00);
+            ec.GetEmployee(4).setSalesMan();
 
             ec.ConsolePrintAllEmployees();
             /* Employees END */

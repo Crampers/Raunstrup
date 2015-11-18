@@ -16,6 +16,7 @@ namespace RaunstrupERP
         private string City;
         private int Phone;
         private double Salary;
+        private String special = "UNDEF";
 
         public EmployeeDescription(int ID, string fn, string sn, string adress, int postalCode, string city, int phone, double salary)
         {
@@ -36,10 +37,28 @@ namespace RaunstrupERP
             return this.employeeID;
         }
 
+        /*SETTERS*/
+        public void setSalesMan()
+        {
+            this.special = "Salesman";
+        }
+        public void setCraftsMan()
+        {
+            this.special = "Craftsman";
+        }
+
         //for testing purposes
         public void PrintEmployeeDesc()
         {
-            Console.WriteLine(employeeID + " " + FirstName + " " + SirName + " " + Adress + " " + PostalCode + " " + City + " " + Phone);
+            Console.WriteLine(employeeID + " " 
+                + FirstName + ", " 
+                + SirName + ", " 
+                + Adress + ", " 
+                + PostalCode + ", " 
+                + City + ", " 
+                + Phone + ", Løn: " 
+                + Salary + ", "
+                + this.special);
         }
         public void AlterFirstName(string fn)
         {
