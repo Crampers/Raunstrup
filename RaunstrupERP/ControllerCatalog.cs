@@ -8,6 +8,12 @@ namespace RaunstrupERP
 {
     class ControllerCatalog
     {
-        //EmployeeCatalog ec = 
+        private EmployeeCatalog ec;
+        private TaskCatalog tc;
+        private OrderCatalog oc;
+        private CustomerCatalog cc;
+        private ItemCatalog ic;
+
+
     }
 }
