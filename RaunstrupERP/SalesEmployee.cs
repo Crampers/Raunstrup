@@ -14,7 +14,7 @@ namespace RaunstrupERP
         {
             cc = new CustomerCatalog(); //TODO: singleton
         }
-        public void test()
+        public void Test()
         {
             Console.WriteLine("test");
         }

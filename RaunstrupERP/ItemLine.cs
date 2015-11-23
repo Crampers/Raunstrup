@@ -16,9 +16,9 @@ namespace RaunstrupERP
             this.amount = amount;
         }
         /*Testers*/
-        public void printItemLine()
+        public void PrintItemLine()
         {
-            Console.WriteLine("ItemID: " + item.getID() + " " + item.getDesc() + ", " + amount + " Stk. ");
+            Console.WriteLine("ItemID: " + item.GetID() + " " + item.GetDesc() + ", " + amount + " Stk. ");
         }
     }
 }

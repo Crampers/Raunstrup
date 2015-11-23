@@ -15,7 +15,7 @@ namespace RaunstrupERP
         private List<EmployeeDescription> Employees = new List<EmployeeDescription>();
         public EmployeeCatalog()
         {
-            Employees.Add(new EmployeeDescription(getNewID(), "Anders Sejr", "Thomsen", "valdemarsgade 15B 32", 7100, "Vejle", 30265894, 99999999999.99));
+           // Employees.Add(new EmployeeDescription(getNewID(), "Anders Sejr", "Thomsen", "valdemarsgade 15B 32", 7100, "Vejle", 30265894, 99999999999.99));
         }
 
         public EmployeeDescription GetEmployee(int id)
@@ -25,14 +25,14 @@ namespace RaunstrupERP
             return employee;
         }
         
-        private int getNewID()
+        private int GetNewId()
         {
             int newID = 0;
             foreach (EmployeeDescription item in Employees)
             {
-                if (item.getID() > newID)
+                if (item.GetId() > newID)
                 {
-                    newID = item.getID();
+                    newID = item.GetId();
                 }
             }
             newID = newID + 1;
@@ -41,7 +41,7 @@ namespace RaunstrupERP
 
         public void AddEmployee(string fn, string sn, string adress, int postalCode, string city, int phone, double salary)
         {
-            Employees.Add(new EmployeeDescription(getNewID(), fn, sn, adress, postalCode, city, phone, salary));
+            Employees.Add(new EmployeeDescription(GetNewId(), fn, sn, adress, postalCode, city, phone, salary));
         }
         public void AddSalesEmployee(int ID, string fn, string sn, string adress, int postalCode, string city, int phone, double salary)
         {

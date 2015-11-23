@@ -8,7 +8,7 @@ namespace RaunstrupERP
 {
     public class CustomerDescription
     {
-        public readonly int customerID; //public read only da ID aldrig bør ændres, men skal stadig kunne findes fra catalog
+        public readonly int CustomerId; //public read only da ID aldrig bør ændres, men skal stadig kunne findes fra catalog
         private string FirstName;
         private string SirName;
         private string Adress;
@@ -18,7 +18,7 @@ namespace RaunstrupERP
 
         public CustomerDescription (int ID, string fn, string sn, string adress, int postalcode, string city, int phone)
         {
-            customerID = ID;
+            CustomerId = ID;
             FirstName = fn;
             SirName = sn;
             Adress = adress;
@@ -28,7 +28,7 @@ namespace RaunstrupERP
         }
         public void PrintCustommerDesc()
         {
-            Console.WriteLine(customerID + " " + FirstName + " " + SirName + " " + Adress + " " + PostalCode + " " + City + " " + Tlf);
+            Console.WriteLine(CustomerId + " " + FirstName + " " + SirName + " " + Adress + " " + PostalCode + " " + City + " " + Tlf);
         }
         public void AlterFirstName(string fn)
         {

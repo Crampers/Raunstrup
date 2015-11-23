@@ -14,26 +14,26 @@ namespace RaunstrupERP
             Offers = new List<OfferDescription>();
         }
         /*GETTERS*/
-        public OfferDescription getOffer(int id)
+        public OfferDescription GetOffer(int id)
         {
             OfferDescription returnMe = null;
             foreach (OfferDescription item in Offers)
             {
-                if (item.getID() == id)
+                if (item.GetId() == id)
                 {
                     returnMe = item;
                 }
             }
             return returnMe;
         }
-        private int getNewID()
+        private int GetNewID()
         {
             int newID = 0;
             foreach (OfferDescription item in Offers)
             {
-                if (item.getID() > newID)
+                if (item.GetId() > newID)
                 {
-                    newID = item.getID();
+                    newID = item.GetId();
                 }
             }
             newID = newID + 1;
@@ -41,9 +41,9 @@ namespace RaunstrupERP
         }
 
         /*SETTERS*/
-        public void addOffer(TaskCatalog TC)
+        public void AddOffer(TaskCatalog TC)
         {
-            Offers.Add(new OfferDescription(getNewID(), TC));
+            Offers.Add(new OfferDescription(GetNewID(), TC));
         }
         
         /*TESTERS*/

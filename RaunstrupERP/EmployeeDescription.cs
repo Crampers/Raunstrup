@@ -32,19 +32,19 @@ namespace RaunstrupERP
 
 
         /*GETTERS*/
-        public int getID()
+        public int GetId()
         {
             return this.employeeID;
         }
 
         /*SETTERS*/
-        public void setSalesMan()
+        public void SetSalesMan()
         {
-            this.special = "Salesman";
+            special = "Salesman";
         }
-        public void setCraftsMan()
+        public void SetCraftsMan()
         {
-            this.special = "Craftsman";
+            special = "Craftsman";
         }
 
         //for testing purposes

@@ -17,21 +17,21 @@ namespace RaunstrupERP
             //items.Add(new ItemDescription("Window Glass", 3, 100, 25));
         }
         /*Getters*/
-        public ItemDescription getItem(int id)
+        public ItemDescription GetItem(int id)
         {
-            ItemDescription item = items.Find(ItemDescription => ItemDescription.getID() == id);
+            ItemDescription item = items.Find(ItemDescription => ItemDescription.GetID() == id);
             return item;
         }
         /*Finds the next available ID above current existing IDs
         Like a baws!*/
-        private int getNewId()
+        private int GetNewId()
         {
             int newID = 0;
             foreach (ItemDescription item in items)
             {
-                if (item.getID() > newID)
+                if (item.GetID() > newID)
                 {
-                    newID = item.getID();
+                    newID = item.GetID();
                 }
             }
             newID = newID + 1;
@@ -39,52 +39,52 @@ namespace RaunstrupERP
         }
 
         /*Setters*/
-        public void addItem(String desc, double salesPrice, double shopsPrice)
+        public void AddItem(String desc, double salesPrice, double shopsPrice)
         {
-            items.Add(new ItemDescription(desc, getNewId(), salesPrice, shopsPrice));
+            items.Add(new ItemDescription(desc, GetNewId(), salesPrice, shopsPrice));
         }
-        public void updateItemDesc(int id, String newDesc)
+        public void UpdateItemDesc(int id, String newDesc)
         {
             foreach (ItemDescription item in items)
             {
-                if (item.getID() == id)
+                if (item.GetID() == id)
                 {
-                    item.updateDesc(newDesc);
+                    item.UpdateDesc(newDesc);
                 }
             }
         }
-        public void updateItemSalesPrice(int id, Double newPrice)
+        public void UpdateItemSalesPrice(int id, Double newPrice)
         {
             foreach (ItemDescription item in items)
             {
-                if (item.getID() == id)
+                if (item.GetID() == id)
                 {
-                    item.updateSalesPrice(newPrice);
+                    item.UpdateSalesPrice(newPrice);
                 }
             }
         }
-        public void updateItemShopsPrice(int id, Double newPrice)
+        public void UpdateItemShopsPrice(int id, Double newPrice)
         {
             foreach (ItemDescription item in items)
             {
-                if (item.getID() == id)
+                if (item.GetID() == id)
                 {
-                    item.updateShopsPrice(newPrice);
+                    item.UpdateShopsPrice(newPrice);
                 }
             }
         }
         
         /*TESTERS*/
-        public void printItem(int id)
+        public void PrintItem(int id)
         {
-            ItemDescription item = items.Find(ItemDescription => ItemDescription.getID() == id);
-            item.printItem();
+            ItemDescription item = items.Find(ItemDescription => ItemDescription.GetID() == id);
+            item.PrintItem();
         }
-        public void printAllItems()
+        public void PrintAllItems()
         {
             foreach (ItemDescription item in items)
             {
-                item.printItem();
+                item.PrintItem();
             }
         }
     }

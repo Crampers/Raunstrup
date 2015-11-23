@@ -13,52 +13,55 @@ namespace RaunstrupERP
         String description;
         Boolean complete = false;
         List<ItemLine> materials;
-        EmployeeDescription employee;
+        List<EmployeeDescription> _employeelList ;
+        //private EmployeeDescription _employee;
 
         public TaskDescription(int id, String desc)
         {
             materials = new List<ItemLine>();
-            this.ID = id;
-            this.description = desc;
+            _employeelList = new List<EmployeeDescription>();
+            ID = id;
+            description = desc;
         }
         /*SETTERS*/
-        public void setEmployee(EmployeeDescription employee)
+        public void AddEmployee(EmployeeDescription employee)
         {
-            this.employee = employee;
+            _employeelList.Add(employee);
+            //_employee = employee;
         }
-        public void addItems(ItemDescription Item, int amount)
+        public void AddItems(ItemDescription Item, int amount)
         {
             materials.Add(new ItemLine(Item, amount));
         }
-        public void setComplete()
+        public void SetComplete()
         {
             complete = true;
         }
-        public void setInComplete()
+        public void SetInComplete()
         {
             complete = false;
         }
-        public void setDesc(String newDesc)
+        public void SetDesc(String newDesc)
         {
-            this.description = newDesc;
+            description = newDesc;
         }
 
         /*Getters*/
-        public String getDesc()
+        public String GetDesc()
         {
-            return this.description;
+            return description;
         }
-        public Boolean isComplete()
+        public Boolean IsComplete()
         {
             return complete;
         }
-        public int getID()
+        public int GetId()
         {
-            return this.ID;
+            return ID;
         }
 
         /*TESTERS*/
-        public void printTask()
+        public void PrintTask()
         {
             Console.WriteLine();
             Console.WriteLine(description + ", TASK ID: " + this.ID);
@@ -66,14 +69,18 @@ namespace RaunstrupERP
             Console.WriteLine("Items:");
             foreach (ItemLine item in materials)
             {
-                item.printItemLine();
+                item.PrintItemLine();
             }
-            if (employee != null)
+            for (int i = 0; i < _employeelList.Count; i++)
+            {
+              if (_employeelList[i] != null)
             {
                 Console.Write("WorkerID: ");
-                employee.PrintEmployeeDesc();
+                _employeelList[i].PrintEmployeeDesc();
+            }  
             }
-            Console.WriteLine("Completed: " + this.complete.ToString());
+            
+            Console.WriteLine("Completed: " + complete.ToString());
             Console.WriteLine();
         }
     }

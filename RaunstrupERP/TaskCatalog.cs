@@ -14,72 +14,72 @@ namespace RaunstrupERP
             tasks = new List<TaskDescription>();
         }
         /*Setters*/
-        public void addTask(String desc)
+        public void AddTask(String desc)
         {
-            tasks.Add(new TaskDescription(getNewId(), desc));
+            tasks.Add(new TaskDescription(GetNewId(), desc));
         }
-        public void setTaskEmployee(int id, EmployeeDescription employee)
+        public void SetTaskEmployee(int id, EmployeeDescription employee)
         {
             foreach (TaskDescription item in tasks)
             {
-                if (item.getID() == id)
+                if (item.GetId() == id)
                 {
-                    item.setEmployee(employee);
+                    item.AddEmployee(employee);
                 }
             }
         }
-        public void addTaskItems(int id, ItemDescription item, int amount)
+        public void AddTaskItems(int id, ItemDescription item, int amount)
         {
             foreach (TaskDescription Item in tasks)
             {
-                if (Item.getID() == id)
+                if (Item.GetId() == id)
                 {
-                    Item.addItems(item, amount);
+                    Item.AddItems(item, amount);
                 }
             }
         }
-        public void setTaskDesc(int id, String newDesc)
+        public void SetTaskDesc(int id, String newDesc)
         {
             foreach (TaskDescription Item in tasks)
             {
-                if (Item.getID() == id)
+                if (Item.GetId() == id)
                 {
-                    Item.setDesc(newDesc);
+                    Item.SetDesc(newDesc);
                 }
             }
         }
-        public void setTaskComplete(int id)
+        public void SetTaskComplete(int id)
         {
             foreach (TaskDescription Item in tasks)
             {
-                if (Item.getID() == id)
+                if (Item.GetId() == id)
                 {
-                    Item.setComplete();
+                    Item.SetComplete();
                 }
             }
         }
 
         /*Getters*/
-        public TaskDescription getTask(int id)
+        public TaskDescription GetTask(int id)
         {
             TaskDescription td = new TaskDescription(0, "None");
             foreach (TaskDescription item in tasks)
             {
-                if (item.getID() == id)
+                if (item.GetId() == id)
                 {
                     td = item;
                 }
             }
             return td;
         }
-        private int getNewId()
+        private int GetNewId()
         {
             int newID = 0;
             foreach (TaskDescription item in tasks)
             {
-                if (item.getID() > newID)
+                if (item.GetId() > newID)
                 {
-                    newID = item.getID();
+                    newID = item.GetId();
                 }
             }
             newID = newID + 1;
@@ -87,20 +87,20 @@ namespace RaunstrupERP
         }
 
         /*Testers*/
-        public void printAllTasks()
+        public void PrintAllTasks()
         {
             foreach (TaskDescription item in tasks)
             {
-                item.printTask();
+                item.PrintTask();
             }
         }
-        public void print(int id)
+        public void Print(int id)
         {
             foreach (TaskDescription item in tasks)
             {
-                if (item.getID() == id)
+                if (item.GetId() == id)
                 {
-                    item.printTask();
+                    item.PrintTask();
                 }
             }
         }

@@ -22,43 +22,43 @@ namespace RaunstrupERP
             this.shopsPrice = shopsPrice;
         }
         /*Getters*/
-        public int getID()
+        public int GetID()
         {
-            return this.itemID;
+            return itemID;
         }
-        public String getDesc()
+        public String GetDesc()
         {
-            return this.description;
+            return description;
         }
-        public double getSalesPrice()
+        public double GetSalesPrice()
         {
-            return this.salesPrice;
+            return salesPrice;
         }
-        public double getShopsPrice()
+        public double GetShopsPrice()
         {
-            return this.shopsPrice;
+            return shopsPrice;
         }
 
         /*Setters*/
-        public void updateDesc(String newDesc)
+        public void UpdateDesc(String newDesc)
         {
-            this.description = newDesc;
+            description = newDesc;
         }
-        public void updateItemID(int newID)
+        public void UpdateItemID(int newID)
         {
-            this.itemID = newID;
+            itemID = newID;
         }
-        public void updateSalesPrice(double newPrice)
+        public void UpdateSalesPrice(double newPrice)
         {
-            this.salesPrice = newPrice;
+            salesPrice = newPrice;
         }
-        public void updateShopsPrice(double newPrice)
+        public void UpdateShopsPrice(double newPrice)
         {
-            this.shopsPrice = newPrice;
+            shopsPrice = newPrice;
         }
 
         /*TESTERS*/
-        public void printItem()
+        public void PrintItem()
         {
             Console.WriteLine("ID: " + this.itemID + ", " 
                 + this.description + ", Pris: " 

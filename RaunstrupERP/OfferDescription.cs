@@ -18,37 +18,37 @@ namespace RaunstrupERP
             workTasks = tc;
         }
         /*Getters*/
-        public int getID()
+        public int GetId()
         {
-            return this.offerID;
+            return offerID;
         }
-        public TaskCatalog getWorkTasks()
+        public TaskCatalog GetWorkTasks()
         {
-            return this.workTasks;
+            return workTasks;
         }
-        public CustomerDescription getBuyer()
+        public CustomerDescription GetBuyer()
         {
-            return this.buyer;
+            return buyer;
         }
-        public EmployeeDescription getSalesMan()
+        public EmployeeDescription GetSalesMan()
         {
-            return this.salesman;
+            return salesman;
         }
 
         /*Setters*/
-        public void setID(int id)
+        public void SetId(int id)
         {
-            this.offerID = id;
+            offerID = id;
         }
-        public void setWorkTasks(TaskCatalog tc)
+        public void SetWorkTasks(TaskCatalog tc)
         {
-            this.workTasks = tc;
+            workTasks = tc;
         }
-        public void setBuyer(CustomerDescription buyer)
+        public void SetBuyer(CustomerDescription buyer)
         {
             this.buyer = buyer;
         }
-        public void setSalesMan(EmployeeDescription salesMan)
+        public void SetSalesMan(EmployeeDescription salesMan)
         {
             this.salesman = salesMan;
         }

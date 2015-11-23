@@ -14,26 +14,26 @@ namespace RaunstrupERP
             this.orders = new List<OrderDescription>();
         }
         /*GETTERS*/
-        public OrderDescription getOrder(int id)
+        public OrderDescription GetOrder(int id)
         {
             OrderDescription returnMe = null;
             foreach (OrderDescription item in orders)
             {
-                if (item.getID() == id)
+                if (item.GetId() == id)
                 {
                     returnMe = item;
                 }
             }
             return returnMe;
         }
-        private int getNewID()
+        private int GetNewId()
         {
             int newID = 0;
             foreach (OrderDescription item in orders)
             {
-                if (item.getID() > newID)
+                if (item.GetId() > newID)
                 {
-                    newID = item.getID();
+                    newID = item.GetId();
                 }
             }
             newID = newID + 1;
@@ -41,9 +41,9 @@ namespace RaunstrupERP
         }
 
         /*SETTERS*/
-        public void addOrder(OfferDescription offer)
+        public void AddOrder(OfferDescription offer)
         {
-            orders.Add(new OrderDescription(getNewID(), offer));
+            orders.Add(new OrderDescription(GetNewId(), offer));
         }
         
         /*TESTERS*/

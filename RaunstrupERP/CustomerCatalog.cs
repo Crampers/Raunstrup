@@ -13,23 +13,23 @@ namespace RaunstrupERP
         public CustomerCatalog()
         {
             //test data
-            Customers.Add(new CustomerDescription(GetID(), "Bob", "Bobsen", "Boulevarden 5", 7100, "vejle", 12345678));
-            Customers.Add(new CustomerDescription(GetID(), "Brian", "Bøllemand", "Genvej 2", 8723, "løsning", 23456789));
+            Customers.Add(new CustomerDescription(GetId(), "Bob", "Bobsen", "Boulevarden 5", 7100, "vejle", 12345678));
+            Customers.Add(new CustomerDescription(GetId(), "Brian", "Bøllemand", "Genvej 2", 8723, "løsning", 23456789));
         }
         public CustomerDescription GetCustommer(int id)
         {
-            CustomerDescription custommer = Customers.Find(CustomerDescription => CustomerDescription.customerID == id);
+            CustomerDescription custommer = Customers.Find(CustomerDescription => CustomerDescription.CustomerId == id);
 
             return custommer;
         }
-        private int GetID()
+        private int GetId()
         {
             int id = 0;
             foreach (CustomerDescription c in Customers)
             {
-                if (c.customerID > id)
+                if (c.CustomerId > id)
                 {
-                    id = c.customerID;
+                    id = c.CustomerId;
                 }
             }
             id = id + 1;
@@ -37,11 +37,11 @@ namespace RaunstrupERP
         }
         public void AddCustomer(string fn, string sn, string adress, int zip, string city, int phone)
         {
-            Customers.Add(new CustomerDescription(GetID(), fn, sn, adress, zip, city, phone));            
+            Customers.Add(new CustomerDescription(GetId(), fn, sn, adress, zip, city, phone));            
         }
         public void DeleteCustomer(int id)
         {
-            Customers.RemoveAll(item => item.customerID == id);           
+            Customers.RemoveAll(item => item.CustomerId == id);           
         }
         
         //For testing purposes
@@ -55,38 +55,38 @@ namespace RaunstrupERP
 
         public void PrintCustommer(int id)
         {
-            CustomerDescription custommer = Customers.Find(CustomerDescription => CustomerDescription.customerID == id);
+            CustomerDescription custommer = Customers.Find(CustomerDescription => CustomerDescription.CustomerId == id);
 
             custommer.PrintCustommerDesc();
         }
         public void AlterFirstName(int id, string fn)
         {
-            CustomerDescription custommer = Customers.Find(CustomerDescription => CustomerDescription.customerID == id);
+            CustomerDescription custommer = Customers.Find(CustomerDescription => CustomerDescription.CustomerId == id);
             custommer.AlterFirstName(fn);
         }
         public void AlterSirName(int id, string sn)
         {
-            CustomerDescription custommer = Customers.Find(CustomerDescription => CustomerDescription.customerID == id);
+            CustomerDescription custommer = Customers.Find(CustomerDescription => CustomerDescription.CustomerId == id);
             custommer.AlterSirName(sn);
         }
         public void AlterAdress(int id, string adress)
         {
-            CustomerDescription custommer = Customers.Find(CustomerDescription => CustomerDescription.customerID == id);
+            CustomerDescription custommer = Customers.Find(CustomerDescription => CustomerDescription.CustomerId == id);
             custommer.AlterAdress(adress);
         }
         public void AlterPostalCode(int id, int PostalCode)
         {
-            CustomerDescription custommer = Customers.Find(CustomerDescription => CustomerDescription.customerID == id);
+            CustomerDescription custommer = Customers.Find(CustomerDescription => CustomerDescription.CustomerId == id);
             custommer.AlterPostNr(PostalCode);
         }
         public void AlterCity(int id, string city)
         {
-            CustomerDescription custommer = Customers.Find(CustomerDescription => CustomerDescription.customerID == id);
+            CustomerDescription custommer = Customers.Find(CustomerDescription => CustomerDescription.CustomerId == id);
             custommer.AlterBy(city);
         }
         public void AlterPhone(int id, int number)
         {
-            CustomerDescription custommer = Customers.Find(CustomerDescription => CustomerDescription.customerID == id);
+            CustomerDescription custommer = Customers.Find(CustomerDescription => CustomerDescription.CustomerId == id);
             custommer.AlterTlf(number);
         }
     }

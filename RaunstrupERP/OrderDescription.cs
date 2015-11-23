@@ -12,26 +12,26 @@ namespace RaunstrupERP
         OfferDescription offer;
         public OrderDescription(int id, OfferDescription offer)
         {
-            this.orderID = id;
+            orderID = id;
             this.offer = offer;
         }
 
         /*GETTERS*/
-        public OfferDescription getOffer()
+        public OfferDescription GetOffer()
         {
-            return this.offer;
+            return offer;
         }
-        public int getID()
+        public int GetId()
         {
-            return this.orderID;
+            return orderID;
         }
 
         /*SETTERS*/
-        public void setID(int id)
+        public void SetId(int id)
         {
-            this.orderID = id;
+            orderID = id;
         }
-        public void setOffer(OfferDescription offer)
+        public void SetOffer(OfferDescription offer)
         {
             this.offer = offer;
         }
