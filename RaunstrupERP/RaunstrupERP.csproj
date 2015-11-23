@@ -49,6 +49,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,6 +64,54 @@
     <Compile Include="CustomerDescription.cs" />
     <Compile Include="EmployeeCatalog.cs" />
     <Compile Include="EmployeeDescription.cs" />
+    <Compile Include="Form_Customer_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Customer_1.Designer.cs">
+      <DependentUpon>Form_Customer_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Employee_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Employee_1.Designer.cs">
+      <DependentUpon>Form_Employee_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Items_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Items_1.Designer.cs">
+      <DependentUpon>Form_Items_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Offer_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Offer_1.Designer.cs">
+      <DependentUpon>Form_Offer_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Order_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Order_1.Designer.cs">
+      <DependentUpon>Form_Order_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Status_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Status_1.Designer.cs">
+      <DependentUpon>Form_Status_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_TaskCreator_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_TaskCreator_1.Designer.cs">
+      <DependentUpon>Form_TaskCreator_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Welcome_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Welcome_1.Designer.cs">
+      <DependentUpon>Form_Welcome_1.cs</DependentUpon>
+    </Compile>
     <Compile Include="ItemCatalog.cs" />
     <Compile Include="ItemDescription.cs" />
     <Compile Include="ItemLine.cs" />
@@ -94,6 +144,29 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form_Customer_1.resx">
+      <DependentUpon>Form_Customer_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Employee_1.resx">
+      <DependentUpon>Form_Employee_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Items_1.resx">
+      <DependentUpon>Form_Items_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Offer_1.resx">
+      <DependentUpon>Form_Offer_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Status_1.resx">
+      <DependentUpon>Form_Status_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_TaskCreator_1.resx">
+      <DependentUpon>Form_TaskCreator_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Welcome_1.resx">
+      <DependentUpon>Form_Welcome_1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

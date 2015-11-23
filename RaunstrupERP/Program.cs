@@ -70,7 +70,7 @@ namespace RaunstrupERP
             offerC.GetOffer(1).SetBuyer(cc.GetCustommer(1));
             offerC.GetOffer(1).SetSalesMan(ec.GetEmployee(1));
 
-            offerC.GetOffer(1).getBuyer().PrintCustommerDesc();
+            offerC.GetOffer(1).GetBuyer().PrintCustommerDesc();
             offerC.GetOffer(1).GetSalesMan().PrintEmployeeDesc();
             offerC.GetOffer(1).GetWorkTasks().PrintAllTasks();
             /* Offers End*/
@@ -79,7 +79,7 @@ namespace RaunstrupERP
             /* Order */
             OrderCatalog oc = new OrderCatalog();
             oc.AddOrder(offerC.GetOffer(1));
-            oc.GetOrder(1).GetOffer().getBuyer().PrintCustommerDesc();
+            oc.GetOrder(1).GetOffer().GetBuyer().PrintCustommerDesc();
             oc.GetOrder(1).GetOffer().GetSalesMan().PrintEmployeeDesc();
             oc.GetOrder(1).GetOffer().GetWorkTasks().Print(1);
             oc.GetOrder(1).GetOffer().GetWorkTasks().SetTaskComplete(1);
