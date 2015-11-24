@@ -13,7 +13,7 @@ namespace RaunstrupERP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_Welcome_1());
+            Application.Run(new Form_Main_1());
             Console.ReadKey();
 
             /* THIS IS A TEST PROGRAM! COMMENT IT OUT WHEN WORKING ON NEXT STEPS!*/

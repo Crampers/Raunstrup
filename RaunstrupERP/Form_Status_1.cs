@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace RaunstrupERP
 {
-    public partial class Form_Welcome_1 : Form
+    public partial class Form_Status_1 : Form
     {
-        public Form_Welcome_1()
+        public Form_Status_1()
         {
             InitializeComponent();
         }
 
-        private void button_Craftman_Click(object sender, EventArgs e)
+        private void Form_Status_1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Hide();
+            this.Dispose();
         }
     }
 }
