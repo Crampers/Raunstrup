@@ -60,15 +60,15 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Vælg Medarbejdertype";
             // 
-            // Form_Welcome
+            // Form_Welcome_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(351, 224);
+            this.ClientSize = new System.Drawing.Size(451, 260);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "Form_Welcome";
+            this.Name = "Form_Welcome_1";
             this.Text = "Form_Welcome";
             this.ResumeLayout(false);
             this.PerformLayout();

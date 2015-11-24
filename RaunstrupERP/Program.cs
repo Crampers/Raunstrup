@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace RaunstrupERP
 {
@@ -10,6 +11,11 @@ namespace RaunstrupERP
     {
         static void Main(string[] args)
         {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form_Welcome_1());
+            Console.ReadKey();
+
             /* THIS IS A TEST PROGRAM! COMMENT IT OUT WHEN WORKING ON NEXT STEPS!*/
             Console.WriteLine("Employees!");
             /* Employees */
@@ -87,6 +93,7 @@ namespace RaunstrupERP
             /* Order End*/
             Console.WriteLine("DONE!");
             /* TEST PROGRAM ENDS HERE*/
+            Console.ReadKey();
         }
     }
 }
