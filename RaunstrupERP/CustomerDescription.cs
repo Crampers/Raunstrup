@@ -27,6 +27,15 @@ namespace RaunstrupERP
             Tlf = phone;     
         }
         /*GETTERS*/
+        public int getID()
+        {
+            return this.CustomerId;
+        }
+        public String getFullName()
+        {
+            String fullname = this.FirstName + " " + this.Surname;
+            return fullname;
+        }
         public String getFirstName()
         {
             return this.FirstName;

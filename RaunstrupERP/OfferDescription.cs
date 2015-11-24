@@ -24,14 +24,30 @@ namespace RaunstrupERP
         }
         public TaskCatalog GetWorkTasks()
         {
+            if (workTasks == null)
+            {
+                TaskCatalog empty = new TaskCatalog();
+                empty.AddTask("Empty");
+                return empty;
+            }
             return workTasks;
         }
         public CustomerDescription GetBuyer()
         {
+            if (buyer == null)
+            {
+                CustomerDescription empty = new CustomerDescription(0, "N/A", "", "N/A", 0000, "N/A", 00000000);
+                return empty;
+            }
             return buyer;
         }
         public EmployeeDescription GetSalesMan()
         {
+            if (salesman == null)
+            {
+                EmployeeDescription empty = new EmployeeDescription(0, "N/A", "", "N/A", 0000, "N/A", 00000000, 00);
+                return empty;
+            }
             return salesman;
         }
 

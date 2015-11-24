@@ -141,6 +141,7 @@
     <Compile Include="TaskCatalog.cs" />
     <Compile Include="TaskDescription.cs" />
     <Compile Include="SalesEmployee.cs" />
+    <Compile Include="Test_Data_Class.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

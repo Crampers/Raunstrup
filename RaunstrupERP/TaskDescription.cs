@@ -13,20 +13,20 @@ namespace RaunstrupERP
         String description;
         Boolean complete = false;
         List<ItemLine> materials;
-        List<EmployeeDescription> _employeelList ;
+        List<EmployeeDescription> employeelList;
         //private EmployeeDescription _employee;
 
         public TaskDescription(int id, String desc)
         {
             materials = new List<ItemLine>();
-            _employeelList = new List<EmployeeDescription>();
+            employeelList = new List<EmployeeDescription>();
             ID = id;
             description = desc;
         }
         /*SETTERS*/
         public void AddEmployee(EmployeeDescription employee)
         {
-            _employeelList.Add(employee);
+            employeelList.Add(employee);
             //_employee = employee;
         }
         public void AddItems(ItemDescription Item, int amount)
@@ -47,6 +47,22 @@ namespace RaunstrupERP
         }
 
         /*Getters*/
+        public Boolean getStatus()
+        {
+            return this.complete;
+        }
+        public ItemLine getItemLine(int id)
+        {
+            return materials[id];
+        }
+        public List<ItemLine> getMaterials()
+        {
+            return this.materials;
+        }
+        public List<EmployeeDescription> getEmployees()
+        {
+            return this.employeelList;
+        }
         public String GetDesc()
         {
             return description;
@@ -71,12 +87,12 @@ namespace RaunstrupERP
             {
                 item.PrintItemLine();
             }
-            for (int i = 0; i < _employeelList.Count; i++)
+            for (int i = 0; i < employeelList.Count; i++)
             {
-              if (_employeelList[i] != null)
+              if (employeelList[i] != null)
             {
                 Console.Write("WorkerID: ");
-                _employeelList[i].PrintEmployeeDesc();
+                employeelList[i].PrintEmployeeDesc();
             }  
             }
             

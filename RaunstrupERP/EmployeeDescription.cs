@@ -16,7 +16,7 @@ namespace RaunstrupERP
         private string City;
         private int Phone;
         private double Salary;
-        private String special = "UNDEF";
+        private String special;
 
         public EmployeeDescription(int ID, string fn, string sn, string adress, int postalCode, string city, int phone, double salary)
         {
@@ -28,6 +28,7 @@ namespace RaunstrupERP
             City = city;
             Phone = phone;
             Salary = salary;
+            special  = "UNDEF";
         }
 
 
@@ -35,6 +36,43 @@ namespace RaunstrupERP
         public int GetId()
         {
             return employeeID;
+        }
+        public String GetFullName()
+        {
+            String fullname = this.FirstName + " " + this.Surname;
+            return fullname;
+        }
+        public String GetFirstName()
+        {
+            return this.FirstName;
+        }
+        public String GetSurName()
+        {
+            return this.Surname;
+        }
+        public String GetAdress()
+        {
+            return this.Adress;
+        }
+        public int GetPostal()
+        {
+            return this.PostalCode;
+        }
+        public String GetCity()
+        {
+            return this.City;
+        }
+        public int GetPhone()
+        {
+            return this.Phone;
+        }
+        public Double GetSalary()
+        {
+            return this.Salary;
+        }
+        public String GetSpeciality()
+        {
+            return this.special;
         }
 
         /*SETTERS*/
