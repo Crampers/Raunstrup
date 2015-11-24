@@ -11,15 +11,11 @@ namespace RaunstrupERP
     {
         static void Main(string[] args)
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_Main_1());
-            Console.ReadKey();
-
+            ControllerCatalog CC = new ControllerCatalog();
+            
             /* THIS IS A TEST PROGRAM! COMMENT IT OUT WHEN WORKING ON NEXT STEPS!*/
             Console.WriteLine("Employees!");
             /* Employees */
-            ControllerCatalog CC = new ControllerCatalog();
             //EmployeeCatalog ec = new EmployeeCatalog();
             CC.AddEmployee("Anders Sejr", "Thomsen", "valdemarsgade 15B 32", 7100, "Vejle", 30265894, 00);
             CC.GetEmployee(1).SetSalesMan();
@@ -84,7 +80,6 @@ namespace RaunstrupERP
             Console.WriteLine();
             Console.WriteLine("Order 1");
             /* Order */
-            OrderCatalog oc = new OrderCatalog();
             CC.AddOrder(CC.GetOffer(1));
             CC.GetOrder(1).GetOffer().GetBuyer().PrintCustommerDesc();
             CC.GetOrder(1).GetOffer().GetSalesMan().PrintEmployeeDesc();
@@ -94,6 +89,9 @@ namespace RaunstrupERP
             /* Order End*/
             Console.WriteLine("DONE!");
             /* TEST PROGRAM ENDS HERE*/
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form_Main_1());
             Console.ReadKey();
         }
     }

@@ -12,6 +12,7 @@ namespace RaunstrupERP
 {
     public partial class Form_Main_1 : Form
     {
+        ControllerCatalog cc;
         public Form_Main_1()
         {
             InitializeComponent();
@@ -104,6 +105,36 @@ namespace RaunstrupERP
             Form_Employee_1 employees = new Form_Employee_1();
             employees.MdiParent = this;
             employees.Show();
+        }
+
+        private void håndværkerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loginToolStripMenuItem.Visible = false;
+            craftsmanToolStripMenuItem.Visible = true;
+            logoutToolStripMenuItem.Visible = true;
+        }
+
+        private void sælgerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loginToolStripMenuItem.Visible = false;
+            salesStripMenuItem1.Visible = true;
+            logoutToolStripMenuItem.Visible = true;
+        }
+
+        private void administratorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loginToolStripMenuItem.Visible = false;
+            adminToolStripMenuItem.Visible = true;
+            logoutToolStripMenuItem.Visible = true;
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            logoutToolStripMenuItem.Visible = false;
+            loginToolStripMenuItem.Visible = true;
+            adminToolStripMenuItem.Visible = false;
+            salesStripMenuItem1.Visible = false;
+            craftsmanToolStripMenuItem.Visible = false;
         }
     }
 }
