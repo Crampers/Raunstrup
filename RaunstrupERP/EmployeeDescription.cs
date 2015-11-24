@@ -10,7 +10,7 @@ namespace RaunstrupERP
     {
         public readonly int employeeID; 
         private string FirstName;
-        private string SirName;
+        private string Surname;
         private string Adress;
         private int PostalCode;
         private string City;
@@ -22,7 +22,7 @@ namespace RaunstrupERP
         {
             employeeID = ID;
             FirstName = fn;
-            SirName = sn;
+            Surname = sn;
             Adress = adress;
             PostalCode = postalCode;
             City = city;
@@ -34,7 +34,7 @@ namespace RaunstrupERP
         /*GETTERS*/
         public int GetId()
         {
-            return this.employeeID;
+            return employeeID;
         }
 
         /*SETTERS*/
@@ -52,21 +52,21 @@ namespace RaunstrupERP
         {
             Console.WriteLine(employeeID + " " 
                 + FirstName + ", " 
-                + SirName + ", " 
+                + Surname + ", " 
                 + Adress + ", " 
                 + PostalCode + ", " 
                 + City + ", " 
                 + Phone + ", Løn: " 
                 + Salary + ", "
-                + this.special);
+                + special);
         }
         public void AlterFirstName(string fn)
         {
             FirstName = fn;
         }
-        public void AlterSirName(string sn)
+        public void AlterSurname(string sn)
         {
-            SirName = sn;
+            Surname = sn;
         }
         public void AlterAdress(string adress)
         {

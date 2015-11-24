@@ -82,6 +82,12 @@
     <Compile Include="Form_Items_1.Designer.cs">
       <DependentUpon>Form_Items_1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Main_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Main_1.Designer.cs">
+      <DependentUpon>Form_Main_1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Offer_1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,12 @@
     </Compile>
     <Compile Include="Form_Order_1.Designer.cs">
       <DependentUpon>Form_Order_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Salesman_Interface_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Salesman_Interface_1.Designer.cs">
+      <DependentUpon>Form_Salesman_Interface_1.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_Status_1.cs">
       <SubType>Form</SubType>
@@ -155,8 +167,14 @@
     <EmbeddedResource Include="Form_Items_1.resx">
       <DependentUpon>Form_Items_1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_Main_1.resx">
+      <DependentUpon>Form_Main_1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Offer_1.resx">
       <DependentUpon>Form_Offer_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Salesman_Interface_1.resx">
+      <DependentUpon>Form_Salesman_Interface_1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Status_1.resx">
       <DependentUpon>Form_Status_1.cs</DependentUpon>

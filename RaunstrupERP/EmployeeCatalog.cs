@@ -72,10 +72,10 @@ namespace RaunstrupERP
             EmployeeDescription Employee = Employees.Find(EmployeeDescription => EmployeeDescription.employeeID == id);
             Employee.AlterFirstName(fn);
         }
-        public void AlterSirName(int id, string sn)
+        public void AlterSurname(int id, string sn)
         {
             EmployeeDescription Employee = Employees.Find(EmployeeDescription => EmployeeDescription.employeeID == id);
-            Employee.AlterSirName(sn);
+            Employee.AlterSurname(sn);
         }
         public void AlterAdress(int id, string adress)
         {

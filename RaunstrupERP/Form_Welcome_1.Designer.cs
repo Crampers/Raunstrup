@@ -28,28 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button_Salesman = new System.Windows.Forms.Button();
+            this.button_Craftman = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 25);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Craftsman_PH";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(109, 25);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(98, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Salesman_PH";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -57,19 +40,46 @@
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(114, 13);
-            this.label1.TabIndex = 2;
+            this.label1.TabIndex = 5;
             this.label1.Text = "Vælg Medarbejdertype";
             // 
-            // Form_Welcome
+            // button_Salesman
+            // 
+            this.button_Salesman.Location = new System.Drawing.Point(109, 25);
+            this.button_Salesman.Name = "button_Salesman";
+            this.button_Salesman.Size = new System.Drawing.Size(98, 23);
+            this.button_Salesman.TabIndex = 4;
+            this.button_Salesman.Text = "Salesman_PH";
+            this.button_Salesman.UseVisualStyleBackColor = true;
+            // 
+            // button_Craftman
+            // 
+            this.button_Craftman.Location = new System.Drawing.Point(12, 25);
+            this.button_Craftman.Name = "button_Craftman";
+            this.button_Craftman.Size = new System.Drawing.Size(91, 23);
+            this.button_Craftman.TabIndex = 3;
+            this.button_Craftman.Text = "Craftsman_PH";
+            this.button_Craftman.UseVisualStyleBackColor = true;
+            this.button_Craftman.Click += new System.EventHandler(this.button_Craftman_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(145, 177);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 6;
+            // 
+            // Form_Welcome_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(351, 224);
+            this.ClientSize = new System.Drawing.Size(566, 360);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Name = "Form_Welcome";
-            this.Text = "Form_Welcome";
+            this.Controls.Add(this.button_Salesman);
+            this.Controls.Add(this.button_Craftman);
+            this.Name = "Form_Welcome_1";
+            this.Text = "Form_Welcome_1";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -77,8 +87,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button_Salesman;
+        private System.Windows.Forms.Button button_Craftman;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

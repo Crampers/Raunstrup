@@ -60,6 +60,10 @@ namespace RaunstrupERP
         }
 
         /*Getters*/
+        public List<TaskDescription> GetTasks()
+        {
+            return this.tasks;
+        }
         public TaskDescription GetTask(int id)
         {
             TaskDescription td = new TaskDescription(0, "None");

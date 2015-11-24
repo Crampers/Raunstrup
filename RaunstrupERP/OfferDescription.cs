@@ -9,9 +9,9 @@ namespace RaunstrupERP
     class OfferDescription
     {
         int offerID;
-        TaskCatalog workTasks = null;
-        CustomerDescription buyer = null;
-        EmployeeDescription salesman = null;
+        TaskCatalog workTasks;
+        CustomerDescription buyer;
+        EmployeeDescription salesman;
         public OfferDescription(int id, TaskCatalog tc)
         {
             offerID = id;
@@ -50,7 +50,7 @@ namespace RaunstrupERP
         }
         public void SetSalesMan(EmployeeDescription salesMan)
         {
-            this.salesman = salesMan;
+            salesman = salesMan;
         }
 
         /*Testers*/
