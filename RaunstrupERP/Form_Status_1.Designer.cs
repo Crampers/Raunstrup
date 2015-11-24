@@ -34,6 +34,8 @@
             this.label_Opgaver = new System.Windows.Forms.Label();
             this.button_findOrder = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label_CustomerName = new System.Windows.Forms.Label();
+            this.textBox_CustomerName = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +58,7 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(3, 24);
+            this.listBox1.Location = new System.Drawing.Point(6, 100);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(221, 199);
             this.listBox1.TabIndex = 2;
@@ -64,7 +66,7 @@
             // label_Opgaver
             // 
             this.label_Opgaver.AutoSize = true;
-            this.label_Opgaver.Location = new System.Drawing.Point(3, 5);
+            this.label_Opgaver.Location = new System.Drawing.Point(3, 84);
             this.label_Opgaver.Name = "label_Opgaver";
             this.label_Opgaver.Size = new System.Drawing.Size(48, 13);
             this.label_Opgaver.TabIndex = 3;
@@ -82,12 +84,30 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.textBox_CustomerName);
+            this.panel1.Controls.Add(this.label_CustomerName);
             this.panel1.Controls.Add(this.listBox1);
             this.panel1.Controls.Add(this.label_Opgaver);
-            this.panel1.Location = new System.Drawing.Point(18, 33);
+            this.panel1.Location = new System.Drawing.Point(12, 33);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(227, 230);
+            this.panel1.Size = new System.Drawing.Size(429, 411);
             this.panel1.TabIndex = 5;
+            // 
+            // label_CustomerName
+            // 
+            this.label_CustomerName.AutoSize = true;
+            this.label_CustomerName.Location = new System.Drawing.Point(3, 6);
+            this.label_CustomerName.Name = "label_CustomerName";
+            this.label_CustomerName.Size = new System.Drawing.Size(33, 13);
+            this.label_CustomerName.TabIndex = 4;
+            this.label_CustomerName.Text = "Navn";
+            // 
+            // textBox_CustomerName
+            // 
+            this.textBox_CustomerName.Location = new System.Drawing.Point(42, 3);
+            this.textBox_CustomerName.Name = "textBox_CustomerName";
+            this.textBox_CustomerName.Size = new System.Drawing.Size(100, 20);
+            this.textBox_CustomerName.TabIndex = 5;
             // 
             // Form_Status_1
             // 
@@ -118,5 +138,7 @@
         private System.Windows.Forms.Label label_Opgaver;
         private System.Windows.Forms.Button button_findOrder;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox textBox_CustomerName;
+        private System.Windows.Forms.Label label_CustomerName;
     }
 }

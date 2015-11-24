@@ -12,10 +12,11 @@ namespace RaunstrupERP
         //TODO: retuner specialiceringer
 
 
-        private List<EmployeeDescription> Employees = new List<EmployeeDescription>();
+        private List<EmployeeDescription> Employees;
         public EmployeeCatalog()
         {
-           // Employees.Add(new EmployeeDescription(getNewID(), "Anders Sejr", "Thomsen", "valdemarsgade 15B 32", 7100, "Vejle", 30265894, 99999999999.99));
+            Employees = EmployeeCatalog_Singleton.Instance;
+            // Employees.Add(new EmployeeDescription(getNewID(), "Anders Sejr", "Thomsen", "valdemarsgade 15B 32", 7100, "Vejle", 30265894, 99999999999.99));
         }
 
         public EmployeeDescription GetEmployee(int id)

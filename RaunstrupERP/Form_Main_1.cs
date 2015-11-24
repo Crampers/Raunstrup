@@ -12,10 +12,15 @@ namespace RaunstrupERP
 {
     public partial class Form_Main_1 : Form
     {
-        ControllerCatalog cc;
+        ControllerCatalog cc = new ControllerCatalog();
         public Form_Main_1()
         {
             InitializeComponent();
+            cc.AddOrder(new OfferDescription(1, new TaskCatalog()));
+            TaskCatalog tc1 = new TaskCatalog();
+            tc1.AddTask("Test af Singleton!");
+            tc1.AddTaskItems(1, new ItemDescription("Test Item", 1, 20, 20), 10);
+            cc.GetOrder(1).GetOffer().SetWorkTasks(tc1);
         }
 
         private void Form_Main_1_Shown(object sender, EventArgs e)

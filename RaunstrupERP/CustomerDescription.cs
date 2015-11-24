@@ -26,10 +26,33 @@ namespace RaunstrupERP
             City = city;
             Tlf = phone;     
         }
-        public void PrintCustommerDesc()
+        /*GETTERS*/
+        public String getFirstName()
         {
-            Console.WriteLine(CustomerId + " " + FirstName + " " + Surname + " " + Adress + " " + PostalCode + " " + City + " " + Tlf);
+            return this.FirstName;
         }
+        public String getSurName()
+        {
+            return this.Surname;
+        }
+        public String getAdress()
+        {
+            return this.Adress;
+        }
+        public int getPostal()
+        {
+            return this.PostalCode;
+        }
+        public String getCity()
+        {
+            return this.City;
+        }
+        public int getTlf()
+        {
+            return this.Tlf;
+        }
+
+        /*SETTERS*/
         public void AlterFirstName(string fn)
         {
             FirstName = fn;
@@ -54,5 +77,12 @@ namespace RaunstrupERP
         {
             Tlf = number;
         }
+
+        /*TESTERS*/
+        public void PrintCustommerDesc()
+        {
+            Console.WriteLine(CustomerId + " " + FirstName + " " + Surname + " " + Adress + " " + PostalCode + " " + City + " " + Tlf);
+        }
+        
     }
 }

@@ -12,7 +12,10 @@ namespace RaunstrupERP
         static void Main(string[] args)
         {
             ControllerCatalog CC = new ControllerCatalog();
-            
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form_Main_1());
+            Console.ReadKey();
             /* THIS IS A TEST PROGRAM! COMMENT IT OUT WHEN WORKING ON NEXT STEPS!*/
             Console.WriteLine("Employees!");
             /* Employees */
@@ -89,10 +92,6 @@ namespace RaunstrupERP
             /* Order End*/
             Console.WriteLine("DONE!");
             /* TEST PROGRAM ENDS HERE*/
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_Main_1());
-            Console.ReadKey();
         }
     }
 }

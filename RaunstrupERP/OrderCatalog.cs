@@ -11,7 +11,7 @@ namespace RaunstrupERP
         List<OrderDescription> orders;
         public OrderCatalog()
         {
-            this.orders = new List<OrderDescription>();
+            this.orders = Ordercatalog_Singleton.Instance;
         }
         /*GETTERS*/
         public OrderDescription GetOrder(int id)

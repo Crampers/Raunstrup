@@ -11,7 +11,7 @@ namespace RaunstrupERP
         private List<ItemDescription> items;
         public ItemCatalog()
         {
-            items = new List<ItemDescription>();
+            items = ItemCatalog_Singleton.Instance;
             //items.Add(new ItemDescription("Window List", 1, 10, 8));
             //items.Add(new ItemDescription("Window Frame", 2, 50, 14));
             //items.Add(new ItemDescription("Window Glass", 3, 100, 25));

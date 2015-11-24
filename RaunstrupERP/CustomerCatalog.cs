@@ -8,10 +8,11 @@ namespace RaunstrupERP
 {
     public class CustomerCatalog
     {
-        public List<CustomerDescription> Customers = new List<CustomerDescription>();
+        public List<CustomerDescription> Customers;
 
         public CustomerCatalog()
         {
+            Customers = CustomerCatalog_Singleton.Instance;
             //test data
             Customers.Add(new CustomerDescription(GetId(), "Bob", "Bobsen", "Boulevarden 5", 7100, "vejle", 12345678));
             Customers.Add(new CustomerDescription(GetId(), "Brian", "Bøllemand", "Genvej 2", 8723, "løsning", 23456789));

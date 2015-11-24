@@ -61,8 +61,10 @@
     <Compile Include="ControllerCatalog.cs" />
     <Compile Include="CraftsmanEmployee.cs" />
     <Compile Include="CustomerCatalog.cs" />
+    <Compile Include="CustomerCatalog_Singleton.cs" />
     <Compile Include="CustomerDescription.cs" />
     <Compile Include="EmployeeCatalog.cs" />
+    <Compile Include="EmployeeCatalog_Singleton.cs" />
     <Compile Include="EmployeeDescription.cs" />
     <Compile Include="Form_Customer_1.cs">
       <SubType>Form</SubType>
@@ -125,11 +127,14 @@
       <DependentUpon>Form_Welcome_1.cs</DependentUpon>
     </Compile>
     <Compile Include="ItemCatalog.cs" />
+    <Compile Include="ItemCatalog_Singleton.cs" />
     <Compile Include="ItemDescription.cs" />
     <Compile Include="ItemLine.cs" />
     <Compile Include="OfferCatalog.cs" />
+    <Compile Include="OfferCatalog_Singleton.cs" />
     <Compile Include="OfferDescription.cs" />
     <Compile Include="OrderCatalog.cs" />
+    <Compile Include="Ordercatalog_Singleton.cs" />
     <Compile Include="OrderDescription.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

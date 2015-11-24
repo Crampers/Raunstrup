@@ -11,7 +11,7 @@ namespace RaunstrupERP
         List<OfferDescription> Offers;
         public OfferCatalog()
         {
-            Offers = new List<OfferDescription>();
+            Offers = OfferCatalog_Singleton.Instance;
         }
         /*GETTERS*/
         public OfferDescription GetOffer(int id)
