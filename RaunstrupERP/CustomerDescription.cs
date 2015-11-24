@@ -10,7 +10,7 @@ namespace RaunstrupERP
     {
         public readonly int CustomerId; //public read only da ID aldrig bør ændres, men skal stadig kunne findes fra catalog
         private string FirstName;
-        private string SirName;
+        private string Surname;
         private string Adress;
         private int PostalCode;
         private string City;
@@ -20,7 +20,7 @@ namespace RaunstrupERP
         {
             CustomerId = ID;
             FirstName = fn;
-            SirName = sn;
+            Surname = sn;
             Adress = adress;
             PostalCode = postalcode;
             City = city;
@@ -28,15 +28,15 @@ namespace RaunstrupERP
         }
         public void PrintCustommerDesc()
         {
-            Console.WriteLine(CustomerId + " " + FirstName + " " + SirName + " " + Adress + " " + PostalCode + " " + City + " " + Tlf);
+            Console.WriteLine(CustomerId + " " + FirstName + " " + Surname + " " + Adress + " " + PostalCode + " " + City + " " + Tlf);
         }
         public void AlterFirstName(string fn)
         {
             FirstName = fn;
         }
-        public void AlterSirName(string sn)
+        public void AlterSurname(string sn)
         {
-            SirName = sn;
+            Surname = sn;
         }
         public void AlterAdress(string adress)
         {

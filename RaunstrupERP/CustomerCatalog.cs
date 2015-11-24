@@ -35,9 +35,9 @@ namespace RaunstrupERP
             id = id + 1;
             return id;
         }
-        public void AddCustomer(string fn, string sn, string adress, int zip, string city, int phone)
+        public void AddCustomer(string fn, string sn, string adress, int postalcode, string city, int phone)
         {
-            Customers.Add(new CustomerDescription(GetId(), fn, sn, adress, zip, city, phone));            
+            Customers.Add(new CustomerDescription(GetId(), fn, sn, adress, postalcode, city, phone));            
         }
         public void DeleteCustomer(int id)
         {
@@ -64,10 +64,10 @@ namespace RaunstrupERP
             CustomerDescription custommer = Customers.Find(CustomerDescription => CustomerDescription.CustomerId == id);
             custommer.AlterFirstName(fn);
         }
-        public void AlterSirName(int id, string sn)
+        public void AlterSurname(int id, string sn)
         {
             CustomerDescription custommer = Customers.Find(CustomerDescription => CustomerDescription.CustomerId == id);
-            custommer.AlterSirName(sn);
+            custommer.AlterSurname(sn);
         }
         public void AlterAdress(int id, string adress)
         {
