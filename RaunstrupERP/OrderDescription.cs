@@ -17,6 +17,24 @@ namespace RaunstrupERP
         }
 
         /*GETTERS*/
+        public Double getOrderCost()
+        {
+            Double orderCost = 0;
+            foreach (var item in offer.GetWorkTasks().GetTasks())
+            {
+                orderCost += item.GetTotalCompleted();
+            }
+            return orderCost;
+        }
+        public Double getOrderValue()
+        {
+            Double orderValue = 0;
+            foreach (var item in offer.GetWorkTasks().GetTasks())
+            {
+                orderValue += item.GetTotal();
+            }
+            return orderValue;
+        }
         public OfferDescription GetOffer()
         {
             return offer;

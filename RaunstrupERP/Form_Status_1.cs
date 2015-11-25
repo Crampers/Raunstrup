@@ -55,6 +55,8 @@ namespace RaunstrupERP
                 textBox_SalesmanPhone.Text = cc.GetOrder(orderID).GetOffer().GetSalesMan().GetPhone().ToString();
 
                 /*LOAD ORDER AND TASK INFO*/
+                textBox_OrderValue.Text = cc.GetOrder(orderID).getOrderValue().ToString();
+                textBox_OrderCost.Text = cc.GetOrder(orderID).getOrderCost().ToString();
                 /*ONLY DO THIS, IF WORK TASKS EXIST!*/
                 if (cc.GetOrder(orderID).GetOffer().GetWorkTasks() != null)
                 {
@@ -172,6 +174,7 @@ namespace RaunstrupERP
             numericUpDown_AmountCompleted.Maximum = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getItemLine(listBox_Materials.SelectedIndex).GetUncompletedAmount();
             textBox_TaskValueTotal.Text = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetTotal().ToString();
             textBox_TaskValueCompletedTotal.Text = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetTotalCompleted().ToString();
+            textBox_OrderCost.Text = cc.GetOrder(orderID).getOrderCost().ToString();
         }
     }
 }

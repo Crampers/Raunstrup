@@ -74,7 +74,8 @@ namespace RaunstrupERP
             Double total = 0;
             foreach (ItemLine item in materials)
             {
-                total += item.GetItem().GetSalesPrice() * item.GetAmountCompleted();
+                /* SHOPS OR SALES PRICE? */
+                total += item.GetItem().GetShopsPrice() * item.GetAmountCompleted();
             }
             return total;
         }
