@@ -33,6 +33,19 @@ namespace RaunstrupERP
         {
             materials.Add(new ItemLine(Item, amount));
         }
+        public void CheckComplete()
+        {
+            Boolean allComplete = false;
+            foreach (ItemLine item in materials)
+            {
+                if (item.GetStatus())
+                {
+                    allComplete = true;
+                }
+                else allComplete = false;
+            }
+            this.complete = allComplete;
+        }
         public void SetComplete()
         {
             complete = true;
@@ -47,7 +60,25 @@ namespace RaunstrupERP
         }
 
         /*Getters*/
-        public Boolean getStatus()
+        public Double GetTotal()
+        {
+            Double total = 0;
+            foreach (ItemLine item in materials)
+            {
+                total += item.GetItem().GetSalesPrice() * item.GetAmount();
+            }
+            return total;
+        }
+        public Double GetTotalCompleted()
+        {
+            Double total = 0;
+            foreach (ItemLine item in materials)
+            {
+                total += item.GetItem().GetSalesPrice() * item.GetAmountCompleted();
+            }
+            return total;
+        }
+        public Boolean GetStatus()
         {
             return this.complete;
         }

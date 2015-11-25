@@ -19,6 +19,9 @@ namespace RaunstrupERP
         {
             InitializeComponent();
             panel_CustomerSalesInfo.Visible = false;
+            panel_MaterialInfo.Visible = false;
+            panel_TasksInfo.Visible = false;
+            checkBox_TaskIsComplete.Visible = false;
         }
 
         private void Form_Status_1_FormClosed(object sender, FormClosedEventArgs e)
@@ -29,7 +32,14 @@ namespace RaunstrupERP
         private void button_findOrder_Click(object sender, EventArgs e)
         {
             panel_CustomerSalesInfo.Visible = true;
-            orderID = Convert.ToInt32(maskedTextBox_OrderID.Text); /*Converts string to Int*/
+            orderID = Convert.ToInt32(numericUpDown_OrderID.Value);
+            /*CLEAR LISTBOXES*/
+            listBox_WorkTasks.Items.Clear();
+            listBox_Employees.Items.Clear();
+            listBox_Materials.Items.Clear();
+            panel_MaterialInfo.Visible = false;
+            panel_TasksInfo.Visible = false;
+            checkBox_TaskIsComplete.Visible = false;
             /*CHECK IF ORDER EXISTS*/
             if (cc.GetOrder(orderID) != null)
             {
@@ -45,7 +55,6 @@ namespace RaunstrupERP
                 textBox_SalesmanPhone.Text = cc.GetOrder(orderID).GetOffer().GetSalesMan().GetPhone().ToString();
 
                 /*LOAD ORDER AND TASK INFO*/
-                listBox_WorkTasks.Items.Clear();
                 /*ONLY DO THIS, IF WORK TASKS EXIST!*/
                 if (cc.GetOrder(orderID).GetOffer().GetWorkTasks() != null)
                 {
@@ -56,26 +65,110 @@ namespace RaunstrupERP
                 }
 
             }
-        }
+            else
+            {
+                /*LOAD CUSTOMER INFO*/
+                textBox_CustomerName.Text = "";
+                textBox_CustomerAdress.Text = ""; 
+                textBox_CustomerCity.Text = ""; 
+                textBox_CustomerPostalCode.Text = ""; 
+                textBox_CustomerPhone.Text = ""; 
+                textBox_CustomerId.Text = ""; 
+                /*LOAD SALESMAN INFO*/
+                textBox_Salesman.Text = ""; 
+                textBox_SalesmanPhone.Text = "";
 
+            }
+        }
+        /*ON SELECT TASK*/
         private void listBox_WorkTasks_SelectedIndexChanged(object sender, EventArgs e)
         {
+            /*RESET*/
             listBox_Employees.Items.Clear();
             listBox_Materials.Items.Clear();
+            textBox_MaterialeName.Text = "";
+            panel_MaterialInfo.Visible = false;
+            cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).CheckComplete();
+            checkBox_TaskIsComplete.Checked = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetStatus();
+            if (listBox_WorkTasks.SelectedItem != null)
+            {
+                checkBox_TaskIsComplete.Visible = true;
+                if (checkBox_TaskIsComplete.Checked == false)
+                {
+                    panel_TasksInfo.Visible = true;
+                }
+                else
+                {
+                    panel_TasksInfo.Visible = false;
+                }
+            }
+
+            /*DO THIS*/
             foreach (EmployeeDescription item in cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getEmployees())
             {
                 listBox_Employees.Items.Add("Id: " + item.GetId() + " " + item.GetFullName());
             }
             foreach (ItemLine item in cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getMaterials())
             {
-                listBox_Materials.Items.Add("Antal: " + item.getAmount() + " - " + item.GetItem().GetDesc() + " - Pris: " + item.GetTotalSalesPrice() + " Kr.");
+                listBox_Materials.Items.Add("Antal: " + item.GetAmount() + " - " + item.GetItem().GetDesc() + " - Pris: " + item.GetTotalSalesPrice() + " Kr.");
             }
         }
 
+        /*ON SELECT MATERIAL*/
         private void listBox_Materials_SelectedIndexChanged(object sender, EventArgs e)
         {
+            /*VISIBILITY!*/
+            panel_MaterialInfo.Visible = true;
+            /*FUNCTIONS*/
+            /*SHOW VALUES*/
+            textBox_TaskValueTotal.Text = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetTotal().ToString();
+            textBox_TaskValueCompletedTotal.Text = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetTotalCompleted().ToString();
+            if (cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getItemLine(listBox_Materials.SelectedIndex).GetUncompletedAmount() > 0)
+            {
+                numericUpDown_AmountCompleted.Visible = true;
+                button_AddCompleteItems.Visible = true;
+                checkBox_ItemLineIsComplete.Visible = false;
+            }
+            else
+            {
+                numericUpDown_AmountCompleted.Visible = false;
+                button_AddCompleteItems.Visible = false;
+                checkBox_ItemLineIsComplete.Visible = true;
+            }
+            numericUpDown_AmountCompleted.Maximum = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getItemLine(listBox_Materials.SelectedIndex).GetUncompletedAmount();
             textBox_MaterialeName.Text = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getItemLine(listBox_Materials.SelectedIndex).GetItem().GetDesc();
-            checkBox_IsComplete.Checked = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getItemLine(listBox_Materials.SelectedIndex).getStatus();
+            checkBox_ItemLineIsComplete.Checked = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getItemLine(listBox_Materials.SelectedIndex).GetStatus();
+        }
+
+        private void checkBox_IsComplete_CheckedChanged(object sender, EventArgs e)
+        {
+            //if (listBox_WorkTasks.SelectedItem != null)
+            //{
+            //    if (listBox_Materials.SelectedItem != null)
+            //    {
+            //        cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getItemLine(listBox_Materials.SelectedIndex).setStatus(checkBox_ItemLineIsComplete.Checked);
+            //    }
+            //}
+        }
+
+        private void button_AddCompleteItems_Click(object sender, EventArgs e)
+        {
+            cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getItemLine(listBox_Materials.SelectedIndex).addCompleted(Convert.ToInt32(numericUpDown_AmountCompleted.Value));
+            if (cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getItemLine(listBox_Materials.SelectedIndex).GetUncompletedAmount() > 0)
+            {
+                numericUpDown_AmountCompleted.Visible = true;
+                button_AddCompleteItems.Visible = true;
+                checkBox_ItemLineIsComplete.Visible = false;
+            }
+            else
+            {
+                numericUpDown_AmountCompleted.Visible = false;
+                button_AddCompleteItems.Visible = false;
+                checkBox_ItemLineIsComplete.Checked = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getItemLine(listBox_Materials.SelectedIndex).GetStatus();
+                checkBox_ItemLineIsComplete.Visible = true;
+            }
+            textBox_TaskValueTotal.Text = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetTotal().ToString();
+            textBox_TaskValueCompletedTotal.Text = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetTotalCompleted().ToString();
         }
     }
 }

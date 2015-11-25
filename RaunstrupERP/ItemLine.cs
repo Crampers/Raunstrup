@@ -10,6 +10,7 @@ namespace RaunstrupERP
     {
         private ItemDescription item;
         private int amount;
+        private int isCompleted = 0;
         private Boolean isComplete = false;
         public ItemLine(ItemDescription item, int amount)
         {
@@ -18,7 +19,25 @@ namespace RaunstrupERP
         }
 
         /*GETTERS*/
-        public Boolean getStatus()
+        public int GetUncompletedAmount()
+        {
+            int uncompleted = this.amount - this.isCompleted;
+            if (uncompleted == 0)
+            {
+                isComplete = true;
+            }
+            return uncompleted;
+        }
+        public int GetAmountCompleted()
+        {
+            if (isComplete)
+            {
+                isCompleted = amount;
+            }
+            else isCompleted = 0;
+            return this.isCompleted;
+        }
+        public Boolean GetStatus()
         {
             return this.isComplete;
         }
@@ -26,7 +45,7 @@ namespace RaunstrupERP
         {
             return this.item;
         }
-        public int getAmount()
+        public int GetAmount()
         {
             return this.amount;
         }
@@ -41,9 +60,17 @@ namespace RaunstrupERP
             return TotalShopsPrice;
         }
         /*SETTERS*/
-        public void setComplete()
+        public void addCompleted(int amount)
         {
-            this.isComplete = true;
+            this.isCompleted += amount;
+            if (this.isCompleted == this.amount)
+            {
+                isComplete = true;
+            }
+        }
+        public void setStatus(Boolean Status)
+        {
+            this.isComplete = Status;
         }
         /*TESTERS*/
         public void PrintItemLine()
