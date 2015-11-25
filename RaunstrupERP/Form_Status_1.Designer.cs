@@ -135,7 +135,7 @@
             this.panel_CustomerSalesInfo.Controls.Add(this.label_CustomerName);
             this.panel_CustomerSalesInfo.Location = new System.Drawing.Point(12, 33);
             this.panel_CustomerSalesInfo.Name = "panel_CustomerSalesInfo";
-            this.panel_CustomerSalesInfo.Size = new System.Drawing.Size(1046, 606);
+            this.panel_CustomerSalesInfo.Size = new System.Drawing.Size(821, 464);
             this.panel_CustomerSalesInfo.TabIndex = 5;
             // 
             // panel_MaterialInfo
@@ -147,7 +147,7 @@
             this.panel_MaterialInfo.Controls.Add(this.label_MaterialInformation);
             this.panel_MaterialInfo.Location = new System.Drawing.Point(568, 337);
             this.panel_MaterialInfo.Name = "panel_MaterialInfo";
-            this.panel_MaterialInfo.Size = new System.Drawing.Size(243, 244);
+            this.panel_MaterialInfo.Size = new System.Drawing.Size(243, 110);
             this.panel_MaterialInfo.TabIndex = 24;
             // 
             // checkBox_ItemLineIsComplete
@@ -165,6 +165,7 @@
             // 
             this.textBox_MaterialeName.Location = new System.Drawing.Point(6, 16);
             this.textBox_MaterialeName.Name = "textBox_MaterialeName";
+            this.textBox_MaterialeName.ReadOnly = true;
             this.textBox_MaterialeName.Size = new System.Drawing.Size(100, 20);
             this.textBox_MaterialeName.TabIndex = 25;
             // 
@@ -179,20 +180,20 @@
             // 
             // panel_OrderInfo
             // 
+            this.panel_OrderInfo.Controls.Add(this.textBox_TaskValueCompletedTotal);
             this.panel_OrderInfo.Controls.Add(this.checkBox_TaskIsComplete);
+            this.panel_OrderInfo.Controls.Add(this.label_TaskValueCompleted);
             this.panel_OrderInfo.Controls.Add(this.listBox_WorkTasks);
             this.panel_OrderInfo.Controls.Add(this.label_Opgaver);
+            this.panel_OrderInfo.Controls.Add(this.label_TaskValueTotal);
+            this.panel_OrderInfo.Controls.Add(this.textBox_TaskValueTotal);
             this.panel_OrderInfo.Location = new System.Drawing.Point(6, 87);
             this.panel_OrderInfo.Name = "panel_OrderInfo";
-            this.panel_OrderInfo.Size = new System.Drawing.Size(320, 244);
+            this.panel_OrderInfo.Size = new System.Drawing.Size(320, 263);
             this.panel_OrderInfo.TabIndex = 23;
             // 
             // panel_TasksInfo
             // 
-            this.panel_TasksInfo.Controls.Add(this.textBox_TaskValueCompletedTotal);
-            this.panel_TasksInfo.Controls.Add(this.label_TaskValueCompleted);
-            this.panel_TasksInfo.Controls.Add(this.textBox_TaskValueTotal);
-            this.panel_TasksInfo.Controls.Add(this.label_TaskValueTotal);
             this.panel_TasksInfo.Controls.Add(this.label_Items);
             this.panel_TasksInfo.Controls.Add(this.listBox_Materials);
             this.panel_TasksInfo.Controls.Add(this.listBox_Employees);
@@ -241,6 +242,7 @@
             // 
             this.textBox_CustomerId.Location = new System.Drawing.Point(3, 22);
             this.textBox_CustomerId.Name = "textBox_CustomerId";
+            this.textBox_CustomerId.ReadOnly = true;
             this.textBox_CustomerId.Size = new System.Drawing.Size(100, 20);
             this.textBox_CustomerId.TabIndex = 19;
             // 
@@ -257,6 +259,7 @@
             // 
             this.textBox_SalesmanPhone.Location = new System.Drawing.Point(109, 61);
             this.textBox_SalesmanPhone.Name = "textBox_SalesmanPhone";
+            this.textBox_SalesmanPhone.ReadOnly = true;
             this.textBox_SalesmanPhone.Size = new System.Drawing.Size(100, 20);
             this.textBox_SalesmanPhone.TabIndex = 17;
             // 
@@ -273,6 +276,7 @@
             // 
             this.textBox_CustomerPhone.Location = new System.Drawing.Point(482, 22);
             this.textBox_CustomerPhone.Name = "textBox_CustomerPhone";
+            this.textBox_CustomerPhone.ReadOnly = true;
             this.textBox_CustomerPhone.Size = new System.Drawing.Size(100, 20);
             this.textBox_CustomerPhone.TabIndex = 15;
             // 
@@ -289,6 +293,7 @@
             // 
             this.textBox_CustomerCity.Location = new System.Drawing.Point(377, 22);
             this.textBox_CustomerCity.Name = "textBox_CustomerCity";
+            this.textBox_CustomerCity.ReadOnly = true;
             this.textBox_CustomerCity.Size = new System.Drawing.Size(100, 20);
             this.textBox_CustomerCity.TabIndex = 13;
             // 
@@ -305,6 +310,7 @@
             // 
             this.textBox_CustomerPostalCode.Location = new System.Drawing.Point(321, 22);
             this.textBox_CustomerPostalCode.Name = "textBox_CustomerPostalCode";
+            this.textBox_CustomerPostalCode.ReadOnly = true;
             this.textBox_CustomerPostalCode.Size = new System.Drawing.Size(50, 20);
             this.textBox_CustomerPostalCode.TabIndex = 11;
             // 
@@ -321,6 +327,7 @@
             // 
             this.textBox_CustomerAdress.Location = new System.Drawing.Point(215, 22);
             this.textBox_CustomerAdress.Name = "textBox_CustomerAdress";
+            this.textBox_CustomerAdress.ReadOnly = true;
             this.textBox_CustomerAdress.Size = new System.Drawing.Size(100, 20);
             this.textBox_CustomerAdress.TabIndex = 9;
             // 
@@ -337,6 +344,7 @@
             // 
             this.textBox_Salesman.Location = new System.Drawing.Point(3, 61);
             this.textBox_Salesman.Name = "textBox_Salesman";
+            this.textBox_Salesman.ReadOnly = true;
             this.textBox_Salesman.Size = new System.Drawing.Size(100, 20);
             this.textBox_Salesman.TabIndex = 7;
             // 
@@ -353,6 +361,7 @@
             // 
             this.textBox_CustomerName.Location = new System.Drawing.Point(109, 22);
             this.textBox_CustomerName.Name = "textBox_CustomerName";
+            this.textBox_CustomerName.ReadOnly = true;
             this.textBox_CustomerName.Size = new System.Drawing.Size(100, 20);
             this.textBox_CustomerName.TabIndex = 5;
             // 
@@ -390,7 +399,7 @@
             // label_TaskValueTotal
             // 
             this.label_TaskValueTotal.AutoSize = true;
-            this.label_TaskValueTotal.Location = new System.Drawing.Point(230, 179);
+            this.label_TaskValueTotal.Location = new System.Drawing.Point(3, 218);
             this.label_TaskValueTotal.Name = "label_TaskValueTotal";
             this.label_TaskValueTotal.Size = new System.Drawing.Size(35, 13);
             this.label_TaskValueTotal.TabIndex = 24;
@@ -398,22 +407,24 @@
             // 
             // textBox_TaskValueTotal
             // 
-            this.textBox_TaskValueTotal.Location = new System.Drawing.Point(233, 195);
+            this.textBox_TaskValueTotal.Location = new System.Drawing.Point(6, 234);
             this.textBox_TaskValueTotal.Name = "textBox_TaskValueTotal";
+            this.textBox_TaskValueTotal.ReadOnly = true;
             this.textBox_TaskValueTotal.Size = new System.Drawing.Size(100, 20);
             this.textBox_TaskValueTotal.TabIndex = 25;
             // 
             // textBox_TaskValueCompletedTotal
             // 
-            this.textBox_TaskValueCompletedTotal.Location = new System.Drawing.Point(339, 195);
+            this.textBox_TaskValueCompletedTotal.Location = new System.Drawing.Point(112, 234);
             this.textBox_TaskValueCompletedTotal.Name = "textBox_TaskValueCompletedTotal";
+            this.textBox_TaskValueCompletedTotal.ReadOnly = true;
             this.textBox_TaskValueCompletedTotal.Size = new System.Drawing.Size(100, 20);
             this.textBox_TaskValueCompletedTotal.TabIndex = 27;
             // 
             // label_TaskValueCompleted
             // 
             this.label_TaskValueCompleted.AutoSize = true;
-            this.label_TaskValueCompleted.Location = new System.Drawing.Point(336, 179);
+            this.label_TaskValueCompleted.Location = new System.Drawing.Point(109, 218);
             this.label_TaskValueCompleted.Name = "label_TaskValueCompleted";
             this.label_TaskValueCompleted.Size = new System.Drawing.Size(63, 13);
             this.label_TaskValueCompleted.TabIndex = 26;
@@ -440,7 +451,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1070, 651);
+            this.ClientSize = new System.Drawing.Size(840, 503);
             this.Controls.Add(this.numericUpDown_OrderID);
             this.Controls.Add(this.panel_CustomerSalesInfo);
             this.Controls.Add(this.button_findOrder);

@@ -30,11 +30,6 @@ namespace RaunstrupERP
         }
         public int GetAmountCompleted()
         {
-            if (isComplete)
-            {
-                isCompleted = amount;
-            }
-            else isCompleted = 0;
             return this.isCompleted;
         }
         public Boolean GetStatus()
@@ -63,10 +58,6 @@ namespace RaunstrupERP
         public void addCompleted(int amount)
         {
             this.isCompleted += amount;
-            if (this.isCompleted == this.amount)
-            {
-                isComplete = true;
-            }
         }
         public void setStatus(Boolean Status)
         {

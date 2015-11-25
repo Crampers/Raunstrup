@@ -104,6 +104,8 @@ namespace RaunstrupERP
             }
 
             /*DO THIS*/
+            textBox_TaskValueTotal.Text = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetTotal().ToString();
+            textBox_TaskValueCompletedTotal.Text = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetTotalCompleted().ToString();
             foreach (EmployeeDescription item in cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getEmployees())
             {
                 listBox_Employees.Items.Add("Id: " + item.GetId() + " " + item.GetFullName());
@@ -167,6 +169,7 @@ namespace RaunstrupERP
                 checkBox_ItemLineIsComplete.Checked = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getItemLine(listBox_Materials.SelectedIndex).GetStatus();
                 checkBox_ItemLineIsComplete.Visible = true;
             }
+            numericUpDown_AmountCompleted.Maximum = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getItemLine(listBox_Materials.SelectedIndex).GetUncompletedAmount();
             textBox_TaskValueTotal.Text = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetTotal().ToString();
             textBox_TaskValueCompletedTotal.Text = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetTotalCompleted().ToString();
         }
