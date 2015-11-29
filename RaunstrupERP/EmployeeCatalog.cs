@@ -19,13 +19,29 @@ namespace RaunstrupERP
             // Employees.Add(new EmployeeDescription(getNewID(), "Anders Sejr", "Thomsen", "valdemarsgade 15B 32", 7100, "Vejle", 30265894, 99999999999.99));
         }
 
+        /*GETTERS*/
         public EmployeeDescription GetEmployee(int id)
         {
             EmployeeDescription employee = Employees.Find(EmployeeDescription => EmployeeDescription.employeeID == id);
 
             return employee;
         }
-        
+        public List<EmployeeDescription> getEmployees()
+        {
+            return this.Employees;
+        }
+        public int GetLastUsedId()
+        {
+            int newID = 0;
+            foreach (EmployeeDescription item in Employees)
+            {
+                if (item.GetId() > newID)
+                {
+                    newID = item.GetId();
+                }
+            }
+            return newID;
+        }
         private int GetNewId()
         {
             int newID = 0;
@@ -40,6 +56,7 @@ namespace RaunstrupERP
             return newID;
         }
 
+        /*SETTERS*/
         public void AddEmployee(string fn, string sn, string adress, int postalCode, string city, int phone, double salary)
         {
             Employees.Add(new EmployeeDescription(GetNewId(), fn, sn, adress, postalCode, city, phone, salary));
@@ -48,11 +65,16 @@ namespace RaunstrupERP
         {
             Employees.Add(new SalesEmployee(ID, fn, sn, adress, postalCode, city, phone, salary));
         }
+
+        /*DELETE*/
         public void DeleteEmployee(int id)
         {
             Employees.RemoveAll(item => item.employeeID == id);
         }
 
+
+
+        //For testing purposes
         public void ConsolePrintAllEmployees()
         {
             foreach (EmployeeDescription item in Employees)
@@ -60,8 +82,6 @@ namespace RaunstrupERP
                 item.PrintEmployeeDesc();
             }
         }
-
-        //For testing purposes
         public void PrintEmployee(int id)
         {
             EmployeeDescription Employee = Employees.Find(EmployeeDescription => EmployeeDescription.employeeID == id);

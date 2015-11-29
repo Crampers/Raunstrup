@@ -29,13 +29,17 @@ namespace RaunstrupERP
             cc.AddItem("Dør", 50, 10);
 
             //1
-            cc.AddEmployee("Daniel", "Olsen", "Nordlandsvej 87G", 7100, "Vejle", 29718990, 20.00);
+            cc.AddEmployee("Daniel", "Olsen", "Gadevej", 9999, "Bynavn", 99999999, 20.00);
+            cc.GetEmployee(1).SetSalesMan();
             //2
             cc.AddEmployee("Svend", "Erikson", "Gadevej", 9999, "Bynavn", 99999999, 40.40);
+            cc.GetEmployee(2).SetCraftsMan();
             //3
             cc.AddEmployee("Anders", "TestData", "Gadevej", 9999, "Bynavn", 99999999, 40.40);
+            cc.GetEmployee(3).SetCraftsMan();
             //4
             cc.AddEmployee("Mathias", "DataTest", "Gadevej", 9999, "Bynavn", 99999999, 40.40);
+            cc.GetEmployee(4).SetCraftsMan();
 
             //3
             cc.AddCustomer("Erik", "Sørensen", "Boulevarden 20", 7100, "Vejle", 99999999);

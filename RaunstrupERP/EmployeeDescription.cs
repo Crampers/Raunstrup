@@ -78,11 +78,11 @@ namespace RaunstrupERP
         /*SETTERS*/
         public void SetSalesMan()
         {
-            special = "Salesman";
+            special = "Sælger";
         }
         public void SetCraftsMan()
         {
-            special = "Craftsman";
+            special = "Håndværker";
         }
 
         //for testing purposes

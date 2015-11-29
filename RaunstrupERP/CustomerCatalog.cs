@@ -23,6 +23,18 @@ namespace RaunstrupERP
 
             return custommer;
         }
+        public int GetLastUsedId()
+        {
+            int id = 0;
+            foreach (CustomerDescription c in Customers)
+            {
+                if (c.CustomerId > id)
+                {
+                    id = c.CustomerId;
+                }
+            }
+            return id;
+        }
         private int GetId()
         {
             int id = 0;

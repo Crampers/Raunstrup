@@ -29,6 +29,14 @@ namespace RaunstrupERP
          * EmployeeCatalog Method Calls
          */
 
+        public List<EmployeeDescription> GetEmployeeList()
+        {
+            return ec.getEmployees();
+        }
+        public int GetLastUsedEmployeeId()
+        {
+            return ec.GetLastUsedId();
+        }
         public EmployeeDescription GetEmployee(int id)
         {
            return ec.GetEmployee(id);
