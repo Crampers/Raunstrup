@@ -40,6 +40,14 @@ namespace RaunstrupERP
             //4
             cc.AddEmployee("Mathias", "DataTest", "Gadevej", 9999, "Bynavn", 99999999, 40.40);
             cc.GetEmployee(4).SetCraftsMan();
+            //5
+            cc.AddEmployee("Mathias", "DataTest", "Gadevej", 9999, "Bynavn", 99999999, 40.40);
+            cc.GetEmployee(4).SetCraftsMan();
+            //6
+            cc.AddEmployee("Mathias", "DataTest", "Gadevej", 9999, "Bynavn", 99999999, 40.40);
+            cc.GetEmployee(4).SetCraftsMan();
+
+            cc.DeleteEmployee(5);
 
             //3
             cc.AddCustomer("Erik", "Sørensen", "Boulevarden 20", 7100, "Vejle", 99999999);

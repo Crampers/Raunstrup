@@ -118,6 +118,11 @@ namespace RaunstrupERP
             EmployeeDescription Employee = Employees.Find(EmployeeDescription => EmployeeDescription.employeeID == id);
             Employee.AlterTlf(number);
         }
-    
+        public void AlterSalary(int id, Double salary)
+        {
+            EmployeeDescription Employee = Employees.Find(EmployeeDescription => EmployeeDescription.employeeID == id);
+            Employee.AlterSalary(salary);
+        }
+
     }
 }

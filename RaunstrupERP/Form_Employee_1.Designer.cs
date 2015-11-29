@@ -58,7 +58,12 @@
             this.button_EditSpecial = new System.Windows.Forms.Button();
             this.panel_edit = new System.Windows.Forms.Panel();
             this.button_toggleEdit = new System.Windows.Forms.Button();
+            this.maskedTextBox_PostalEdit = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox_PhoneEdit = new System.Windows.Forms.MaskedTextBox();
+            this.numericUpDown_EditSalary = new System.Windows.Forms.NumericUpDown();
+            this.comboBox_SpecialEdit = new System.Windows.Forms.ComboBox();
             this.panel_edit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_EditSalary)).BeginInit();
             this.SuspendLayout();
             // 
             // label_Id
@@ -241,6 +246,7 @@
             this.button_EditFName.TabIndex = 21;
             this.button_EditFName.Text = "Rediger";
             this.button_EditFName.UseVisualStyleBackColor = true;
+            this.button_EditFName.Click += new System.EventHandler(this.button_EditFName_Click);
             // 
             // button_EditSurName
             // 
@@ -250,6 +256,7 @@
             this.button_EditSurName.TabIndex = 22;
             this.button_EditSurName.Text = "Rediger";
             this.button_EditSurName.UseVisualStyleBackColor = true;
+            this.button_EditSurName.Click += new System.EventHandler(this.button_EditSurName_Click);
             // 
             // button_EditAdress
             // 
@@ -259,6 +266,7 @@
             this.button_EditAdress.TabIndex = 23;
             this.button_EditAdress.Text = "Rediger";
             this.button_EditAdress.UseVisualStyleBackColor = true;
+            this.button_EditAdress.Click += new System.EventHandler(this.button_EditAdress_Click);
             // 
             // button_EditPostal
             // 
@@ -268,6 +276,7 @@
             this.button_EditPostal.TabIndex = 24;
             this.button_EditPostal.Text = "Rediger";
             this.button_EditPostal.UseVisualStyleBackColor = true;
+            this.button_EditPostal.Click += new System.EventHandler(this.button_EditPostal_Click);
             // 
             // button_EditCityName
             // 
@@ -277,6 +286,7 @@
             this.button_EditCityName.TabIndex = 25;
             this.button_EditCityName.Text = "Rediger";
             this.button_EditCityName.UseVisualStyleBackColor = true;
+            this.button_EditCityName.Click += new System.EventHandler(this.button_EditCityName_Click);
             // 
             // button_EditPhoneNumber
             // 
@@ -286,6 +296,7 @@
             this.button_EditPhoneNumber.TabIndex = 26;
             this.button_EditPhoneNumber.Text = "Rediger";
             this.button_EditPhoneNumber.UseVisualStyleBackColor = true;
+            this.button_EditPhoneNumber.Click += new System.EventHandler(this.button_EditPhoneNumber_Click);
             // 
             // button_EditSalary
             // 
@@ -295,6 +306,7 @@
             this.button_EditSalary.TabIndex = 27;
             this.button_EditSalary.Text = "Rediger";
             this.button_EditSalary.UseVisualStyleBackColor = true;
+            this.button_EditSalary.Click += new System.EventHandler(this.button_EditSalary_Click);
             // 
             // button_EditSpecial
             // 
@@ -304,6 +316,7 @@
             this.button_EditSpecial.TabIndex = 28;
             this.button_EditSpecial.Text = "Rediger";
             this.button_EditSpecial.UseVisualStyleBackColor = true;
+            this.button_EditSpecial.Click += new System.EventHandler(this.button_EditSpecial_Click);
             // 
             // panel_edit
             // 
@@ -328,13 +341,63 @@
             this.button_toggleEdit.TabIndex = 30;
             this.button_toggleEdit.Text = "Redigér";
             this.button_toggleEdit.UseVisualStyleBackColor = true;
+            this.button_toggleEdit.Visible = false;
             this.button_toggleEdit.Click += new System.EventHandler(this.button_toggleEdit_Click);
+            // 
+            // maskedTextBox_PostalEdit
+            // 
+            this.maskedTextBox_PostalEdit.Location = new System.Drawing.Point(353, 113);
+            this.maskedTextBox_PostalEdit.Mask = "0000";
+            this.maskedTextBox_PostalEdit.Name = "maskedTextBox_PostalEdit";
+            this.maskedTextBox_PostalEdit.Size = new System.Drawing.Size(100, 20);
+            this.maskedTextBox_PostalEdit.TabIndex = 29;
+            this.maskedTextBox_PostalEdit.Visible = false;
+            // 
+            // maskedTextBox_PhoneEdit
+            // 
+            this.maskedTextBox_PhoneEdit.Location = new System.Drawing.Point(353, 165);
+            this.maskedTextBox_PhoneEdit.Mask = "00000000";
+            this.maskedTextBox_PhoneEdit.Name = "maskedTextBox_PhoneEdit";
+            this.maskedTextBox_PhoneEdit.Size = new System.Drawing.Size(100, 20);
+            this.maskedTextBox_PhoneEdit.TabIndex = 31;
+            this.maskedTextBox_PhoneEdit.Visible = false;
+            // 
+            // numericUpDown_EditSalary
+            // 
+            this.numericUpDown_EditSalary.DecimalPlaces = 2;
+            this.numericUpDown_EditSalary.Location = new System.Drawing.Point(353, 191);
+            this.numericUpDown_EditSalary.Maximum = new decimal(new int[] {
+            1215752191,
+            23,
+            0,
+            0});
+            this.numericUpDown_EditSalary.Name = "numericUpDown_EditSalary";
+            this.numericUpDown_EditSalary.Size = new System.Drawing.Size(100, 20);
+            this.numericUpDown_EditSalary.TabIndex = 29;
+            this.numericUpDown_EditSalary.Visible = false;
+            // 
+            // comboBox_SpecialEdit
+            // 
+            this.comboBox_SpecialEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_SpecialEdit.FormattingEnabled = true;
+            this.comboBox_SpecialEdit.Items.AddRange(new object[] {
+            "Sælger",
+            "Håndværker"});
+            this.comboBox_SpecialEdit.Location = new System.Drawing.Point(353, 217);
+            this.comboBox_SpecialEdit.Name = "comboBox_SpecialEdit";
+            this.comboBox_SpecialEdit.Size = new System.Drawing.Size(100, 21);
+            this.comboBox_SpecialEdit.TabIndex = 29;
+            this.comboBox_SpecialEdit.Visible = false;
             // 
             // Form_Employee_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(742, 484);
+            this.Controls.Add(this.comboBox_SpecialEdit);
+            this.Controls.Add(this.numericUpDown_EditSalary);
+            this.Controls.Add(this.maskedTextBox_PhoneEdit);
+            this.Controls.Add(this.maskedTextBox_PostalEdit);
             this.Controls.Add(this.button_toggleEdit);
             this.Controls.Add(this.panel_edit);
             this.Controls.Add(this.button_Create);
@@ -358,10 +421,12 @@
             this.Controls.Add(this.label_FirstName);
             this.Controls.Add(this.label_Id);
             this.Name = "Form_Employee_1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_Employee_1";
             this.Load += new System.EventHandler(this.Form_Employee_1_Load);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form_Employee_1_MouseClick);
             this.panel_edit.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_EditSalary)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -399,5 +464,9 @@
         private System.Windows.Forms.Button button_EditSpecial;
         private System.Windows.Forms.Panel panel_edit;
         private System.Windows.Forms.Button button_toggleEdit;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox_PostalEdit;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox_PhoneEdit;
+        private System.Windows.Forms.NumericUpDown numericUpDown_EditSalary;
+        private System.Windows.Forms.ComboBox comboBox_SpecialEdit;
     }
 }

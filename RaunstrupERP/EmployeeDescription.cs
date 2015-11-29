@@ -84,19 +84,9 @@ namespace RaunstrupERP
         {
             special = "Håndværker";
         }
-
-        //for testing purposes
-        public void PrintEmployeeDesc()
+        public void AlterSalary(Double salary)
         {
-            Console.WriteLine(employeeID + " " 
-                + FirstName + ", " 
-                + Surname + ", " 
-                + Adress + ", " 
-                + PostalCode + ", " 
-                + City + ", " 
-                + Phone + ", Løn: " 
-                + Salary + ", "
-                + special);
+            this.Salary = salary;
         }
         public void AlterFirstName(string fn)
         {
@@ -122,6 +112,19 @@ namespace RaunstrupERP
         {
             Phone = number;
         }
-    
+
+        //for testing purposes
+        public void PrintEmployeeDesc()
+        {
+            Console.WriteLine(employeeID + " " 
+                + FirstName + ", " 
+                + Surname + ", " 
+                + Adress + ", " 
+                + PostalCode + ", " 
+                + City + ", " 
+                + Phone + ", Løn: " 
+                + Salary + ", "
+                + special);
+        }    
     }
 }

@@ -88,6 +88,10 @@ namespace RaunstrupERP
         {
             ec.AlterPhone(id,number);
         }
+        public void EmployeeAlterSalary(int id, Double salary)
+        {
+            ec.AlterSalary(id, salary);
+        }
 
         /*
          * TaskCatalog Method Calls
