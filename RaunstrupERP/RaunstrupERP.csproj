@@ -63,6 +63,7 @@
     <Compile Include="CustomerCatalog.cs" />
     <Compile Include="CustomerCatalog_Singleton.cs" />
     <Compile Include="CustomerDescription.cs" />
+    <Compile Include="Database.cs" />
     <Compile Include="EmployeeCatalog.cs" />
     <Compile Include="EmployeeCatalog_Singleton.cs" />
     <Compile Include="EmployeeDescription.cs" />
