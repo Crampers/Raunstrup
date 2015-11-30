@@ -26,9 +26,9 @@ namespace RaunstrupERP
 
             return employee;
         }
-        public List<EmployeeDescription> getEmployees()
+        public List<EmployeeDescription> GetEmployees()
         {
-            return this.Employees;
+            return Employees;
         }
         public int GetLastUsedId()
         {

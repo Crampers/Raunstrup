@@ -31,7 +31,7 @@ namespace RaunstrupERP
 
         public List<EmployeeDescription> GetEmployeeList()
         {
-            return ec.getEmployees();
+            return ec.GetEmployees();
         }
         public int GetLastUsedEmployeeId()
         {
