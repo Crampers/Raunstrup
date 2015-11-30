@@ -8,7 +8,7 @@ namespace RaunstrupERP
 {
     class TaskCatalog
     {
-        List<TaskDescription> tasks;
+        private List<TaskDescription> tasks;
         public TaskCatalog()
         {
             tasks = new List<TaskDescription>();
@@ -62,7 +62,7 @@ namespace RaunstrupERP
         /*Getters*/
         public List<TaskDescription> GetTasks()
         {
-            return this.tasks;
+            return tasks;
         }
         public TaskDescription GetTask(int id)
         {

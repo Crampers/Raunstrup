@@ -30,19 +30,19 @@ namespace RaunstrupERP
         }
         public int GetAmountCompleted()
         {
-            return this.isCompleted;
+            return isCompleted;
         }
         public Boolean GetStatus()
         {
-            return this.isComplete;
+            return isComplete;
         }
         public ItemDescription GetItem()
         {
-            return this.item;
+            return item;
         }
         public int GetAmount()
         {
-            return this.amount;
+            return amount;
         }
         public Double GetTotalSalesPrice()
         {
@@ -57,11 +57,11 @@ namespace RaunstrupERP
         /*SETTERS*/
         public void addCompleted(int amount)
         {
-            this.isCompleted += amount;
+            isCompleted += amount;
         }
         public void setStatus(Boolean Status)
         {
-            this.isComplete = Status;
+            isComplete = Status;
         }
         /*TESTERS*/
         public void PrintItemLine()

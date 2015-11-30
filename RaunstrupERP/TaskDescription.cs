@@ -9,11 +9,11 @@ namespace RaunstrupERP
     class TaskDescription
     {
         /*Members*/
-        int ID;
-        String description;
-        Boolean complete = false;
-        List<ItemLine> materials;
-        List<EmployeeDescription> employeelList;
+        private int ID;
+        private String description;
+        private Boolean complete = false;
+        private List<ItemLine> materials;
+        private List<EmployeeDescription> employeelList;
         //private EmployeeDescription _employee;
 
         public TaskDescription(int id, String desc)
@@ -44,13 +44,13 @@ namespace RaunstrupERP
                 }
                 else allComplete = false;
             }
-            this.complete = allComplete;
+            complete = allComplete;
         }
         public void SetComplete()
         {
             complete = true;
         }
-        public void SetInComplete()
+        public void SetIncomplete()
         {
             complete = false;
         }
@@ -81,7 +81,7 @@ namespace RaunstrupERP
         }
         public Boolean GetStatus()
         {
-            return this.complete;
+            return complete;
         }
         public ItemLine getItemLine(int id)
         {
@@ -89,11 +89,11 @@ namespace RaunstrupERP
         }
         public List<ItemLine> getMaterials()
         {
-            return this.materials;
+            return materials;
         }
         public List<EmployeeDescription> getEmployees()
         {
-            return this.employeelList;
+            return employeelList;
         }
         public String GetDesc()
         {

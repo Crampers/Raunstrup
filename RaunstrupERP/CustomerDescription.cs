@@ -29,7 +29,7 @@ namespace RaunstrupERP
         /*GETTERS*/
         public int getID()
         {
-            return this.CustomerId;
+            return CustomerId;
         }
         public String getFullName()
         {
@@ -38,27 +38,27 @@ namespace RaunstrupERP
         }
         public String getFirstName()
         {
-            return this.FirstName;
+            return FirstName;
         }
         public String getSurName()
         {
-            return this.Surname;
+            return Surname;
         }
         public String getAdress()
         {
-            return this.Adress;
+            return Adress;
         }
         public int getPostal()
         {
-            return this.PostalCode;
+            return PostalCode;
         }
         public String getCity()
         {
-            return this.City;
+            return City;
         }
         public int getTlf()
         {
-            return this.Tlf;
+            return Tlf;
         }
 
         /*SETTERS*/

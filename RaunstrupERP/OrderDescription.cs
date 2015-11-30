@@ -8,8 +8,8 @@ namespace RaunstrupERP
 {
     class OrderDescription
     {
-        int orderID;
-        OfferDescription offer;
+        private int orderID;
+        private OfferDescription offer;
         public OrderDescription(int id, OfferDescription offer)
         {
             orderID = id;
