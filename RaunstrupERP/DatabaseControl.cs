@@ -13,9 +13,20 @@ namespace RaunstrupERP
     {
         SqlConnection conn = new SqlConnection("Data Source=SEJRLAPTOP\\SQLSERVER;Initial Catalog=Raunstrup; Integrated security=true");
 
-        public void FindCustomer(int CustomerID)
+        public void InsertCustomer(string FN, string SN)    //TODO: add phone, city osv...
         {
-            CustomerDescription cd;
+            string insert = "insert into Customer (FirstName, SurName) values " + "('" + FN + "','" + SN + ")";
+
+            conn.Open();
+            SqlCommand com = new SqlCommand(@insert, conn);
+            com.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
+        public CustomerDBkobling FindCustomer(int CustomerID)
+        {
+            CustomerDBkobling cd;
             string FN = "";
             string SN = "";
             string Ad = "";
@@ -26,6 +37,12 @@ namespace RaunstrupERP
             string StringPhone = "";
             int Phone;
             string City = "";
+
+            List<int> PhoneNumbers = new List<int>();
+            List<int> PostalCodes = new List<int>();
+            List<string> Citys = new List<string>();
+            List<string> Adresses = new List<string>();
+
 
             conn.Open();
 
@@ -47,15 +64,26 @@ namespace RaunstrupERP
                 Int32.TryParse(StringPC, out PC);
                 Int32.TryParse(StringPhone, out Phone);
 
-              //  Console.WriteLine(ID + " " + FN + " " + SN + " " + Ad + " " + PC + " " + Phone);
-           //     cd = new CustomerDescription(ID, FN, SN, Ad, PC, City, Phone);
+                PhoneNumbers.Add(Phone);
+                PostalCodes.Add(PC);
+                Citys.Add(City);
+                Adresses.Add(Ad);                             
     
             }
 
             conn.Close();
 
-          //  return cd;
-            
+            //fjerner duplikates
+            List<int> PhoneNumbersNoDupes = PhoneNumbers.Distinct().ToList();
+            List<int> PostalCodesNoDupes = PostalCodes.Distinct().ToList();
+            List<string> CitysNoDupes = Citys.Distinct().ToList();
+            List<string> AdressesNoDupes = Adresses.Distinct().ToList();
+
+            cd = new CustomerDBkobling(FN, SN, PhoneNumbersNoDupes, PostalCodesNoDupes, CitysNoDupes, AdressesNoDupes);
+
+            return cd;
+
+
         }
     }
 }
