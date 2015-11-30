@@ -8,10 +8,10 @@ namespace RaunstrupERP
 {
     class OrderCatalog
     {
-        List<OrderDescription> orders;
+        private List<OrderDescription> orders;
         public OrderCatalog()
         {
-            this.orders = Ordercatalog_Singleton.Instance;
+            orders = Ordercatalog_Singleton.Instance;
         }
         /*GETTERS*/
         public OrderDescription GetOrder(int id)

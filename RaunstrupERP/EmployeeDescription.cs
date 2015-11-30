@@ -39,40 +39,40 @@ namespace RaunstrupERP
         }
         public String GetFullName()
         {
-            String fullname = this.FirstName + " " + this.Surname;
+            String fullname = FirstName + " " + Surname;
             return fullname;
         }
         public String GetFirstName()
         {
-            return this.FirstName;
+            return FirstName;
         }
         public String GetSurName()
         {
-            return this.Surname;
+            return Surname;
         }
         public String GetAdress()
         {
-            return this.Adress;
+            return Adress;
         }
         public int GetPostal()
         {
-            return this.PostalCode;
+            return PostalCode;
         }
         public String GetCity()
         {
-            return this.City;
+            return City;
         }
         public int GetPhone()
         {
-            return this.Phone;
+            return Phone;
         }
         public Double GetSalary()
         {
-            return this.Salary;
+            return Salary;
         }
         public String GetSpeciality()
         {
-            return this.special;
+            return special;
         }
 
         /*SETTERS*/
@@ -84,9 +84,9 @@ namespace RaunstrupERP
         {
             special = "Håndværker";
         }
-        public void AlterSalary(Double salary)
+        public void AlterSalary(Double Salary)
         {
-            this.Salary = salary;
+            this.Salary = Salary;
         }
         public void AlterFirstName(string fn)
         {

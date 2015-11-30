@@ -8,11 +8,11 @@ namespace RaunstrupERP
 {
     public class SalesEmployee : EmployeeDescription
     {
-       public CustomerCatalog cc;
+        public CustomerCatalog cc;
         public SalesEmployee(int ID, string fn, string sn, string adress, int postalCode, string city, int phone, double salary)
             : base(ID, fn, sn, adress, postalCode, city, phone, salary)
         {
-            cc = new CustomerCatalog(); //TODO: singleton
+            cc = new CustomerCatalog();
         }
         public void Test()
         {

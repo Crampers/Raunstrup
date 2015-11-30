@@ -8,10 +8,10 @@ namespace RaunstrupERP
 {
     class OfferDescription
     {
-        int offerID;
-        TaskCatalog workTasks;
-        CustomerDescription buyer;
-        EmployeeDescription salesman;
+        private int offerID;
+        private TaskCatalog workTasks;
+        private CustomerDescription buyer;
+        private EmployeeDescription salesman;
         public OfferDescription(int id, TaskCatalog tc)
         {
             offerID = id;
