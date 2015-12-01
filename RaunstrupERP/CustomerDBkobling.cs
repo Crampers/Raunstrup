@@ -10,7 +10,8 @@ namespace RaunstrupERP
     {
         //TODO: 
         //alter postnr, by, tlf
-        //tilføj ændring i DB til alle metoder                
+        //tilføj ændring i DB til alle metoder      
+        //transaction
 
         DatabaseControl dbc = new DatabaseControl();
         public readonly int CustomerId; //public read only da ID aldrig bør ændres, men skal stadig kunne findes fra catalog
@@ -21,8 +22,8 @@ namespace RaunstrupERP
         private List<string> Citys;
         private List<string> Adresses;
 
-        
-        public CustomerDBkobling (string FN, string SN, List<int> PN, List<int> PC, List<string> C, List<string> A)
+
+        public CustomerDBkobling(string FN, string SN, List<int> PN, List<int> PC, List<string> C, List<string> A)
         {
             FirstName = FN;
             Surname = SN;
@@ -30,8 +31,8 @@ namespace RaunstrupERP
             PostalCodes = PC;
             Citys = C;
             Adresses = A;
-            
         }
+
         // Get
         public int GetID()
         {
@@ -73,17 +74,20 @@ namespace RaunstrupERP
         {
             PhoneNumbers.Add(Number);
         }
-        public void AddAdress(string Adress){
+        public void AddAdress(string Adress)
+        {
             Adresses.Add(Adress);
 
-    }   
-        public void AddPostalCode (int PostalCode){
+        }
+        public void AddPostalCode(int PostalCode)
+        {
             PostalCodes.Add(PostalCode);
 
-    }   
-        public void AddCity(string City){
-        Citys.Add(City);
-    }
+        }
+        public void AddCity(string City)
+        {
+            Citys.Add(City);
+        }
 
 
 
@@ -104,8 +108,8 @@ namespace RaunstrupERP
                 {
                     Adresses[i] = newAdress;
                 }
-            }            
+            }
         }
-              
+
     }
 }
