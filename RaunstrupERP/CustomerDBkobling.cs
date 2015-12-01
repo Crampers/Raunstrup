@@ -10,9 +10,7 @@ namespace RaunstrupERP
     {
         //TODO: 
         //alter postnr, by, tlf
-        //tilføj ændring i DB til alle metoder
-
-                
+        //tilføj ændring i DB til alle metoder                
 
         DatabaseControl dbc = new DatabaseControl();
         public readonly int CustomerId; //public read only da ID aldrig bør ændres, men skal stadig kunne findes fra catalog
