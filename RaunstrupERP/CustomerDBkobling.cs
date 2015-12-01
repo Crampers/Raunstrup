@@ -13,7 +13,7 @@ namespace RaunstrupERP
         //tilføj ændring i DB til alle metoder      
         //transaction
 
-        DatabaseControl dbc = new DatabaseControl();
+        private DatabaseControl dbc = new DatabaseControl();
         public readonly int CustomerId; //public read only da ID aldrig bør ændres, men skal stadig kunne findes fra catalog
         private string FirstName;
         private string Surname;
@@ -22,16 +22,20 @@ namespace RaunstrupERP
         private List<string> Citys;
         private List<string> Adresses;
 
+        
 
-        public CustomerDBkobling(string FN, string SN, List<int> PN, List<int> PC, List<string> C, List<string> A)
+        public CustomerDBkobling(int ID ,string FN, string SN, List<int> PN, List<int> PC, List<string> C, List<string> A)
         {
+            CustomerId = ID;
             FirstName = FN;
             Surname = SN;
             PhoneNumbers = PN;
             PostalCodes = PC;
             Citys = C;
             Adresses = A;
+                        
         }
+
 
         // Get
         public int GetID()
@@ -95,6 +99,7 @@ namespace RaunstrupERP
         public void AlterFirstName(string fn)
         {
             FirstName = fn;
+            dbc.AlterCustomerFirstName(CustomerId, fn);
         }
         public void AlterSurname(string sn)
         {

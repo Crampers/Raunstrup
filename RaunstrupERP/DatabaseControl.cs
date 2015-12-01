@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 
 
+//TODO: transaction
+//CRUD CustomerCity (maybe postalcode, adress)
+
 
 namespace RaunstrupERP
 {
@@ -31,7 +34,7 @@ namespace RaunstrupERP
             string SN = "";
             string Ad = "";
             string StringID = "";
-            int ID;
+            int ID = 0;
             string StringPC = "";
             int PC;
             string StringPhone = "";
@@ -79,11 +82,65 @@ namespace RaunstrupERP
             List<string> CitysNoDupes = Citys.Distinct().ToList();
             List<string> AdressesNoDupes = Adresses.Distinct().ToList();
 
-            cd = new CustomerDBkobling(FN, SN, PhoneNumbersNoDupes, PostalCodesNoDupes, CitysNoDupes, AdressesNoDupes);
+            cd = new CustomerDBkobling(ID, FN, SN, PhoneNumbersNoDupes, PostalCodesNoDupes, CitysNoDupes, AdressesNoDupes);
 
             return cd;
 
 
         }
+        public void SQLQueryHelper(string SQLCommand)
+        {
+            conn.Open();
+            SqlCommand com = new SqlCommand(@SQLCommand, conn);
+            com.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
+        //Alter
+        public void AlterCustomerFirstName(int ID, string NewName)
+        {
+            string update = "update Customer set FirstName= '" + NewName + "' where CustomerID = " + ID;
+            SQLQueryHelper(update);
+        }
+        public void AlterCustomerSurName(int ID, string NewName)
+        {
+            string update = "update Customer set SurName= '" + NewName + "' where CustomerID = " + ID;
+            SQLQueryHelper(update);
+        }
+
+        public void AlterCustomerAdress(int ID, string OldAdress, string NewAdress)
+        {
+            string update = "update CustomerAdress set Adress= '" + NewAdress + "' where CustomerID = " + ID + " AND Adress= '" + OldAdress + "'";
+            SQLQueryHelper(update);
+        }
+        public void AlterCustomerPhoneNumber(int ID, string OldNumber, string NewNumber)
+        {
+            string update = "update CustomerPhone set Number= " + NewNumber + " where CustomerID = " + ID + " AND Number= " + NewNumber;
+            SQLQueryHelper(update);
+        }
+        public void AlterCustomerPostalCode(int ID, string OldPostalCode, string NewPostalCode)
+        {
+            string update = "update CustomerAdress set PostalCode= '" + NewPostalCode + "' where CustomerID = " + ID + " AND Adress= '" + OldPostalCode + "'";
+            SQLQueryHelper(update);
+        }
+
+        //Delete 
+
+        public void DeleteCustomerAdress(int ID, string OldAdress)
+        {
+            string update = "delete from CustomerAdress where CustomerID = " + ID + " AND Adress= '" + OldAdress + "'";
+            SQLQueryHelper(update);
+        }
+        public void DeleteCustomerPhoneNumber(int ID, string OldNumber)
+        {
+            string update = "delete from CustomerPhone where Number= '" + OldNumber + "' AND CustomerID= " + ID;
+            SQLQueryHelper(update);
+        }
+        
+        //Create
+
+
+        
     }
 }
