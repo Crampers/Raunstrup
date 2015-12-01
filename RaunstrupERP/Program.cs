@@ -11,6 +11,7 @@ namespace RaunstrupERP
     {
         static void Main(string[] args)
         {
+           
             ControllerCatalog ccc = new ControllerCatalog();
             //Test_Data_Class TDC = new Test_Data_Class();
             Application.EnableVisualStyles();
@@ -19,6 +20,13 @@ namespace RaunstrupERP
             Console.ReadKey();
             
             ///* THIS IS A TEST PROGRAM! COMMENT IT OUT WHEN WORKING ON NEXT STEPS! */
+            ///
+            //DatabaseKobling test
+            //DatabaseControl dbc = new DatabaseControl();
+            //CustomerDBkobling cdb = dbc.FindCustomer(1);
+            //cdb.AlterFirstName("kasper");
+
+
             //Console.WriteLine("Employees!");
             ///* Employees */
             ////EmployeeCatalog ec = new EmployeeCatalog();
