@@ -42,6 +42,7 @@
             this.textBox_PostalCode = new System.Windows.Forms.TextBox();
             this.textBox_City = new System.Windows.Forms.TextBox();
             this.textBox_Tlf = new System.Windows.Forms.TextBox();
+            this.button_SearchCustomer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label_Id
@@ -156,11 +157,22 @@
             this.textBox_Tlf.Size = new System.Drawing.Size(100, 20);
             this.textBox_Tlf.TabIndex = 13;
             // 
+            // button_SearchCustomer
+            // 
+            this.button_SearchCustomer.Location = new System.Drawing.Point(215, 13);
+            this.button_SearchCustomer.Name = "button_SearchCustomer";
+            this.button_SearchCustomer.Size = new System.Drawing.Size(75, 23);
+            this.button_SearchCustomer.TabIndex = 14;
+            this.button_SearchCustomer.Text = "Søg";
+            this.button_SearchCustomer.UseVisualStyleBackColor = true;
+            this.button_SearchCustomer.Click += new System.EventHandler(this.button_SearchCustomer_Click);
+            // 
             // Form_Customer_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(690, 423);
+            this.Controls.Add(this.button_SearchCustomer);
             this.Controls.Add(this.textBox_Tlf);
             this.Controls.Add(this.textBox_City);
             this.Controls.Add(this.textBox_PostalCode);
@@ -198,5 +210,6 @@
         private System.Windows.Forms.TextBox textBox_PostalCode;
         private System.Windows.Forms.TextBox textBox_City;
         private System.Windows.Forms.TextBox textBox_Tlf;
+        private System.Windows.Forms.Button button_SearchCustomer;
     }
 }
