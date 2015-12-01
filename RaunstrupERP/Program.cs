@@ -12,12 +12,11 @@ namespace RaunstrupERP
         static void Main(string[] args)
         {
             ControllerCatalog ccc = new ControllerCatalog();
-            Test_Data_Class TDC = new Test_Data_Class();
+            //Test_Data_Class TDC = new Test_Data_Class();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form_Main_1());
             Console.ReadKey();
-
             
             ///* THIS IS A TEST PROGRAM! COMMENT IT OUT WHEN WORKING ON NEXT STEPS! */
             //Console.WriteLine("Employees!");
