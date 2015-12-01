@@ -77,20 +77,23 @@ namespace RaunstrupERP
         public void AddPhone(int Number)
         {
             PhoneNumbers.Add(Number);
+            dbc.CreateCustomerPhone(CustomerId, Number);
         }
         public void AddAdress(string Adress)
         {
             Adresses.Add(Adress);
+            //TODO: db metode
 
         }
         public void AddPostalCode(int PostalCode)
         {
             PostalCodes.Add(PostalCode);
-
+            //TODO: db metode
         }
         public void AddCity(string City)
         {
             Citys.Add(City);
+            //TODO: db metode
         }
 
 
@@ -104,8 +107,9 @@ namespace RaunstrupERP
         public void AlterSurname(string sn)
         {
             Surname = sn;
+            dbc.AlterCustomerSurName(CustomerId, sn);
         }
-        public void AlterAdress(string PreviusAdress, string newAdress)
+        public void AlterAdress(string PreviusAdress, string newAdress) //TODO alter postalcode/city
         {
             for (int i = 0; i < Adresses.Count; i++)
             {
@@ -114,6 +118,18 @@ namespace RaunstrupERP
                     Adresses[i] = newAdress;
                 }
             }
+            dbc.AlterCustomerAdress(CustomerId, PreviusAdress, newAdress);
+        }
+        public void AlterPhone(int OldNumber, int NewNumber)
+        {
+            for (int i = 0; i < PhoneNumbers.Count; i++)
+            {
+                if (PhoneNumbers[i] == OldNumber)
+                {
+                    PhoneNumbers[i] = NewNumber;
+                }
+            }
+            dbc.AlterCustomerPhoneNumber(CustomerId, OldNumber, NewNumber);
         }
 
     }

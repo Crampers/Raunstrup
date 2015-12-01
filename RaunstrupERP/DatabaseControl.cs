@@ -109,17 +109,17 @@ namespace RaunstrupERP
             SQLQueryHelper(update);
         }
 
-        public void AlterCustomerAdress(int ID, string OldAdress, string NewAdress)
+        public void AlterCustomerAdress(int ID, string OldAdress, string NewAdress) //TODO: update PC/city
         {
             string update = "update CustomerAdress set Adress= '" + NewAdress + "' where CustomerID = " + ID + " AND Adress= '" + OldAdress + "'";
             SQLQueryHelper(update);
         }
-        public void AlterCustomerPhoneNumber(int ID, string OldNumber, string NewNumber)
+        public void AlterCustomerPhoneNumber(int ID, int OldNumber, int NewNumber)
         {
             string update = "update CustomerPhone set Number= " + NewNumber + " where CustomerID = " + ID + " AND Number= " + NewNumber;
             SQLQueryHelper(update);
         }
-        public void AlterCustomerPostalCode(int ID, string OldPostalCode, string NewPostalCode)
+        public void AlterCustomerPostalCode(int ID, int OldPostalCode, int NewPostalCode)
         {
             string update = "update CustomerAdress set PostalCode= '" + NewPostalCode + "' where CustomerID = " + ID + " AND Adress= '" + OldPostalCode + "'";
             SQLQueryHelper(update);
@@ -132,15 +132,18 @@ namespace RaunstrupERP
             string update = "delete from CustomerAdress where CustomerID = " + ID + " AND Adress= '" + OldAdress + "'";
             SQLQueryHelper(update);
         }
-        public void DeleteCustomerPhoneNumber(int ID, string OldNumber)
+        public void DeleteCustomerPhoneNumber(int ID, int OldNumber)
         {
             string update = "delete from CustomerPhone where Number= '" + OldNumber + "' AND CustomerID= " + ID;
             SQLQueryHelper(update);
         }
         
         //Create
-
-
-        
+        public void CreateCustomerPhone (int ID, int NewNumber)
+        {
+            string update = "insert into CustomerPhone (CustomerID, Number) values (" + ID + ", " + NewNumber + ")";
+            SQLQueryHelper(update);
+        }
+                
     }
 }
