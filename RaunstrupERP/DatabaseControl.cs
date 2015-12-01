@@ -14,7 +14,7 @@ namespace RaunstrupERP
 {
     class DatabaseControl
     {
-        SqlConnection conn = new SqlConnection("Data Source=SEJRLAPTOP\\SQLSERVER;Initial Catalog=Raunstrup; Integrated security=true");
+        SqlConnection conn = new SqlConnection("Data Source=TRANQ-LAPTOP\\TRANQDATABASE;Initial Catalog=RaunstrupERP; Integrated security=true");
 
         public void InsertCustomer(string FN, string SN)    //TODO: add phone, city osv...
         {
