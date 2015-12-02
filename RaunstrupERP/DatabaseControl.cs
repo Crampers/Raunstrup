@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 
 //TODO: transaction
@@ -74,8 +75,8 @@ namespace RaunstrupERP
 
             //fjerner duplikates
             List<int> PhoneNumbersNoDupes = PhoneNumbers.Distinct().ToList();
-            List<CustomerAdress> AdressesNoDupes = Adresses.Distinct().ToList();
-
+            List<CustomerAdress> AdressesNoDupes = Adresses.Distinct().ToList();                 
+                       
             cd = new CustomerDBkobling(ID, FN, SN, PhoneNumbersNoDupes, AdressesNoDupes);
 
             return cd;
@@ -83,11 +84,41 @@ namespace RaunstrupERP
         }
         public void SQLQueryHelper(string SQLCommand)
         {
-            conn.Open();
-            SqlCommand com = new SqlCommand(@SQLCommand, conn);
-            com.ExecuteNonQuery();
+            //conn.Open();
+            //SqlCommand com = new SqlCommand(@SQLCommand, conn);
+            //com.ExecuteNonQuery();
 
-            conn.Close();
+            //conn.Close();
+
+            SqlTransaction transaction = null;
+            try
+            {
+                conn.Open();
+                SqlCommand com = new SqlCommand(@SQLCommand, conn);
+                //Console.WriteLine(SQLCommand);
+                transaction = conn.BeginTransaction();
+                com.Transaction = transaction;
+                com.ExecuteNonQuery();
+                transaction.Commit();
+                //Console.WriteLine("commit");
+                // return true;
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine(ex.Message);
+                MessageBox.Show(ex.Message);
+                
+                if (transaction == null)
+                {
+                    transaction.Rollback();
+                }
+                // return false;
+            }
+
+            finally
+            {
+                conn.Close();
+            }
         }
 
         //Alter
