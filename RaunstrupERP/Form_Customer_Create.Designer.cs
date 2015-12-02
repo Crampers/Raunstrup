@@ -40,6 +40,7 @@
             this.label_Firstname = new System.Windows.Forms.Label();
             this.textBox_Adress = new System.Windows.Forms.TextBox();
             this.textBox_Phone = new System.Windows.Forms.TextBox();
+            this.button_Create = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox_PostalCode
@@ -138,11 +139,22 @@
             this.textBox_Phone.Size = new System.Drawing.Size(100, 20);
             this.textBox_Phone.TabIndex = 30;
             // 
+            // button_Create
+            // 
+            this.button_Create.Location = new System.Drawing.Point(104, 164);
+            this.button_Create.Name = "button_Create";
+            this.button_Create.Size = new System.Drawing.Size(75, 23);
+            this.button_Create.TabIndex = 31;
+            this.button_Create.Text = "Opret";
+            this.button_Create.UseVisualStyleBackColor = true;
+            this.button_Create.Click += new System.EventHandler(this.button_Create_Click);
+            // 
             // Form_Customer_Create
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(710, 378);
+            this.Controls.Add(this.button_Create);
             this.Controls.Add(this.textBox_Phone);
             this.Controls.Add(this.textBox_Adress);
             this.Controls.Add(this.textBox_PostalCode);
@@ -176,5 +188,6 @@
         private System.Windows.Forms.Label label_Firstname;
         private System.Windows.Forms.TextBox textBox_Adress;
         private System.Windows.Forms.TextBox textBox_Phone;
+        private System.Windows.Forms.Button button_Create;
     }
 }

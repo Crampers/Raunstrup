@@ -36,6 +36,10 @@ namespace RaunstrupERP
         {
             return dc.FindCustomer(id);
         }
+        public void CreateCustomer(String FN, String SN)
+        {
+            dc.InsertCustomer(FN, SN);
+        }
 
         /*
          * EmployeeCatalog Method Calls

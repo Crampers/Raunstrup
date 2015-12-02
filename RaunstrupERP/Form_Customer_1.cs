@@ -13,6 +13,7 @@ namespace RaunstrupERP
     public partial class Form_Customer_1 : Form
     {
         private ControllerCatalog cc = new ControllerCatalog();
+        private List<CustomerAdress> adressList;
         private int customerID = 0;
         //private CustomerDBkobling currentCustomer;
         public Form_Customer_1()
@@ -23,7 +24,9 @@ namespace RaunstrupERP
         private void button_SearchCustomer_Click(object sender, EventArgs e)
         {
             button_ToggleEdit.Visible = true;
-            customerID = Convert.ToInt32(textBox_CustomerId.Text);
+            panel_Additions.Visible = true;
+            textBox_PostalCode.Text = "";
+            customerID = Convert.ToInt32(numericUpDown_CustomerID.Text);
             //currentCustomer = cc.FindCustomer(customerID);
 
             //FirstName
@@ -31,25 +34,34 @@ namespace RaunstrupERP
             //SurName
             textBox_SirName.Text = cc.FindCustomer(customerID).GetSurName();
             //Adress
+            adressList = cc.FindCustomer(customerID).GetAdresses();
+            
             comboBox_Adresses.Items.Clear();
-            foreach (string adress in cc.FindCustomer(customerID).GetAdresses())
+            foreach (CustomerAdress item in cc.FindCustomer(customerID).GetAdresses())
             {
-                comboBox_Adresses.Items.Add(adress);
+                comboBox_Adresses.Items.Add(item.GetAdress());
+                comboBox_Adresses.SelectedItem = item.GetAdress();
             }
-            comboBox_Adresses.SelectedItem = comboBox_Adresses.Items[0];
+            
             //Phones
             comboBox_PhoneNumbers.Items.Clear();
             foreach (int number in cc.FindCustomer(customerID).getTlf())
             {
                 comboBox_PhoneNumbers.Items.Add(number);
+                comboBox_PhoneNumbers.SelectedItem = number;
             }
-            comboBox_PhoneNumbers.SelectedItem = comboBox_PhoneNumbers.Items[0];
         }
         //CURRENT FIX FOR ADRESS
         private void comboBox_Adresses_SelectedIndexChanged(object sender, EventArgs e)
         {
-            textBox_CityName.Text = cc.FindCustomer(customerID).getCity()[comboBox_Adresses.SelectedIndex];
-            textBox_PostalCode.Text = cc.FindCustomer(customerID).GetPostalCodes()[comboBox_Adresses.SelectedIndex].ToString();
+            if (adressList != null)
+            {
+                textBox_PostalCode.Text = adressList[comboBox_Adresses.SelectedIndex].GetPostalCode().ToString();
+            }
+            else
+            {
+                textBox_PostalCode.Text = "";
+            }
         }
 
         //TOGGLE EDIT BUTTONS
@@ -58,15 +70,21 @@ namespace RaunstrupERP
             if (panel_Edit.Visible == false)
             {
                 button_ToggleEdit.Text = "Færdig";
-                textBox_CustomerId.ReadOnly = true;
+                numericUpDown_CustomerID.ReadOnly = true;
+                numericUpDown_CustomerID.Enabled = false;
                 button_SearchCustomer.Visible = false;
+                button_CreateCustomer.Visible = false;
+                panel_Additions.Visible = false;
                 panel_Edit.Visible = true;
             }
             else
             {
                 button_ToggleEdit.Text = "Rediger";
-                textBox_CustomerId.ReadOnly = false;
+                numericUpDown_CustomerID.ReadOnly = false;
+                numericUpDown_CustomerID.Enabled = true;
                 button_SearchCustomer.Visible = true;
+                button_CreateCustomer.Visible = true;
+                panel_Additions.Visible = true;
                 panel_Edit.Visible = false;
             }
         }
@@ -105,17 +123,19 @@ namespace RaunstrupERP
         //EDIT SELECTED PHONE NUMBER
         private void button_EditPhone_Click(object sender, EventArgs e)
         {
-            if (maskedTextBox1.Visible == false)
+            if (maskedTextBox_PhoneCreate.Visible == false)
             {
                 button_EditPhone.Text = "Gem";
-                maskedTextBox1.Text = comboBox_PhoneNumbers.SelectedItem.ToString();
-                maskedTextBox1.Visible = true;
+                maskedTextBox_PhoneCreate.Text = comboBox_PhoneNumbers.SelectedItem.ToString();
+                comboBox_PhoneNumbers.Visible = false;
+                maskedTextBox_PhoneCreate.Visible = true;
             }
             else
             {
-                cc.FindCustomer(customerID).AlterPhone(Convert.ToInt32(comboBox_PhoneNumbers.SelectedItem), Convert.ToInt32(maskedTextBox1.Text));
+                cc.FindCustomer(customerID).AlterPhone(Convert.ToInt32(comboBox_PhoneNumbers.SelectedItem), Convert.ToInt32(maskedTextBox_PhoneCreate.Text));
                 button_EditPhone.Text = "Rediger";
-                maskedTextBox1.Visible = false;
+                maskedTextBox_PhoneCreate.Visible = false;
+                comboBox_PhoneNumbers.Visible = true;
                 //Phones (READ AGAIN TO UPDATE FORM)
                 comboBox_PhoneNumbers.Items.Clear();
                 foreach (int number in cc.FindCustomer(customerID).getTlf())
@@ -128,7 +148,36 @@ namespace RaunstrupERP
         //Create Customer (OPENS NEW WINDOW)
         private void button_CreateCustomer_Click(object sender, EventArgs e)
         {
+            Form_Customer_Create createNew = new Form_Customer_Create();
+            createNew.ShowDialog();
+        }
+        //EDIT ADRESS
+        private void button_EditAdress_Click(object sender, EventArgs e)
+        {
+            
+        }
+        //ADD ADDITIONAL ADRESS
+        private void button_AddAdress_Click(object sender, EventArgs e)
+        {
 
+        }
+        //ADD ADDITIONAL NUMBERS
+        private void button_AddNumber_Click(object sender, EventArgs e)
+        {
+            if (maskedTextBox_PhoneCreate.Visible == false)
+            {
+                button_AddNumber.Text = "Gem";
+                maskedTextBox_PhoneCreate.Text = "";
+                maskedTextBox_PhoneCreate.Visible = true;
+                comboBox_PhoneNumbers.Visible = false;
+            }
+            else
+            {
+                cc.FindCustomer(customerID).AddPhone(Convert.ToInt32(maskedTextBox_PhoneCreate.Text));
+                button_AddNumber.Text = "Tilføj";
+                maskedTextBox_PhoneCreate.Visible = false;
+                comboBox_PhoneNumbers.Visible = true;
+            }
         }
     }
 }
