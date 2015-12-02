@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="ControllerCatalog.cs" />
     <Compile Include="CraftsmanEmployee.cs" />
+    <Compile Include="CustomerAdress.cs" />
     <Compile Include="CustomerCatalog.cs" />
     <Compile Include="CustomerCatalog_Singleton.cs" />
     <Compile Include="CustomerDBkobling.cs" />
