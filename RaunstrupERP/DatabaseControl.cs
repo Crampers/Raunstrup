@@ -15,7 +15,7 @@ namespace RaunstrupERP
     {
         SqlConnection conn = new SqlConnection("Data Source=SEJRLAPTOP\\SQLSERVER;Initial Catalog=Raunstrup; Integrated security=true");
 
-        public void InsertCustomer(string FN, string SN)    //TODO: add phone, city osv...
+        public void InsertCustomer(string FN, string SN) 
         {
             string insert = "insert into Customer (FirstName, SurName) values " + "('" + FN + "','" + SN + ")";
 
@@ -79,8 +79,7 @@ namespace RaunstrupERP
             cd = new CustomerDBkobling(ID, FN, SN, PhoneNumbersNoDupes, AdressesNoDupes);
 
             return cd;
-
-
+            
         }
         public void SQLQueryHelper(string SQLCommand)
         {
@@ -103,7 +102,7 @@ namespace RaunstrupERP
             SQLQueryHelper(update);
         }
 
-        public void AlterCustomerAdress(int ID, string OldAdress, string NewAdress, int NewPostalCode) //TODO: update PC/city
+        public void AlterCustomerAdress(int ID, string OldAdress, string NewAdress, int NewPostalCode) 
         {
             string update = "update CustomerAdress set Adress= '" + NewAdress + "', PostalCode= '" + NewPostalCode + "' where CustomerID = " + ID + " AND Adress= '" + OldAdress + "'";
             SQLQueryHelper(update);

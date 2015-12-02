@@ -9,7 +9,6 @@ namespace RaunstrupERP
     public class CustomerDBkobling
     {
         //TODO: 
-        //tilføj ændring i DB til alle metoder      
         //transaction
 
         private DatabaseControl dbc = new DatabaseControl();
