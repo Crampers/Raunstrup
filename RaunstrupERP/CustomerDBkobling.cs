@@ -9,31 +9,24 @@ namespace RaunstrupERP
     public class CustomerDBkobling
     {
         //TODO: 
-        //alter postnr, by, tlf
-        //tilføj ændring i DB til alle metoder      
         //transaction
 
         private DatabaseControl dbc = new DatabaseControl();
-        public readonly int CustomerId; //public read only da ID aldrig bør ændres, men skal stadig kunne findes fra catalog
+        public readonly int CustomerId;
         private string FirstName;
         private string Surname;
         private List<int> PhoneNumbers;
-        private List<int> PostalCodes;
-        private List<string> Citys;
-        private List<string> Adresses;
+        private List<CustomerAdress> Adresses;
 
-        
 
-        public CustomerDBkobling(int ID ,string FN, string SN, List<int> PN, List<int> PC, List<string> C, List<string> A)
+        public CustomerDBkobling(int ID, string FN, string SN, List<int> PN, List<CustomerAdress> A)
         {
             CustomerId = ID;
             FirstName = FN;
             Surname = SN;
             PhoneNumbers = PN;
-            PostalCodes = PC;
-            Citys = C;
             Adresses = A;
-                        
+
         }
 
 
@@ -55,18 +48,11 @@ namespace RaunstrupERP
         {
             return Surname;
         }
-        public List<string> GetAdresses()
+        public List<CustomerAdress> GetAdresses()
         {
             return Adresses;
         }
-        public List<int> GetPostalCodes()
-        {
-            return PostalCodes;
-        }
-        public List<string> getCity()
-        {
-            return Citys;
-        }
+
         public List<int> getTlf()
         {
             return PhoneNumbers;
@@ -79,21 +65,12 @@ namespace RaunstrupERP
             PhoneNumbers.Add(Number);
             dbc.CreateCustomerPhone(CustomerId, Number);
         }
-        public void AddAdress(string Adress)
+        public void AddAdress(string NewAdress, int NewPostalCode)
         {
+            CustomerAdress Adress = new CustomerAdress(NewAdress, NewPostalCode);
             Adresses.Add(Adress);
-            //TODO: db metode
+            dbc.CreateCustomerAdress(CustomerId, NewAdress, NewPostalCode);
 
-        }
-        public void AddPostalCode(int PostalCode)
-        {
-            PostalCodes.Add(PostalCode);
-            //TODO: db metode
-        }
-        public void AddCity(string City)
-        {
-            Citys.Add(City);
-            //TODO: db metode
         }
 
 
@@ -109,16 +86,17 @@ namespace RaunstrupERP
             Surname = sn;
             dbc.AlterCustomerSurName(CustomerId, sn);
         }
-        public void AlterAdress(string PreviusAdress, string newAdress) //TODO alter postalcode/city
+        public void AlterAdress(string PreviusAdress, string newAdress, int NewPostalCode)
         {
             for (int i = 0; i < Adresses.Count; i++)
             {
-                if (Adresses[i] == PreviusAdress)
+                if (Adresses[i].GetAdress() == PreviusAdress)
                 {
-                    Adresses[i] = newAdress;
+                    Adresses[i].AlterAdress(newAdress);
+                    Adresses[i].AlterPostalCode(NewPostalCode);
                 }
             }
-            dbc.AlterCustomerAdress(CustomerId, PreviusAdress, newAdress);
+            dbc.AlterCustomerAdress(CustomerId, PreviusAdress, newAdress, NewPostalCode);
         }
         public void AlterPhone(int OldNumber, int NewNumber)
         {
@@ -127,9 +105,9 @@ namespace RaunstrupERP
                 if (PhoneNumbers[i] == OldNumber)
                 {
                     PhoneNumbers[i] = NewNumber;
+                    dbc.AlterCustomerPhoneNumber(CustomerId, OldNumber, NewNumber);
                 }
             }
-            dbc.AlterCustomerPhoneNumber(CustomerId, OldNumber, NewNumber);
         }
 
     }

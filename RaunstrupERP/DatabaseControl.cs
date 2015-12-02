@@ -7,7 +7,6 @@ using System.Data.SqlClient;
 
 
 //TODO: transaction
-//CRUD CustomerCity (maybe postalcode, adress)
 
 
 namespace RaunstrupERP
@@ -16,7 +15,7 @@ namespace RaunstrupERP
     {
         SqlConnection conn = new SqlConnection("Data Source=TRANQ-LAPTOP\\TRANQDATABASE;Initial Catalog=RaunstrupERP; Integrated security=true");
 
-        public void InsertCustomer(string FN, string SN)    //TODO: add phone, city osv...
+        public void InsertCustomer(string FN, string SN) 
         {
             string insert = "insert into Customer (FirstName, SurName) values " + "('" + FN + "','" + SN + ")";
 
@@ -42,9 +41,7 @@ namespace RaunstrupERP
             string City = "";
 
             List<int> PhoneNumbers = new List<int>();
-            List<int> PostalCodes = new List<int>();
-            List<string> Citys = new List<string>();
-            List<string> Adresses = new List<string>();
+            List<CustomerAdress> Adresses = new List<CustomerAdress>();
 
 
             conn.Open();
@@ -67,26 +64,22 @@ namespace RaunstrupERP
                 Int32.TryParse(StringPC, out PC);
                 Int32.TryParse(StringPhone, out Phone);
 
+                CustomerAdress ca = new CustomerAdress(Ad, PC);
                 PhoneNumbers.Add(Phone);
-                PostalCodes.Add(PC);
-                Citys.Add(City);
-                Adresses.Add(Ad);                             
-    
+                Adresses.Add(ca);
+
             }
 
             conn.Close();
 
             //fjerner duplikates
             List<int> PhoneNumbersNoDupes = PhoneNumbers.Distinct().ToList();
-            List<int> PostalCodesNoDupes = PostalCodes.Distinct().ToList();
-            List<string> CitysNoDupes = Citys.Distinct().ToList();
-            List<string> AdressesNoDupes = Adresses.Distinct().ToList();
+            List<CustomerAdress> AdressesNoDupes = Adresses.Distinct().ToList();
 
-            cd = new CustomerDBkobling(ID, FN, SN, PhoneNumbersNoDupes, PostalCodesNoDupes, CitysNoDupes, AdressesNoDupes);
+            cd = new CustomerDBkobling(ID, FN, SN, PhoneNumbersNoDupes, AdressesNoDupes);
 
             return cd;
-
-
+            
         }
         public void SQLQueryHelper(string SQLCommand)
         {
@@ -109,10 +102,11 @@ namespace RaunstrupERP
             SQLQueryHelper(update);
         }
 
-        public void AlterCustomerAdress(int ID, string OldAdress, string NewAdress) //TODO: update PC/city
+        public void AlterCustomerAdress(int ID, string OldAdress, string NewAdress, int NewPostalCode) 
         {
-            string update = "update CustomerAdress set Adress= '" + NewAdress + "' where CustomerID = " + ID + " AND Adress= '" + OldAdress + "'";
+            string update = "update CustomerAdress set Adress= '" + NewAdress + "', PostalCode= '" + NewPostalCode + "' where CustomerID = " + ID + " AND Adress= '" + OldAdress + "'";
             SQLQueryHelper(update);
+
         }
         public void AlterCustomerPhoneNumber(int ID, int OldNumber, int NewNumber)
         {
@@ -137,13 +131,18 @@ namespace RaunstrupERP
             string update = "delete from CustomerPhone where Number= '" + OldNumber + "' AND CustomerID= " + ID;
             SQLQueryHelper(update);
         }
-        
+
         //Create
-        public void CreateCustomerPhone (int ID, int NewNumber)
+        public void CreateCustomerPhone(int ID, int NewNumber)
         {
             string update = "insert into CustomerPhone (CustomerID, Number) values (" + ID + ", " + NewNumber + ")";
             SQLQueryHelper(update);
         }
-                
+        public void CreateCustomerAdress(int ID, string NewAdress, int NewPostalCode)
+        {
+            string update = "insert into EmployeeAdress (EmployeeID, Adress, PostalCode) values (" + ID + ", '" + NewAdress + "', " + NewPostalCode + ")";
+            SQLQueryHelper(update);
+        }
+
     }
 }
