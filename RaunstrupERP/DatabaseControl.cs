@@ -116,7 +116,7 @@ namespace RaunstrupERP
         }
         public void AlterCustomerPhoneNumber(int ID, int OldNumber, int NewNumber)
         {
-            string update = "update CustomerPhone set Number= " + NewNumber + " where CustomerID = " + ID + " AND Number= " + NewNumber;
+            string update = "update CustomerPhone set Number= " + NewNumber + " where CustomerID = " + ID + " AND Number= " + OldNumber;
             SQLQueryHelper(update);
         }
         public void AlterCustomerPostalCode(int ID, int OldPostalCode, int NewPostalCode)

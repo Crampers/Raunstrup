@@ -32,7 +32,7 @@ namespace RaunstrupERP
         /*
          * DatabaseControl Calls
          */
-         public CustomerDBkobling FindCustomer(int id)
+        public CustomerDBkobling FindCustomer(int id)
         {
             return dc.FindCustomer(id);
         }
@@ -65,7 +65,6 @@ namespace RaunstrupERP
         {
             ec.DeleteEmployee(id);
         }
-
         public void ConsolePrintAllEmployees()
         {
             ec.ConsolePrintAllEmployees();
