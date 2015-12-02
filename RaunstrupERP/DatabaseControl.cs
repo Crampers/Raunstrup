@@ -14,9 +14,9 @@ namespace RaunstrupERP
 {
     class DatabaseControl
     {
-        SqlConnection conn = new SqlConnection("Data Source=TRANQ-LAPTOP\\TRANQDATABASE;Initial Catalog=RaunstrupERP; Integrated security=true");
+        SqlConnection conn = new SqlConnection("Data Source=SEJRLAPTOP\\SQLSERVER;Initial Catalog=Raunstrup; Integrated security=true");
 
-        public void InsertCustomer(string FN, string SN) 
+        public void InsertCustomer(string FN, string SN)
         {
             string insert = "insert into Customer (FirstName, SurName) values " + "('" + FN + "','" + SN + ")";
 
@@ -45,42 +45,86 @@ namespace RaunstrupERP
             List<CustomerAdress> Adresses = new List<CustomerAdress>();
 
 
+
+
+            string FindCustomer = "select * from Customer where CustomerID = " + CustomerID;
             conn.Open();
-
-            string find = "select c.CustomerID, FirstName, SurName, ca.PostalCode, City, Adress, Number from Customer c join CustomerPhone cp on cp.CustomerID = c.CustomerID join CustomerAdress ca on ca.CustomerID = c.CustomerID join City on City.PostalCode = ca.PostalCode where  c.CustomerID = " + CustomerID;
-
-            SqlCommand com = new SqlCommand(@find, conn);
+            SqlCommand com = new SqlCommand(@FindCustomer, conn);
             SqlDataReader reader = com.ExecuteReader();
             while (reader.Read())
             {
                 FN = reader["FirstName"].ToString();
                 SN = reader["SurName"].ToString();
                 StringID = reader["CustomerID"].ToString();
-                Ad = reader["Adress"].ToString();
-                StringPC = reader["PostalCode"].ToString();
-                StringPhone = reader["Number"].ToString();
-                City = reader["City"].ToString();
-
-                Int32.TryParse(StringID, out ID);
-                Int32.TryParse(StringPC, out PC);
-                Int32.TryParse(StringPhone, out Phone);
-
-                CustomerAdress ca = new CustomerAdress(Ad, PC);
-                PhoneNumbers.Add(Phone);
-                Adresses.Add(ca);
-
             }
-
             conn.Close();
 
-            //fjerner duplikates
-            List<int> PhoneNumbersNoDupes = PhoneNumbers.Distinct().ToList();
-            List<CustomerAdress> AdressesNoDupes = Adresses.Distinct().ToList();                 
-                       
-            cd = new CustomerDBkobling(ID, FN, SN, PhoneNumbersNoDupes, AdressesNoDupes);
+
+            string FindPhone = "select * from CustomerPhone where CustomerID= " + CustomerID;
+            conn.Open();
+            SqlCommand com2 = new SqlCommand(@FindPhone, conn);
+            SqlDataReader reader2 = com2.ExecuteReader();
+            while (reader2.Read())
+            {
+                StringPhone = reader2["Number"].ToString();
+                Int32.TryParse(StringPhone, out Phone);
+                PhoneNumbers.Add(Phone);
+            }
+            conn.Close();
+
+
+            string FindAdress = "select * from CustomerAdress where CustomerID= " + CustomerID;
+            conn.Open();
+            SqlCommand com3 = new SqlCommand(@FindAdress, conn);
+            SqlDataReader reader3 = com3.ExecuteReader();
+            while (reader3.Read())
+            {
+                Ad = reader3["Adress"].ToString();
+                StringPC = reader3["PostalCode"].ToString();
+                Int32.TryParse(StringPC, out PC);
+                CustomerAdress ca = new CustomerAdress(Ad, PC);
+                Adresses.Add(ca);
+            }
+            conn.Close();
+
+
+
+            //string find = "select c.CustomerID, FirstName, SurName, ca.PostalCode, City, Adress, Number from Customer c join CustomerPhone cp on cp.CustomerID = c.CustomerID join CustomerAdress ca on ca.CustomerID = c.CustomerID join City on City.PostalCode = ca.PostalCode where  c.CustomerID = " + CustomerID;
+            //conn.Open();
+            //SqlCommand com = new SqlCommand(@find, conn);
+            //SqlDataReader reader = com.ExecuteReader();
+            //while (reader.Read())
+            //{
+            //    FN = reader["FirstName"].ToString();
+            //    SN = reader["SurName"].ToString();
+            //    StringID = reader["CustomerID"].ToString();
+            //    Ad = reader["Adress"].ToString();
+            //    StringPC = reader["PostalCode"].ToString();
+            //    StringPhone = reader["Number"].ToString();
+            //    City = reader["City"].ToString();
+
+            //    Int32.TryParse(StringID, out ID);
+            //    Int32.TryParse(StringPC, out PC);
+            //    Int32.TryParse(StringPhone, out Phone);
+
+            //    CustomerAdress ca = new CustomerAdress(Ad, PC);
+            //    PhoneNumbers.Add(Phone);
+            //    Adresses.Add(ca);
+
+            //}
+
+            //conn.Close();
+
+            ////fjerner duplikates
+            //List<int> PhoneNumbersNoDupes = PhoneNumbers.Distinct().ToList();
+            //List<CustomerAdress> AdressesNoDupes = Adresses.Distinct().ToList();
+
+           // cd = new CustomerDBkobling(ID, FN, SN, PhoneNumbersNoDupes, AdressesNoDupes);
+
+            cd = new CustomerDBkobling(ID, FN, SN, PhoneNumbers, Adresses);
 
             return cd;
-            
+
         }
         public void SQLQueryHelper(string SQLCommand)
         {
@@ -107,7 +151,7 @@ namespace RaunstrupERP
             {
                 //Console.WriteLine(ex.Message);
                 MessageBox.Show(ex.Message);
-                
+
                 if (transaction == null)
                 {
                     transaction.Rollback();
@@ -133,7 +177,7 @@ namespace RaunstrupERP
             SQLQueryHelper(update);
         }
 
-        public void AlterCustomerAdress(int ID, string OldAdress, string NewAdress, int NewPostalCode) 
+        public void AlterCustomerAdress(int ID, string OldAdress, string NewAdress, int NewPostalCode)
         {
             string update = "update CustomerAdress set Adress= '" + NewAdress + "', PostalCode= '" + NewPostalCode + "' where CustomerID = " + ID + " AND Adress= '" + OldAdress + "'";
             SQLQueryHelper(update);
