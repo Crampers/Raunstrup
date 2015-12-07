@@ -96,6 +96,7 @@ namespace RaunstrupERP
 
             DateTime.TryParse(StringSeniority, out Seniority);
             double.TryParse(StringSalary, out Salary);
+            Int32.TryParse(StringID, out ID);
 
             Employee = new Employee(ID, FN, SN, Seniority, Salary, PhoneNumbers, Adresses);
 
