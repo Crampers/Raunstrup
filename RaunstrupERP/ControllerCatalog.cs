@@ -36,9 +36,9 @@ namespace RaunstrupERP
         {
             return dc.FindCustomer(id);
         }
-        public void CreateCustomer(String FN, String SN)
+        public void CreateCustomer(string FN, string SN, string Adress, int PostalCode, int PhoneNumber)
         {
-            dc.InsertCustomer(FN, SN);
+            dc.InsertCustomer(FN, SN, Adress, PostalCode, PhoneNumber);
         }
 
         /*

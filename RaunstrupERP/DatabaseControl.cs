@@ -14,17 +14,39 @@ namespace RaunstrupERP
 {
     class DatabaseControl
     {
-        SqlConnection conn = new SqlConnection("Data Source=SEJRLAPTOP\\SQLSERVER;Initial Catalog=Raunstrup; Integrated security=true");
+        SqlConnection conn = new SqlConnection("Data Source=TRANQ-LAPTOP\\TRANQDATABASE;Initial Catalog=RaunstrupERP; Integrated security=true");
 
-        public void InsertCustomer(string FN, string SN)
+        public void InsertCustomer(string FN, string SN, string Adress, int PostalCode, int PhoneNumber)
         {
-            string insert = "insert into Customer (FirstName, SurName) values " + "('" + FN + "','" + SN + ")";
-
+            string insertCustomer = "insert into Customer(FirstName, SurName)values('" + FN + "', '" + SN + "')";
             conn.Open();
-            SqlCommand com = new SqlCommand(@insert, conn);
-            com.ExecuteNonQuery();
-
+            SqlCommand com1 = new SqlCommand(@insertCustomer, conn);
+            com1.ExecuteNonQuery();
             conn.Close();
+            int ID = GetNewCustomerID();
+            conn.Open();
+            string insertCustomerAdress = "insert into CustomerAdress(CustomerID, Adress, PostalCode)values(" + ID + ", '" + Adress + "', " + PostalCode + ")";
+            string insertCustomerPhone = "insert into CustomerPhone(CustomerID, Number)values (" + ID + ", " + PhoneNumber + ")";
+            SqlCommand com2 = new SqlCommand(@insertCustomerAdress, conn);
+            SqlCommand com3 = new SqlCommand(@insertCustomerPhone, conn);
+            com2.ExecuteNonQuery();
+            com3.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        private int GetNewCustomerID()
+        {
+            int newID = 0;
+            string FindCustomer = "select IDENT_CURRENT ('Customer') as 'newid'";
+            conn.Open();
+            SqlCommand idFinder = new SqlCommand(FindCustomer, conn);
+            SqlDataReader reader = idFinder.ExecuteReader();
+            while (reader.Read())
+            {
+                newID = Convert.ToInt32(reader["newid"]);
+            }
+            conn.Close();
+            return newID;
         }
 
         public CustomerDBkobling FindCustomer(int CustomerID)

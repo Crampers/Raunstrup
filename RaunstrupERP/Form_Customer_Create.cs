@@ -13,6 +13,7 @@ namespace RaunstrupERP
     public partial class Form_Customer_Create : Form
     {
         ControllerCatalog cc = new ControllerCatalog();
+        int newCustomerID;
         public Form_Customer_Create()
         {
             InitializeComponent();
@@ -20,8 +21,8 @@ namespace RaunstrupERP
 
         private void button_Create_Click(object sender, EventArgs e)
         {
-            cc.CreateCustomer(textBox_FirstName.Text, textBox_SirName.Text);
-            this.Close();
+            cc.CreateCustomer(textBox_FirstName.Text, textBox_SirName.Text, textBox_Adress.Text, Convert.ToInt32(textBox_PostalCode.Text), Convert.ToInt32(textBox_Phone.Text));
+            //this.Close();
         }
     }
 }
