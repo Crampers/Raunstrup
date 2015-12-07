@@ -114,7 +114,7 @@ namespace RaunstrupERP
             conn.Close();
 
 
-
+            
             //string find = "select c.CustomerID, FirstName, SurName, ca.PostalCode, City, Adress, Number from Customer c join CustomerPhone cp on cp.CustomerID = c.CustomerID join CustomerAdress ca on ca.CustomerID = c.CustomerID join City on City.PostalCode = ca.PostalCode where  c.CustomerID = " + CustomerID;
             //conn.Open();
             //SqlCommand com = new SqlCommand(@find, conn);
@@ -146,6 +146,8 @@ namespace RaunstrupERP
             //List<CustomerAdress> AdressesNoDupes = Adresses.Distinct().ToList();
 
            // cd = new CustomerDBkobling(ID, FN, SN, PhoneNumbersNoDupes, AdressesNoDupes);
+
+            Int32.TryParse(StringID, out ID);
 
             cd = new Customer(ID, FN, SN, PhoneNumbers, Adresses);
 

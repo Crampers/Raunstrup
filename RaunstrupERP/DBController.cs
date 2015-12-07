@@ -12,7 +12,7 @@ namespace RaunstrupERP
         //TODO: singletons
 
         //Tilpas denne til din egen database, eneste sted det skal gøres
-        SqlConnection conn = new SqlConnection("Data Source=TRANQ-LAPTOP\\TRANQDATABASE;Initial Catalog=RaunstrupERP; Integrated security=true");
+        SqlConnection conn = new SqlConnection("Data Source=SEJRLAPTOP\\SQLSERVER;Initial Catalog=Raunstrup; Integrated security=true");
 
         public CustomerDB CDB;
         public EmployeeDB EDB;
@@ -20,7 +20,7 @@ namespace RaunstrupERP
         public DBController()
         {
             CDB = new CustomerDB(conn);
-            EDB = new EmployeeDB();
+            EDB = new EmployeeDB(conn);
         }
     }
 }
