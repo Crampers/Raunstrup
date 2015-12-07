@@ -40,7 +40,6 @@ namespace RaunstrupERP
             foreach (CustomerAdress item in cc.FindCustomer(customerID).GetAdresses())
             {
                 comboBox_Adresses.Items.Add(item.GetAdress());
-                comboBox_Adresses.SelectedItem = item.GetAdress();
             }
             
             //Phones
@@ -48,7 +47,6 @@ namespace RaunstrupERP
             foreach (int number in cc.FindCustomer(customerID).getTlf())
             {
                 comboBox_PhoneNumbers.Items.Add(number);
-                comboBox_PhoneNumbers.SelectedItem = number;
             }
         }
         //CURRENT FIX FOR ADRESS
@@ -142,7 +140,6 @@ namespace RaunstrupERP
                 {
                     comboBox_PhoneNumbers.Items.Add(number);
                 }
-                comboBox_PhoneNumbers.SelectedItem = comboBox_PhoneNumbers.Items[0];
             }
         }
         //Create Customer (OPENS NEW WINDOW)
@@ -174,10 +171,14 @@ namespace RaunstrupERP
             else
             {
                 cc.CreateCustomerNumber(customerID, Convert.ToInt32(maskedTextBox_PhoneCreate.Text));
-                cc.FindCustomer(customerID).AddPhone(Convert.ToInt32(maskedTextBox_PhoneCreate.Text));
                 button_AddNumber.Text = "Tilføj";
                 maskedTextBox_PhoneCreate.Visible = false;
                 comboBox_PhoneNumbers.Visible = true;
+                comboBox_PhoneNumbers.Items.Clear();
+                foreach (int number in cc.FindCustomer(customerID).getTlf())
+                {
+                    comboBox_PhoneNumbers.Items.Add(number);
+                }
             }
         }
     }
