@@ -19,6 +19,10 @@ namespace RaunstrupERP
         public Form_Customer_1()
         {
             InitializeComponent();
+            foreach (int code in cc.GetPostalCodes())
+            {
+                comboBox_PostalCodeSelect.Items.Add(code);
+            }
         }
 
         private void button_SearchCustomer_Click(object sender, EventArgs e)
@@ -26,6 +30,7 @@ namespace RaunstrupERP
             button_ToggleEdit.Visible = true;
             panel_Additions.Visible = true;
             textBox_PostalCode.Text = "";
+            textBox_CityName.Text = "";
             customerID = Convert.ToInt32(numericUpDown_CustomerID.Value);
             //currentCustomer = cc.FindCustomer(customerID);
 
@@ -151,12 +156,65 @@ namespace RaunstrupERP
         //EDIT ADRESS
         private void button_EditAdress_Click(object sender, EventArgs e)
         {
-            
+            if (textBox_CreateNewAdress.Visible == false)
+            {
+                button_EditAdress.Text = "Gem";
+                textBox_CreateNewAdress.Visible = true;
+                textBox_CreateNewAdress.Text = comboBox_Adresses.SelectedItem.ToString();
+                textBox_CreateCity.Visible = true;
+                comboBox_PostalCodeSelect.Visible = true;
+                comboBox_Adresses.Visible = false;
+                textBox_PostalCode.Visible = false;
+                textBox_CityName.Visible = false;
+            }
+            else
+            {
+                cc.AlterCustomerAdress(customerID, comboBox_Adresses.SelectedItem.ToString(), textBox_CreateNewAdress.Text, Convert.ToInt32(comboBox_PostalCodeSelect.SelectedItem));
+                button_EditAdress.Text = "Rediger";
+                textBox_CreateNewAdress.Visible = false;
+                textBox_CreateCity.Visible = false;
+                comboBox_PostalCodeSelect.Visible = false;
+                comboBox_Adresses.Visible = true;
+                textBox_PostalCode.Visible = true;
+                textBox_CityName.Visible = true;
+                adressList = cc.FindCustomer(customerID).GetAdresses();
+                comboBox_Adresses.Items.Clear();
+                foreach (CustomerAdress item in cc.FindCustomer(customerID).GetAdresses())
+                {
+                    comboBox_Adresses.Items.Add(item.GetAdress());
+                }
+            }
         }
         //ADD ADDITIONAL ADRESS
         private void button_AddAdress_Click(object sender, EventArgs e)
         {
-
+            if (textBox_CreateNewAdress.Visible == false)
+            {
+                button_AddAdress.Text = "Gem";
+                textBox_CreateNewAdress.Visible = true;
+                textBox_CreateCity.Visible = true;
+                comboBox_PostalCodeSelect.Visible = true;
+                comboBox_Adresses.Visible = false;
+                textBox_PostalCode.Visible = false;
+                textBox_CityName.Visible = false;
+            }
+            else
+            {
+                cc.CreateCustomerAdress(customerID, textBox_CreateNewAdress.Text, Convert.ToInt32(comboBox_PostalCodeSelect.SelectedItem));
+                button_AddAdress.Text = "Tilføj";
+                textBox_CreateNewAdress.Visible = false;
+                textBox_CreateCity.Visible = false;
+                comboBox_PostalCodeSelect.Visible = false;
+                comboBox_Adresses.Visible = true;
+                textBox_PostalCode.Visible = true;
+                textBox_CityName.Visible = true;
+                adressList = cc.FindCustomer(customerID).GetAdresses();
+                comboBox_Adresses.Items.Clear();
+                foreach (CustomerAdress item in cc.FindCustomer(customerID).GetAdresses())
+                {
+                    comboBox_Adresses.Items.Add(item.GetAdress());
+                }
+            }
         }
         //ADD ADDITIONAL NUMBERS
         private void button_AddNumber_Click(object sender, EventArgs e)
@@ -179,6 +237,22 @@ namespace RaunstrupERP
                 {
                     comboBox_PhoneNumbers.Items.Add(number);
                 }
+            }
+        }
+        //SHOW POSTAL CODE CITY NAME
+        private void textBox_PostalCode_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox_PostalCode.Text != "")
+            {
+                textBox_CityName.Text = cc.GetCityName(Convert.ToInt32(textBox_PostalCode.Text));
+            }
+        }
+        //SHOW POSTAL CODE CITY NAME
+        private void comboBox_PostalCodeSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox_PostalCodeSelect.SelectedItem != null)
+            {
+                textBox_CreateCity.Text = cc.GetCityName(Convert.ToInt32(comboBox_PostalCodeSelect.SelectedItem));
             }
         }
     }

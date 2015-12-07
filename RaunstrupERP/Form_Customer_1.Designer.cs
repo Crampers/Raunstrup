@@ -54,6 +54,9 @@
             this.button_AddNumber = new System.Windows.Forms.Button();
             this.button_AddAdress = new System.Windows.Forms.Button();
             this.panel_Additions = new System.Windows.Forms.Panel();
+            this.comboBox_PostalCodeSelect = new System.Windows.Forms.ComboBox();
+            this.textBox_CreateNewAdress = new System.Windows.Forms.TextBox();
+            this.textBox_CreateCity = new System.Windows.Forms.TextBox();
             this.panel_Edit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_CustomerID)).BeginInit();
             this.panel_Additions.SuspendLayout();
@@ -107,17 +110,16 @@
             // label_City
             // 
             this.label_City.AutoSize = true;
-            this.label_City.Location = new System.Drawing.Point(108, 182);
+            this.label_City.Location = new System.Drawing.Point(106, 146);
             this.label_City.Name = "label_City";
             this.label_City.Size = new System.Drawing.Size(43, 13);
             this.label_City.TabIndex = 5;
             this.label_City.Text = "Bynavn";
-            this.label_City.Visible = false;
             // 
             // label_Tlf
             // 
             this.label_Tlf.AutoSize = true;
-            this.label_Tlf.Location = new System.Drawing.Point(105, 145);
+            this.label_Tlf.Location = new System.Drawing.Point(105, 172);
             this.label_Tlf.Name = "label_Tlf";
             this.label_Tlf.Size = new System.Drawing.Size(85, 13);
             this.label_Tlf.TabIndex = 6;
@@ -153,7 +155,7 @@
             // 
             this.comboBox_PhoneNumbers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_PhoneNumbers.FormattingEnabled = true;
-            this.comboBox_PhoneNumbers.Location = new System.Drawing.Point(197, 142);
+            this.comboBox_PhoneNumbers.Location = new System.Drawing.Point(196, 169);
             this.comboBox_PhoneNumbers.Name = "comboBox_PhoneNumbers";
             this.comboBox_PhoneNumbers.Size = new System.Drawing.Size(100, 21);
             this.comboBox_PhoneNumbers.TabIndex = 15;
@@ -170,12 +172,11 @@
             // 
             // textBox_CityName
             // 
-            this.textBox_CityName.Location = new System.Drawing.Point(157, 179);
+            this.textBox_CityName.Location = new System.Drawing.Point(197, 143);
             this.textBox_CityName.Name = "textBox_CityName";
             this.textBox_CityName.ReadOnly = true;
             this.textBox_CityName.Size = new System.Drawing.Size(100, 20);
             this.textBox_CityName.TabIndex = 17;
-            this.textBox_CityName.Visible = false;
             // 
             // textBox_PostalCode
             // 
@@ -184,6 +185,7 @@
             this.textBox_PostalCode.ReadOnly = true;
             this.textBox_PostalCode.Size = new System.Drawing.Size(100, 20);
             this.textBox_PostalCode.TabIndex = 18;
+            this.textBox_PostalCode.TextChanged += new System.EventHandler(this.textBox_PostalCode_TextChanged);
             // 
             // button_EditFName
             // 
@@ -217,7 +219,7 @@
             // 
             // button_EditPhone
             // 
-            this.button_EditPhone.Location = new System.Drawing.Point(3, 109);
+            this.button_EditPhone.Location = new System.Drawing.Point(3, 134);
             this.button_EditPhone.Name = "button_EditPhone";
             this.button_EditPhone.Size = new System.Drawing.Size(75, 23);
             this.button_EditPhone.TabIndex = 24;
@@ -250,7 +252,7 @@
             // 
             // maskedTextBox_PhoneCreate
             // 
-            this.maskedTextBox_PhoneCreate.Location = new System.Drawing.Point(197, 142);
+            this.maskedTextBox_PhoneCreate.Location = new System.Drawing.Point(197, 169);
             this.maskedTextBox_PhoneCreate.Mask = "00000000";
             this.maskedTextBox_PhoneCreate.Name = "maskedTextBox_PhoneCreate";
             this.maskedTextBox_PhoneCreate.Size = new System.Drawing.Size(100, 20);
@@ -281,7 +283,7 @@
             // 
             // button_AddNumber
             // 
-            this.button_AddNumber.Location = new System.Drawing.Point(3, 109);
+            this.button_AddNumber.Location = new System.Drawing.Point(3, 134);
             this.button_AddNumber.Name = "button_AddNumber";
             this.button_AddNumber.Size = new System.Drawing.Size(75, 23);
             this.button_AddNumber.TabIndex = 30;
@@ -309,11 +311,42 @@
             this.panel_Additions.TabIndex = 32;
             this.panel_Additions.Visible = false;
             // 
+            // comboBox_PostalCodeSelect
+            // 
+            this.comboBox_PostalCodeSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_PostalCodeSelect.FormattingEnabled = true;
+            this.comboBox_PostalCodeSelect.Location = new System.Drawing.Point(197, 116);
+            this.comboBox_PostalCodeSelect.Name = "comboBox_PostalCodeSelect";
+            this.comboBox_PostalCodeSelect.Size = new System.Drawing.Size(100, 21);
+            this.comboBox_PostalCodeSelect.TabIndex = 33;
+            this.comboBox_PostalCodeSelect.Visible = false;
+            this.comboBox_PostalCodeSelect.SelectedIndexChanged += new System.EventHandler(this.comboBox_PostalCodeSelect_SelectedIndexChanged);
+            // 
+            // textBox_CreateNewAdress
+            // 
+            this.textBox_CreateNewAdress.Location = new System.Drawing.Point(157, 89);
+            this.textBox_CreateNewAdress.Name = "textBox_CreateNewAdress";
+            this.textBox_CreateNewAdress.Size = new System.Drawing.Size(140, 20);
+            this.textBox_CreateNewAdress.TabIndex = 34;
+            this.textBox_CreateNewAdress.Visible = false;
+            // 
+            // textBox_CreateCity
+            // 
+            this.textBox_CreateCity.Location = new System.Drawing.Point(197, 143);
+            this.textBox_CreateCity.Name = "textBox_CreateCity";
+            this.textBox_CreateCity.ReadOnly = true;
+            this.textBox_CreateCity.Size = new System.Drawing.Size(100, 20);
+            this.textBox_CreateCity.TabIndex = 35;
+            this.textBox_CreateCity.Visible = false;
+            // 
             // Form_Customer_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(588, 252);
+            this.ClientSize = new System.Drawing.Size(399, 244);
+            this.Controls.Add(this.textBox_CreateCity);
+            this.Controls.Add(this.textBox_CreateNewAdress);
+            this.Controls.Add(this.comboBox_PostalCodeSelect);
             this.Controls.Add(this.panel_Additions);
             this.Controls.Add(this.numericUpDown_CustomerID);
             this.Controls.Add(this.panel_Edit);
@@ -334,8 +367,11 @@
             this.Controls.Add(this.label_SirName);
             this.Controls.Add(this.label_Firstname);
             this.Controls.Add(this.label_Id);
+            this.MinimizeBox = false;
             this.Name = "Form_Customer_1";
-            this.Text = "Form_Customer_1";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Søg Kunde";
             this.panel_Edit.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_CustomerID)).EndInit();
             this.panel_Additions.ResumeLayout(false);
@@ -372,5 +408,8 @@
         private System.Windows.Forms.Button button_AddNumber;
         private System.Windows.Forms.Button button_AddAdress;
         private System.Windows.Forms.Panel panel_Additions;
+        private System.Windows.Forms.ComboBox comboBox_PostalCodeSelect;
+        private System.Windows.Forms.TextBox textBox_CreateNewAdress;
+        private System.Windows.Forms.TextBox textBox_CreateCity;
     }
 }

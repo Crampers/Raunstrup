@@ -32,6 +32,16 @@ namespace RaunstrupERP
         /*
          * DatabaseControl Calls
          */
+         // GET POSTALS LIST
+        public List<int> GetPostalCodes()
+        {
+            return dbc.CDB.GetPostalCodes();
+        }
+        // GET CITY NAME
+        public string GetCityName(int PostalCode)
+        {
+            return dbc.CDB.GetCityName(PostalCode);
+        }
         // CUSTOMER CALLS
         // READ
         public Customer FindCustomer(int id)
@@ -63,6 +73,10 @@ namespace RaunstrupERP
         public void CreateCustomerNumber(int CustomerID, int NewNumber)
         {
             dbc.CDB.CreateCustomerPhone(CustomerID, NewNumber);
+        }
+        public void CreateCustomerAdress(int id, string NewAdress, int NewPostalCode)
+        {
+            dbc.CDB.CreateCustomerAdress(id, NewAdress, NewPostalCode);
         }
 
         /*

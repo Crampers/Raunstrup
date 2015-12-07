@@ -38,6 +38,36 @@ namespace RaunstrupERP
             conn.Close();
         }
 
+        public List<int> GetPostalCodes()
+        {
+            List<int> postalCodes = new List<int>();
+            string select = "select * from City";
+            SqlCommand comSelect = new SqlCommand(select, conn);
+            conn.Open();
+            SqlDataReader reader = comSelect.ExecuteReader();
+            while (reader.Read())
+            {
+                postalCodes.Add(Convert.ToInt32(reader["PostalCode"]));
+            }
+            conn.Close();
+            return postalCodes;
+        }
+
+        public string GetCityName(int PostalCode)
+        {
+            string name = "";
+            string select = "select * from City where PostalCode = " + PostalCode;
+            SqlCommand comSelect = new SqlCommand(select, conn);
+            conn.Open();
+            SqlDataReader reader = comSelect.ExecuteReader();
+            while (reader.Read())
+            {
+                name = reader["City"].ToString();
+            }
+            conn.Close();
+            return name;
+        }
+
         private int FindNewCustomerID()
         {
             int newID = 0;
@@ -243,7 +273,7 @@ namespace RaunstrupERP
         }
         public void CreateCustomerAdress(int ID, string NewAdress, int NewPostalCode)
         {
-            string update = "insert into EmployeeAdress (EmployeeID, Adress, PostalCode) values (" + ID + ", '" + NewAdress + "', " + NewPostalCode + ")";
+            string update = "insert into CustomerAdress(CustomerID, Adress, PostalCode)values("+ ID +", '" + NewAdress + "', " + NewPostalCode + ")";
             SQLQueryHelper(update);
         }
 

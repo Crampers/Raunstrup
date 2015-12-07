@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox_PostalCode = new System.Windows.Forms.TextBox();
             this.textBox_CityName = new System.Windows.Forms.TextBox();
             this.textBox_SirName = new System.Windows.Forms.TextBox();
             this.textBox_FirstName = new System.Windows.Forms.TextBox();
@@ -41,22 +40,16 @@
             this.textBox_Adress = new System.Windows.Forms.TextBox();
             this.textBox_Phone = new System.Windows.Forms.TextBox();
             this.button_Create = new System.Windows.Forms.Button();
+            this.comboBox_SelectPostal = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // textBox_PostalCode
-            // 
-            this.textBox_PostalCode.Location = new System.Drawing.Point(104, 112);
-            this.textBox_PostalCode.Name = "textBox_PostalCode";
-            this.textBox_PostalCode.Size = new System.Drawing.Size(100, 20);
-            this.textBox_PostalCode.TabIndex = 28;
             // 
             // textBox_CityName
             // 
-            this.textBox_CityName.Location = new System.Drawing.Point(104, 85);
+            this.textBox_CityName.Location = new System.Drawing.Point(104, 111);
             this.textBox_CityName.Name = "textBox_CityName";
+            this.textBox_CityName.ReadOnly = true;
             this.textBox_CityName.Size = new System.Drawing.Size(100, 20);
             this.textBox_CityName.TabIndex = 27;
-            this.textBox_CityName.Visible = false;
             // 
             // textBox_SirName
             // 
@@ -84,17 +77,16 @@
             // label_City
             // 
             this.label_City.AutoSize = true;
-            this.label_City.Location = new System.Drawing.Point(13, 88);
+            this.label_City.Location = new System.Drawing.Point(13, 114);
             this.label_City.Name = "label_City";
             this.label_City.Size = new System.Drawing.Size(43, 13);
             this.label_City.TabIndex = 23;
             this.label_City.Text = "Bynavn";
-            this.label_City.Visible = false;
             // 
             // label_PostalCode
             // 
             this.label_PostalCode.AutoSize = true;
-            this.label_PostalCode.Location = new System.Drawing.Point(13, 115);
+            this.label_PostalCode.Location = new System.Drawing.Point(13, 88);
             this.label_PostalCode.Name = "label_PostalCode";
             this.label_PostalCode.Size = new System.Drawing.Size(65, 13);
             this.label_PostalCode.TabIndex = 22;
@@ -151,15 +143,25 @@
             this.button_Create.UseVisualStyleBackColor = true;
             this.button_Create.Click += new System.EventHandler(this.button_Create_Click);
             // 
+            // comboBox_SelectPostal
+            // 
+            this.comboBox_SelectPostal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_SelectPostal.FormattingEnabled = true;
+            this.comboBox_SelectPostal.Location = new System.Drawing.Point(104, 84);
+            this.comboBox_SelectPostal.Name = "comboBox_SelectPostal";
+            this.comboBox_SelectPostal.Size = new System.Drawing.Size(100, 21);
+            this.comboBox_SelectPostal.TabIndex = 32;
+            this.comboBox_SelectPostal.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectPostal_SelectedIndexChanged);
+            // 
             // Form_Customer_Create
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(710, 378);
+            this.ClientSize = new System.Drawing.Size(268, 250);
+            this.Controls.Add(this.comboBox_SelectPostal);
             this.Controls.Add(this.button_Create);
             this.Controls.Add(this.textBox_Phone);
             this.Controls.Add(this.textBox_Adress);
-            this.Controls.Add(this.textBox_PostalCode);
             this.Controls.Add(this.textBox_CityName);
             this.Controls.Add(this.textBox_SirName);
             this.Controls.Add(this.textBox_FirstName);
@@ -177,8 +179,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox_PostalCode;
         private System.Windows.Forms.TextBox textBox_CityName;
         private System.Windows.Forms.TextBox textBox_SirName;
         private System.Windows.Forms.TextBox textBox_FirstName;
@@ -191,5 +191,6 @@
         private System.Windows.Forms.TextBox textBox_Adress;
         private System.Windows.Forms.TextBox textBox_Phone;
         private System.Windows.Forms.Button button_Create;
+        private System.Windows.Forms.ComboBox comboBox_SelectPostal;
     }
 }
