@@ -26,7 +26,7 @@ namespace RaunstrupERP
             button_ToggleEdit.Visible = true;
             panel_Additions.Visible = true;
             textBox_PostalCode.Text = "";
-            customerID = Convert.ToInt32(numericUpDown_CustomerID.Text);
+            customerID = Convert.ToInt32(numericUpDown_CustomerID.Value);
             //currentCustomer = cc.FindCustomer(customerID);
 
             //FirstName
@@ -100,7 +100,7 @@ namespace RaunstrupERP
             else
             {
                 button_EditFName.Text = "Rediger";
-                cc.FindCustomer(customerID).AlterFirstName(textBox_FirstName.Text);
+                cc.AlterCustomerFirstName(customerID, textBox_FirstName.Text);
                 textBox_FirstName.ReadOnly = true;
             }
         }
@@ -116,7 +116,7 @@ namespace RaunstrupERP
             else
             {
                 button_EditSurName.Text = "Rediger";
-                cc.FindCustomer(customerID).AlterSurname(textBox_SirName.Text);
+                cc.AlterCustomerSurName(customerID, textBox_SirName.Text);
                 textBox_SirName.ReadOnly = true;
             }
         }
@@ -132,7 +132,7 @@ namespace RaunstrupERP
             }
             else
             {
-                cc.FindCustomer(customerID).AlterPhone(Convert.ToInt32(comboBox_PhoneNumbers.SelectedItem), Convert.ToInt32(maskedTextBox_PhoneCreate.Text));
+                cc.AlterCustomerNumber(customerID, Convert.ToInt32(comboBox_PhoneNumbers.SelectedItem), Convert.ToInt32(maskedTextBox_PhoneCreate.Text));
                 button_EditPhone.Text = "Rediger";
                 maskedTextBox_PhoneCreate.Visible = false;
                 comboBox_PhoneNumbers.Visible = true;
@@ -173,6 +173,7 @@ namespace RaunstrupERP
             }
             else
             {
+                cc.CreateCustomerNumber(customerID, Convert.ToInt32(maskedTextBox_PhoneCreate.Text));
                 cc.FindCustomer(customerID).AddPhone(Convert.ToInt32(maskedTextBox_PhoneCreate.Text));
                 button_AddNumber.Text = "Tilføj";
                 maskedTextBox_PhoneCreate.Visible = false;

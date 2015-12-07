@@ -12,7 +12,7 @@ namespace RaunstrupERP
         //transaction
 
         private DBController DBC = new DBController();
-        public readonly int CustomerId;
+        public int CustomerId;
         private string FirstName;
         private string Surname;
         private List<int> PhoneNumbers;
