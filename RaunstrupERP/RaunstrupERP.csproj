@@ -63,11 +63,14 @@
     <Compile Include="CustomerAdress.cs" />
     <Compile Include="CustomerCatalog.cs" />
     <Compile Include="CustomerCatalog_Singleton.cs" />
-    <Compile Include="CustomerDBkobling.cs" />
+    <Compile Include="Customer.cs" />
     <Compile Include="CustomerDescription.cs" />
-    <Compile Include="DatabaseControl.cs" />
+    <Compile Include="CustomerDB.cs" />
+    <Compile Include="DBController.cs" />
+    <Compile Include="Employee.cs" />
     <Compile Include="EmployeeCatalog.cs" />
     <Compile Include="EmployeeCatalog_Singleton.cs" />
+    <Compile Include="EmployeeDB.cs" />
     <Compile Include="EmployeeDescription.cs" />
     <Compile Include="Form_Customer_1.cs">
       <SubType>Form</SubType>

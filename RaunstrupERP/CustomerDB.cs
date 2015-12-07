@@ -7,51 +7,33 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 
 
-//TODO: transaction
+//TODO: transaction i FindCustomer?
+//TODO: singleton
 
 
 namespace RaunstrupERP
 {
-    class DatabaseControl
+    public class CustomerDB
     {
-        SqlConnection conn = new SqlConnection("Data Source=TRANQ-LAPTOP\\TRANQDATABASE;Initial Catalog=RaunstrupERP; Integrated security=true");
-
-        public void InsertCustomer(string FN, string SN, string Adress, int PostalCode, int PhoneNumber)
+        SqlConnection conn;
+        public CustomerDB(SqlConnection sqlC)
         {
-            string insertCustomer = "insert into Customer(FirstName, SurName)values('" + FN + "', '" + SN + "')";
+            conn = sqlC;
+        }
+        public void InsertCustomer(string FN, string SN)
+        {
+            string insert = "insert into Customer (FirstName, SurName) values " + "('" + FN + "','" + SN + ")";
+
             conn.Open();
-            SqlCommand com1 = new SqlCommand(@insertCustomer, conn);
-            com1.ExecuteNonQuery();
-            conn.Close();
-            int ID = GetNewCustomerID();
-            conn.Open();
-            string insertCustomerAdress = "insert into CustomerAdress(CustomerID, Adress, PostalCode)values(" + ID + ", '" + Adress + "', " + PostalCode + ")";
-            string insertCustomerPhone = "insert into CustomerPhone(CustomerID, Number)values (" + ID + ", " + PhoneNumber + ")";
-            SqlCommand com2 = new SqlCommand(@insertCustomerAdress, conn);
-            SqlCommand com3 = new SqlCommand(@insertCustomerPhone, conn);
-            com2.ExecuteNonQuery();
-            com3.ExecuteNonQuery();
+            SqlCommand com = new SqlCommand(@insert, conn);
+            com.ExecuteNonQuery();
+
             conn.Close();
         }
 
-        private int GetNewCustomerID()
+        public Customer FindCustomer(int CustomerID)
         {
-            int newID = 0;
-            string FindCustomer = "select IDENT_CURRENT ('Customer') as 'newid'";
-            conn.Open();
-            SqlCommand idFinder = new SqlCommand(FindCustomer, conn);
-            SqlDataReader reader = idFinder.ExecuteReader();
-            while (reader.Read())
-            {
-                newID = Convert.ToInt32(reader["newid"]);
-            }
-            conn.Close();
-            return newID;
-        }
-
-        public CustomerDBkobling FindCustomer(int CustomerID)
-        {
-            CustomerDBkobling cd;
+            Customer cd;
             string FN = "";
             string SN = "";
             string Ad = "";
@@ -143,7 +125,7 @@ namespace RaunstrupERP
 
            // cd = new CustomerDBkobling(ID, FN, SN, PhoneNumbersNoDupes, AdressesNoDupes);
 
-            cd = new CustomerDBkobling(ID, FN, SN, PhoneNumbers, Adresses);
+            cd = new Customer(ID, FN, SN, PhoneNumbers, Adresses);
 
             return cd;
 

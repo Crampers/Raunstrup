@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace RaunstrupERP
 {
-    public class CustomerDBkobling
+    public class Customer
     {
         //TODO: 
         //transaction
 
-        private DatabaseControl dbc = new DatabaseControl();
+        private DBController DBC = new DBController();
         public readonly int CustomerId;
         private string FirstName;
         private string Surname;
@@ -19,7 +19,7 @@ namespace RaunstrupERP
         private List<CustomerAdress> Adresses;
 
 
-        public CustomerDBkobling(int ID, string FN, string SN, List<int> PN, List<CustomerAdress> A)
+        public Customer(int ID, string FN, string SN, List<int> PN, List<CustomerAdress> A)
         {
             CustomerId = ID;
             FirstName = FN;
@@ -63,13 +63,13 @@ namespace RaunstrupERP
         public void AddPhone(int Number)
         {
             PhoneNumbers.Add(Number);
-            dbc.CreateCustomerPhone(CustomerId, Number);
+            DBC.CDB.CreateCustomerPhone(CustomerId, Number);
         }
         public void AddAdress(string NewAdress, int NewPostalCode)
         {
             CustomerAdress Adress = new CustomerAdress(NewAdress, NewPostalCode);
             Adresses.Add(Adress);
-            dbc.CreateCustomerAdress(CustomerId, NewAdress, NewPostalCode);
+            DBC.CDB.CreateCustomerAdress(CustomerId, NewAdress, NewPostalCode);
 
         }
 
@@ -79,12 +79,12 @@ namespace RaunstrupERP
         public void AlterFirstName(string fn)
         {
             FirstName = fn;
-            dbc.AlterCustomerFirstName(CustomerId, fn);
+            DBC.CDB.AlterCustomerFirstName(CustomerId, fn);
         }
         public void AlterSurname(string sn)
         {
             Surname = sn;
-            dbc.AlterCustomerSurName(CustomerId, sn);
+            DBC.CDB.AlterCustomerSurName(CustomerId, sn);
         }
         public void AlterAdress(string PreviusAdress, string newAdress, int NewPostalCode)
         {
@@ -96,7 +96,7 @@ namespace RaunstrupERP
                     Adresses[i].AlterPostalCode(NewPostalCode);
                 }
             }
-            dbc.AlterCustomerAdress(CustomerId, PreviusAdress, newAdress, NewPostalCode);
+            DBC.CDB.AlterCustomerAdress(CustomerId, PreviusAdress, newAdress, NewPostalCode);
         }
         public void AlterPhone(int OldNumber, int NewNumber)
         {
@@ -105,7 +105,7 @@ namespace RaunstrupERP
                 if (PhoneNumbers[i] == OldNumber)
                 {
                     PhoneNumbers[i] = NewNumber;
-                    dbc.AlterCustomerPhoneNumber(CustomerId, OldNumber, NewNumber);
+                    DBC.CDB.AlterCustomerPhoneNumber(CustomerId, OldNumber, NewNumber);
                 }
             }
         }
