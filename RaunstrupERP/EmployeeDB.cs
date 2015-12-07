@@ -42,6 +42,8 @@ namespace RaunstrupERP
             string StringSalary = "";
             DateTime Seniority;
             string StringSeniority = "";
+            string Profesion = "";
+            bool SaleEmployee = false;
 
             List<int> PhoneNumbers = new List<int>();
             List<EmployeeAdress> Adresses = new List<EmployeeAdress>();
@@ -92,12 +94,32 @@ namespace RaunstrupERP
             }
             conn.Close();
 
+            string FindCraftsman = "select * from CraftsmanEmployee where EmployeeID= " + EmployeeID;
+            conn.Open();
+            SqlCommand com4 = new SqlCommand(@FindAdress, conn);
+            SqlDataReader reader4 = com4.ExecuteReader();
+            while (reader4.Read())
+            {
+                Profesion = reader4["Profesion"].ToString();
+            }
+            conn.Close();
+
+            string FindSalesman = "select * from SalesEmployee where EmployeeID= " + EmployeeID;
+            conn.Open();
+            SqlCommand com5 = new SqlCommand(@FindAdress, conn);
+            SqlDataReader reader5 = com5.ExecuteReader();
+            while (reader5.Read())
+            {
+                SaleEmployee = true;
+            }
+            conn.Close();
+
 
             DateTime.TryParse(StringSeniority, out Seniority);
             double.TryParse(StringSalary, out Salary);
             Int32.TryParse(StringID, out ID);
 
-            Employee = new Employee(ID, FN, SN, Seniority, Salary, PhoneNumbers, Adresses);
+            Employee = new Employee(ID, FN, SN, Seniority, Salary, PhoneNumbers, Adresses, SaleEmployee, Profesion);
 
             return Employee;
 
@@ -132,6 +154,12 @@ namespace RaunstrupERP
         }
 
         //Alter
+        public void AlterEmployeeCraftsman(int ID, string NewProfesion)
+        {
+            string update = "update CraftsmanEmployee set Profesion= '" + NewProfesion + "' where EmployeeID = " + ID;
+            SQLQueryHelper(update);
+        }
+
         public void AlterEmployeeFirstName(int ID, string NewName)
         {
             string update = "update Employee set FirstName= '" + NewName + "' where EmployeeID = " + ID;
@@ -167,7 +195,16 @@ namespace RaunstrupERP
 
 
         //Delete 
-
+        public void DeleteCraftsmanEmployee(int ID)
+        {
+            string update = "delete from CraftsmanEmployee where EmployeeID = " + ID + "'";
+            SQLQueryHelper(update);
+        }
+        public void DeleteSalesman(int ID)
+        {
+            string update = "delete from SalesEmployee where EmployeeID = " + ID + "'";
+            SQLQueryHelper(update);
+        }
         public void DeleteEmployeeAdress(int ID, string OldAdress)
         {
             string update = "delete from EmployeeAdress where EmployeeID = " + ID + " AND Adress= '" + OldAdress + "'";
@@ -180,6 +217,16 @@ namespace RaunstrupERP
         }
 
         //Create
+        public void CreateCraftsmanEmployee(int ID, string Profesion)
+        {
+            string update = "insert into CraftsmanEmployeePhone (EmployeeID, Profesion) values (" + ID + ", " + Profesion + ")";
+            SQLQueryHelper(update);
+        }
+        public void CreateSalesEmployee(int ID)
+        {
+            string update = "insert into SalesEmployee (EmployeeID) values (" + ID + ")";
+            SQLQueryHelper(update);
+        }
         public void CreateEmployeePhone(int ID, int NewNumber)
         {
             string update = "insert into EmployeePhone (EmployeeID, Number) values (" + ID + ", " + NewNumber + ")";

@@ -19,8 +19,10 @@ namespace RaunstrupERP
         private List<EmployeeAdress> Adresses;
         private DateTime Seniority;
         private double Salary;
+        private string Profesion;
+        private bool Salesman;
 
-        public Employee(int ID, string FN, string SN, DateTime seniority, double salary, List<int> PN, List<EmployeeAdress> A)
+        public Employee(int ID, string FN, string SN, DateTime seniority, double salary, List<int> PN, List<EmployeeAdress> A, bool SaleEmployee, string prof)
         {
             EmployeeId = ID;
             FirstName = FN;
@@ -29,11 +31,22 @@ namespace RaunstrupERP
             Adresses = A;
             Seniority = seniority;
             Salary = salary;
+            Salesman = SaleEmployee;
+            Profesion = prof;
 
         }
 
 
         // Get
+
+        public bool GetSalesman()
+        {
+            return Salesman;
+        }
+        public string GetProfesion()
+        {
+            return Profesion;
+        }
         public int GetID()
         {
             return EmployeeId;
@@ -67,6 +80,16 @@ namespace RaunstrupERP
 
 
         //Add
+        public void AddAsSalesman()
+        {
+            Salesman = true;
+            DBC.EDB.CreateSalesEmployee(EmployeeId);
+        }
+        public void AddCraftsMan(string profesion)
+        {
+            Profesion = profesion;
+            DBC.EDB.CreateCraftsmanEmployee(EmployeeId, profesion);
+        }
         public void AddPhone(int Number)
         {
             PhoneNumbers.Add(Number);
@@ -83,6 +106,11 @@ namespace RaunstrupERP
 
 
         //Alter
+        public void AlterCraftsmanProfesion(string profesion)
+        {
+            Profesion = profesion;
+            DBC.EDB.AlterEmployeeCraftsman(EmployeeId, profesion);
+        }     
         public void AlterFirstName(string fn)
         {
             FirstName = fn;

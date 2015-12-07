@@ -149,6 +149,7 @@
     <Compile Include="ItemCatalog_Singleton.cs" />
     <Compile Include="ItemDescription.cs" />
     <Compile Include="ItemLine.cs" />
+    <Compile Include="Offer.cs" />
     <Compile Include="OfferCatalog.cs" />
     <Compile Include="OfferCatalog_Singleton.cs" />
     <Compile Include="OfferDescription.cs" />

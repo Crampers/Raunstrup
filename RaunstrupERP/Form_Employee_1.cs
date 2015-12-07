@@ -195,7 +195,7 @@ namespace RaunstrupERP
                 comboBox_Adresses.Items.Add(adress.GetAdress());
             }
             textBox_Salary.Text = cc.FindEmployee(EmployeeID).GetSalary().ToString();
-            textBox_Special.Text = cc.FindCustomer(EmployeeID).getsp
+       //     textBox_Special.Text = cc.FindCustomer(EmployeeID).getsp
         }
     }
 }
