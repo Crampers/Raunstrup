@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace RaunstrupERP
 {
-    class DatabaseControl
+    class CustomerDB
     {
         SqlConnection conn = new SqlConnection("Data Source=SEJRLAPTOP\\SQLSERVER;Initial Catalog=Raunstrup; Integrated security=true");
 
@@ -27,9 +27,9 @@ namespace RaunstrupERP
             conn.Close();
         }
 
-        public CustomerDBkobling FindCustomer(int CustomerID)
+        public Customer FindCustomer(int CustomerID)
         {
-            CustomerDBkobling cd;
+            Customer cd;
             string FN = "";
             string SN = "";
             string Ad = "";
@@ -121,7 +121,7 @@ namespace RaunstrupERP
 
            // cd = new CustomerDBkobling(ID, FN, SN, PhoneNumbersNoDupes, AdressesNoDupes);
 
-            cd = new CustomerDBkobling(ID, FN, SN, PhoneNumbers, Adresses);
+            cd = new Customer(ID, FN, SN, PhoneNumbers, Adresses);
 
             return cd;
 

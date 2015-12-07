@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace RaunstrupERP
 {
-    public class CustomerDBkobling
+    public class Customer
     {
         //TODO: 
         //transaction
 
-        private DatabaseControl dbc = new DatabaseControl();
+        private CustomerDB dbc = new CustomerDB();
         public readonly int CustomerId;
         private string FirstName;
         private string Surname;
@@ -19,7 +19,7 @@ namespace RaunstrupERP
         private List<CustomerAdress> Adresses;
 
 
-        public CustomerDBkobling(int ID, string FN, string SN, List<int> PN, List<CustomerAdress> A)
+        public Customer(int ID, string FN, string SN, List<int> PN, List<CustomerAdress> A)
         {
             CustomerId = ID;
             FirstName = FN;

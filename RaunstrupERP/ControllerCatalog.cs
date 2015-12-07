@@ -8,7 +8,7 @@ namespace RaunstrupERP
 {
     class ControllerCatalog
     {
-        private DatabaseControl dc;
+        private CustomerDB dc;
         private EmployeeCatalog ec;
         private TaskCatalog tc;
         private OrderCatalog oc;
@@ -18,7 +18,7 @@ namespace RaunstrupERP
 
         public ControllerCatalog()
         {
-            dc = new DatabaseControl();
+            dc = new CustomerDB();
             ec = new EmployeeCatalog();
             tc = new TaskCatalog();
             oc = new OrderCatalog();
@@ -32,7 +32,7 @@ namespace RaunstrupERP
         /*
          * DatabaseControl Calls
          */
-        public CustomerDBkobling FindCustomer(int id)
+        public Customer FindCustomer(int id)
         {
             return dc.FindCustomer(id);
         }
