@@ -324,7 +324,7 @@
             // 
             // textBox_CreateNewAdress
             // 
-            this.textBox_CreateNewAdress.Location = new System.Drawing.Point(157, 89);
+            this.textBox_CreateNewAdress.Location = new System.Drawing.Point(156, 89);
             this.textBox_CreateNewAdress.Name = "textBox_CreateNewAdress";
             this.textBox_CreateNewAdress.Size = new System.Drawing.Size(140, 20);
             this.textBox_CreateNewAdress.TabIndex = 34;

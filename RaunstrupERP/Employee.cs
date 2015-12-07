@@ -38,6 +38,10 @@ namespace RaunstrupERP
         {
             return EmployeeId;
         }
+        public Double GetSalary()
+        {
+            return Salary;
+        }
         public String GetFullName()
         {
             String Fullname = FirstName + " " + Surname;

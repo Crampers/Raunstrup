@@ -37,15 +37,12 @@
             this.label_Phone = new System.Windows.Forms.Label();
             this.label_Salary = new System.Windows.Forms.Label();
             this.label_Special = new System.Windows.Forms.Label();
-            this.textBox_Id = new System.Windows.Forms.TextBox();
             this.textBox_FirstName = new System.Windows.Forms.TextBox();
             this.textBox_SirName = new System.Windows.Forms.TextBox();
-            this.textBox_Adress = new System.Windows.Forms.TextBox();
             this.textBox_PostalCode = new System.Windows.Forms.TextBox();
             this.textBox_City = new System.Windows.Forms.TextBox();
             this.textBox_Phone = new System.Windows.Forms.TextBox();
             this.textBox_Salary = new System.Windows.Forms.TextBox();
-            this.listBox_EmployeesSelect = new System.Windows.Forms.ListBox();
             this.textBox_Special = new System.Windows.Forms.TextBox();
             this.button_Create = new System.Windows.Forms.Button();
             this.button_EditFName = new System.Windows.Forms.Button();
@@ -62,14 +59,17 @@
             this.maskedTextBox_PhoneEdit = new System.Windows.Forms.MaskedTextBox();
             this.numericUpDown_EditSalary = new System.Windows.Forms.NumericUpDown();
             this.comboBox_SpecialEdit = new System.Windows.Forms.ComboBox();
+            this.numericUpDown_CustomerID = new System.Windows.Forms.NumericUpDown();
+            this.comboBox_Adresses = new System.Windows.Forms.ComboBox();
             this.panel_edit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_EditSalary)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_CustomerID)).BeginInit();
             this.SuspendLayout();
             // 
             // label_Id
             // 
             this.label_Id.AutoSize = true;
-            this.label_Id.Location = new System.Drawing.Point(285, 12);
+            this.label_Id.Location = new System.Drawing.Point(12, 9);
             this.label_Id.Name = "label_Id";
             this.label_Id.Size = new System.Drawing.Size(16, 13);
             this.label_Id.TabIndex = 0;
@@ -78,7 +78,7 @@
             // label_FirstName
             // 
             this.label_FirstName.AutoSize = true;
-            this.label_FirstName.Location = new System.Drawing.Point(282, 38);
+            this.label_FirstName.Location = new System.Drawing.Point(9, 35);
             this.label_FirstName.Name = "label_FirstName";
             this.label_FirstName.Size = new System.Drawing.Size(46, 13);
             this.label_FirstName.TabIndex = 1;
@@ -87,7 +87,7 @@
             // label_SirName
             // 
             this.label_SirName.AutoSize = true;
-            this.label_SirName.Location = new System.Drawing.Point(282, 64);
+            this.label_SirName.Location = new System.Drawing.Point(9, 61);
             this.label_SirName.Name = "label_SirName";
             this.label_SirName.Size = new System.Drawing.Size(53, 13);
             this.label_SirName.TabIndex = 2;
@@ -96,7 +96,7 @@
             // label_Adress
             // 
             this.label_Adress.AutoSize = true;
-            this.label_Adress.Location = new System.Drawing.Point(282, 90);
+            this.label_Adress.Location = new System.Drawing.Point(9, 87);
             this.label_Adress.Name = "label_Adress";
             this.label_Adress.Size = new System.Drawing.Size(45, 13);
             this.label_Adress.TabIndex = 3;
@@ -105,7 +105,7 @@
             // label_PostalCode
             // 
             this.label_PostalCode.AutoSize = true;
-            this.label_PostalCode.Location = new System.Drawing.Point(282, 116);
+            this.label_PostalCode.Location = new System.Drawing.Point(9, 113);
             this.label_PostalCode.Name = "label_PostalCode";
             this.label_PostalCode.Size = new System.Drawing.Size(65, 13);
             this.label_PostalCode.TabIndex = 4;
@@ -114,7 +114,7 @@
             // label_City
             // 
             this.label_City.AutoSize = true;
-            this.label_City.Location = new System.Drawing.Point(282, 142);
+            this.label_City.Location = new System.Drawing.Point(9, 139);
             this.label_City.Name = "label_City";
             this.label_City.Size = new System.Drawing.Size(43, 13);
             this.label_City.TabIndex = 5;
@@ -123,7 +123,7 @@
             // label_Phone
             // 
             this.label_Phone.AutoSize = true;
-            this.label_Phone.Location = new System.Drawing.Point(282, 168);
+            this.label_Phone.Location = new System.Drawing.Point(9, 165);
             this.label_Phone.Name = "label_Phone";
             this.label_Phone.Size = new System.Drawing.Size(43, 13);
             this.label_Phone.TabIndex = 6;
@@ -132,7 +132,7 @@
             // label_Salary
             // 
             this.label_Salary.AutoSize = true;
-            this.label_Salary.Location = new System.Drawing.Point(282, 194);
+            this.label_Salary.Location = new System.Drawing.Point(9, 191);
             this.label_Salary.Name = "label_Salary";
             this.label_Salary.Size = new System.Drawing.Size(25, 13);
             this.label_Salary.TabIndex = 7;
@@ -141,23 +141,15 @@
             // label_Special
             // 
             this.label_Special.AutoSize = true;
-            this.label_Special.Location = new System.Drawing.Point(282, 220);
+            this.label_Special.Location = new System.Drawing.Point(9, 217);
             this.label_Special.Name = "label_Special";
             this.label_Special.Size = new System.Drawing.Size(48, 13);
             this.label_Special.TabIndex = 8;
             this.label_Special.Text = "Speciale";
             // 
-            // textBox_Id
-            // 
-            this.textBox_Id.Location = new System.Drawing.Point(353, 9);
-            this.textBox_Id.Name = "textBox_Id";
-            this.textBox_Id.ReadOnly = true;
-            this.textBox_Id.Size = new System.Drawing.Size(100, 20);
-            this.textBox_Id.TabIndex = 9;
-            // 
             // textBox_FirstName
             // 
-            this.textBox_FirstName.Location = new System.Drawing.Point(353, 35);
+            this.textBox_FirstName.Location = new System.Drawing.Point(80, 32);
             this.textBox_FirstName.Name = "textBox_FirstName";
             this.textBox_FirstName.ReadOnly = true;
             this.textBox_FirstName.Size = new System.Drawing.Size(100, 20);
@@ -165,23 +157,15 @@
             // 
             // textBox_SirName
             // 
-            this.textBox_SirName.Location = new System.Drawing.Point(353, 61);
+            this.textBox_SirName.Location = new System.Drawing.Point(80, 58);
             this.textBox_SirName.Name = "textBox_SirName";
             this.textBox_SirName.ReadOnly = true;
             this.textBox_SirName.Size = new System.Drawing.Size(100, 20);
             this.textBox_SirName.TabIndex = 11;
             // 
-            // textBox_Adress
-            // 
-            this.textBox_Adress.Location = new System.Drawing.Point(353, 87);
-            this.textBox_Adress.Name = "textBox_Adress";
-            this.textBox_Adress.ReadOnly = true;
-            this.textBox_Adress.Size = new System.Drawing.Size(100, 20);
-            this.textBox_Adress.TabIndex = 12;
-            // 
             // textBox_PostalCode
             // 
-            this.textBox_PostalCode.Location = new System.Drawing.Point(353, 113);
+            this.textBox_PostalCode.Location = new System.Drawing.Point(80, 110);
             this.textBox_PostalCode.Name = "textBox_PostalCode";
             this.textBox_PostalCode.ReadOnly = true;
             this.textBox_PostalCode.Size = new System.Drawing.Size(100, 20);
@@ -189,7 +173,7 @@
             // 
             // textBox_City
             // 
-            this.textBox_City.Location = new System.Drawing.Point(353, 139);
+            this.textBox_City.Location = new System.Drawing.Point(80, 136);
             this.textBox_City.Name = "textBox_City";
             this.textBox_City.ReadOnly = true;
             this.textBox_City.Size = new System.Drawing.Size(100, 20);
@@ -197,7 +181,7 @@
             // 
             // textBox_Phone
             // 
-            this.textBox_Phone.Location = new System.Drawing.Point(353, 165);
+            this.textBox_Phone.Location = new System.Drawing.Point(80, 162);
             this.textBox_Phone.Name = "textBox_Phone";
             this.textBox_Phone.ReadOnly = true;
             this.textBox_Phone.Size = new System.Drawing.Size(100, 20);
@@ -205,24 +189,15 @@
             // 
             // textBox_Salary
             // 
-            this.textBox_Salary.Location = new System.Drawing.Point(353, 191);
+            this.textBox_Salary.Location = new System.Drawing.Point(80, 188);
             this.textBox_Salary.Name = "textBox_Salary";
             this.textBox_Salary.ReadOnly = true;
             this.textBox_Salary.Size = new System.Drawing.Size(100, 20);
             this.textBox_Salary.TabIndex = 16;
             // 
-            // listBox_EmployeesSelect
-            // 
-            this.listBox_EmployeesSelect.FormattingEnabled = true;
-            this.listBox_EmployeesSelect.Location = new System.Drawing.Point(12, 12);
-            this.listBox_EmployeesSelect.Name = "listBox_EmployeesSelect";
-            this.listBox_EmployeesSelect.Size = new System.Drawing.Size(267, 264);
-            this.listBox_EmployeesSelect.TabIndex = 18;
-            this.listBox_EmployeesSelect.SelectedIndexChanged += new System.EventHandler(this.listBox_EmployeesSelect_SelectedIndexChanged);
-            // 
             // textBox_Special
             // 
-            this.textBox_Special.Location = new System.Drawing.Point(353, 217);
+            this.textBox_Special.Location = new System.Drawing.Point(80, 214);
             this.textBox_Special.Name = "textBox_Special";
             this.textBox_Special.ReadOnly = true;
             this.textBox_Special.Size = new System.Drawing.Size(100, 20);
@@ -230,7 +205,7 @@
             // 
             // button_Create
             // 
-            this.button_Create.Location = new System.Drawing.Point(288, 253);
+            this.button_Create.Location = new System.Drawing.Point(15, 250);
             this.button_Create.Name = "button_Create";
             this.button_Create.Size = new System.Drawing.Size(75, 23);
             this.button_Create.TabIndex = 20;
@@ -322,20 +297,24 @@
             // 
             this.panel_edit.Controls.Add(this.button_EditFName);
             this.panel_edit.Controls.Add(this.button_EditSpecial);
+            this.panel_edit.Controls.Add(this.comboBox_SpecialEdit);
             this.panel_edit.Controls.Add(this.button_EditSurName);
+            this.panel_edit.Controls.Add(this.maskedTextBox_PostalEdit);
+            this.panel_edit.Controls.Add(this.maskedTextBox_PhoneEdit);
+            this.panel_edit.Controls.Add(this.numericUpDown_EditSalary);
             this.panel_edit.Controls.Add(this.button_EditAdress);
             this.panel_edit.Controls.Add(this.button_EditPostal);
             this.panel_edit.Controls.Add(this.button_EditSalary);
             this.panel_edit.Controls.Add(this.button_EditCityName);
             this.panel_edit.Controls.Add(this.button_EditPhoneNumber);
-            this.panel_edit.Location = new System.Drawing.Point(459, 12);
+            this.panel_edit.Location = new System.Drawing.Point(226, 12);
             this.panel_edit.Name = "panel_edit";
             this.panel_edit.Size = new System.Drawing.Size(224, 243);
             this.panel_edit.TabIndex = 29;
             // 
             // button_toggleEdit
             // 
-            this.button_toggleEdit.Location = new System.Drawing.Point(369, 253);
+            this.button_toggleEdit.Location = new System.Drawing.Point(96, 250);
             this.button_toggleEdit.Name = "button_toggleEdit";
             this.button_toggleEdit.Size = new System.Drawing.Size(75, 23);
             this.button_toggleEdit.TabIndex = 30;
@@ -346,7 +325,7 @@
             // 
             // maskedTextBox_PostalEdit
             // 
-            this.maskedTextBox_PostalEdit.Location = new System.Drawing.Point(353, 113);
+            this.maskedTextBox_PostalEdit.Location = new System.Drawing.Point(84, 101);
             this.maskedTextBox_PostalEdit.Mask = "0000";
             this.maskedTextBox_PostalEdit.Name = "maskedTextBox_PostalEdit";
             this.maskedTextBox_PostalEdit.Size = new System.Drawing.Size(100, 20);
@@ -355,7 +334,7 @@
             // 
             // maskedTextBox_PhoneEdit
             // 
-            this.maskedTextBox_PhoneEdit.Location = new System.Drawing.Point(353, 165);
+            this.maskedTextBox_PhoneEdit.Location = new System.Drawing.Point(84, 154);
             this.maskedTextBox_PhoneEdit.Mask = "00000000";
             this.maskedTextBox_PhoneEdit.Name = "maskedTextBox_PhoneEdit";
             this.maskedTextBox_PhoneEdit.Size = new System.Drawing.Size(100, 20);
@@ -365,7 +344,7 @@
             // numericUpDown_EditSalary
             // 
             this.numericUpDown_EditSalary.DecimalPlaces = 2;
-            this.numericUpDown_EditSalary.Location = new System.Drawing.Point(353, 191);
+            this.numericUpDown_EditSalary.Location = new System.Drawing.Point(84, 180);
             this.numericUpDown_EditSalary.Maximum = new decimal(new int[] {
             1215752191,
             23,
@@ -383,34 +362,51 @@
             this.comboBox_SpecialEdit.Items.AddRange(new object[] {
             "Sælger",
             "Håndværker"});
-            this.comboBox_SpecialEdit.Location = new System.Drawing.Point(353, 217);
+            this.comboBox_SpecialEdit.Location = new System.Drawing.Point(84, 205);
             this.comboBox_SpecialEdit.Name = "comboBox_SpecialEdit";
             this.comboBox_SpecialEdit.Size = new System.Drawing.Size(100, 21);
             this.comboBox_SpecialEdit.TabIndex = 29;
             this.comboBox_SpecialEdit.Visible = false;
+            // 
+            // numericUpDown_CustomerID
+            // 
+            this.numericUpDown_CustomerID.Location = new System.Drawing.Point(122, 6);
+            this.numericUpDown_CustomerID.Maximum = new decimal(new int[] {
+            1316134911,
+            2328,
+            0,
+            0});
+            this.numericUpDown_CustomerID.Name = "numericUpDown_CustomerID";
+            this.numericUpDown_CustomerID.Size = new System.Drawing.Size(58, 20);
+            this.numericUpDown_CustomerID.TabIndex = 32;
+            this.numericUpDown_CustomerID.ValueChanged += new System.EventHandler(this.numericUpDown_CustomerID_ValueChanged);
+            // 
+            // comboBox_Adresses
+            // 
+            this.comboBox_Adresses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_Adresses.FormattingEnabled = true;
+            this.comboBox_Adresses.Location = new System.Drawing.Point(80, 85);
+            this.comboBox_Adresses.Name = "comboBox_Adresses";
+            this.comboBox_Adresses.Size = new System.Drawing.Size(140, 21);
+            this.comboBox_Adresses.TabIndex = 33;
             // 
             // Form_Employee_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(742, 484);
-            this.Controls.Add(this.comboBox_SpecialEdit);
-            this.Controls.Add(this.numericUpDown_EditSalary);
-            this.Controls.Add(this.maskedTextBox_PhoneEdit);
-            this.Controls.Add(this.maskedTextBox_PostalEdit);
+            this.Controls.Add(this.comboBox_Adresses);
+            this.Controls.Add(this.numericUpDown_CustomerID);
             this.Controls.Add(this.button_toggleEdit);
             this.Controls.Add(this.panel_edit);
             this.Controls.Add(this.button_Create);
             this.Controls.Add(this.textBox_Special);
-            this.Controls.Add(this.listBox_EmployeesSelect);
             this.Controls.Add(this.textBox_Salary);
             this.Controls.Add(this.textBox_Phone);
             this.Controls.Add(this.textBox_City);
             this.Controls.Add(this.textBox_PostalCode);
-            this.Controls.Add(this.textBox_Adress);
             this.Controls.Add(this.textBox_SirName);
             this.Controls.Add(this.textBox_FirstName);
-            this.Controls.Add(this.textBox_Id);
             this.Controls.Add(this.label_Special);
             this.Controls.Add(this.label_Salary);
             this.Controls.Add(this.label_Phone);
@@ -426,7 +422,9 @@
             this.Load += new System.EventHandler(this.Form_Employee_1_Load);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form_Employee_1_MouseClick);
             this.panel_edit.ResumeLayout(false);
+            this.panel_edit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_EditSalary)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_CustomerID)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -443,15 +441,12 @@
         private System.Windows.Forms.Label label_Phone;
         private System.Windows.Forms.Label label_Salary;
         private System.Windows.Forms.Label label_Special;
-        private System.Windows.Forms.TextBox textBox_Id;
         private System.Windows.Forms.TextBox textBox_FirstName;
         private System.Windows.Forms.TextBox textBox_SirName;
-        private System.Windows.Forms.TextBox textBox_Adress;
         private System.Windows.Forms.TextBox textBox_PostalCode;
         private System.Windows.Forms.TextBox textBox_City;
         private System.Windows.Forms.TextBox textBox_Phone;
         private System.Windows.Forms.TextBox textBox_Salary;
-        private System.Windows.Forms.ListBox listBox_EmployeesSelect;
         private System.Windows.Forms.TextBox textBox_Special;
         private System.Windows.Forms.Button button_Create;
         private System.Windows.Forms.Button button_EditFName;
@@ -468,5 +463,7 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox_PhoneEdit;
         private System.Windows.Forms.NumericUpDown numericUpDown_EditSalary;
         private System.Windows.Forms.ComboBox comboBox_SpecialEdit;
+        private System.Windows.Forms.NumericUpDown numericUpDown_CustomerID;
+        private System.Windows.Forms.ComboBox comboBox_Adresses;
     }
 }

@@ -13,8 +13,7 @@ namespace RaunstrupERP
     public partial class Form_Employee_1 : Form
     {
         ControllerCatalog cc = new ControllerCatalog();
-        int ID;
-        List<EmployeeDescription> currentEmployees;
+        int EmployeeID;
         public Form_Employee_1()
         {
             InitializeComponent();
@@ -23,29 +22,6 @@ namespace RaunstrupERP
         private void Form_Employee_1_Load(object sender, EventArgs e)
         {
             panel_edit.Visible = false;
-            currentEmployees = cc.GetEmployeeList();
-            foreach (EmployeeDescription item in currentEmployees)
-            {
-                listBox_EmployeesSelect.Items.Add(item.GetFullName());
-            }
-        }
-
-        private void listBox_EmployeesSelect_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listBox_EmployeesSelect.SelectedItem != null)
-            {
-                ID = currentEmployees[listBox_EmployeesSelect.SelectedIndex].GetId();
-                textBox_Id.Text = ID.ToString();
-                textBox_FirstName.Text = currentEmployees[listBox_EmployeesSelect.SelectedIndex].GetFirstName();
-                textBox_SirName.Text = currentEmployees[listBox_EmployeesSelect.SelectedIndex].GetSurName();
-                textBox_Adress.Text = currentEmployees[listBox_EmployeesSelect.SelectedIndex].GetAdress();
-                textBox_PostalCode.Text = currentEmployees[listBox_EmployeesSelect.SelectedIndex].GetPostal().ToString();
-                textBox_City.Text = currentEmployees[listBox_EmployeesSelect.SelectedIndex].GetCity();
-                textBox_Phone.Text = currentEmployees[listBox_EmployeesSelect.SelectedIndex].GetPhone().ToString();
-                textBox_Salary.Text = currentEmployees[listBox_EmployeesSelect.SelectedIndex].GetSalary().ToString();
-                textBox_Special.Text = currentEmployees[listBox_EmployeesSelect.SelectedIndex].GetSpeciality();
-                button_toggleEdit.Visible = true;
-            }
         }
 
         private void button_Create_Click(object sender, EventArgs e)
@@ -56,25 +32,20 @@ namespace RaunstrupERP
 
         private void Form_Employee_1_MouseClick(object sender, MouseEventArgs e)
         {
-            listBox_EmployeesSelect.Items.Clear();
-            currentEmployees = cc.GetEmployeeList();
-            foreach (EmployeeDescription item in currentEmployees)
-            {
-                listBox_EmployeesSelect.Items.Add(item.GetFullName());
-            }
+
         }
 
         private void button_toggleEdit_Click(object sender, EventArgs e)
         {
             if (panel_edit.Visible == false)
             {
-                listBox_EmployeesSelect.Visible = false;
+
                 panel_edit.Visible = true;
                 button_toggleEdit.Text = "Gem";
             }
             else
             {
-                listBox_EmployeesSelect.Visible = true;
+
                 panel_edit.Visible = false;
                 button_toggleEdit.Text = "Redigér";
             }
@@ -89,7 +60,7 @@ namespace RaunstrupERP
             }
             else
             {
-                cc.EmployeeAlterFirstName(ID, textBox_FirstName.Text);
+                //cc.EmployeeAlterFirstName(ID, textBox_FirstName.Text);
                 button_EditFName.Text = "Rediger";
                 textBox_FirstName.ReadOnly = true;
             }
@@ -104,7 +75,7 @@ namespace RaunstrupERP
             }
             else
             {
-                cc.EmployeeAlterSurname(ID, textBox_SirName.Text);
+                //cc.EmployeeAlterSurname(ID, textBox_SirName.Text);
                 button_EditSurName.Text = "Rediger";
                 textBox_SirName.ReadOnly = true;
             }
@@ -112,17 +83,7 @@ namespace RaunstrupERP
 
         private void button_EditAdress_Click(object sender, EventArgs e)
         {
-            if (textBox_Adress.ReadOnly == true)
-            {
-                button_EditAdress.Text = "Gem";
-                textBox_Adress.ReadOnly = false;
-            }
-            else
-            {
-                cc.EmployeeAlterAdress(ID, textBox_Adress.Text);
-                button_EditAdress.Text = "Rediger";
-                textBox_Adress.ReadOnly = true;
-            }
+
         }
 
         private void button_EditPostal_Click(object sender, EventArgs e)
@@ -136,7 +97,7 @@ namespace RaunstrupERP
             }
             else
             {
-                cc.EmployeeAlterPostalCode(ID, Convert.ToInt32(maskedTextBox_PostalEdit.Text));
+                //cc.EmployeeAlterPostalCode(ID, Convert.ToInt32(maskedTextBox_PostalEdit.Text));
                 button_EditPostal.Text = "Rediger";
                 textBox_PostalCode.Visible = true;
                 textBox_PostalCode.Text = maskedTextBox_PostalEdit.Text;
@@ -153,7 +114,7 @@ namespace RaunstrupERP
             }
             else
             {
-                cc.EmployeeAlterCity(ID, textBox_City.Text);
+                //cc.EmployeeAlterCity(ID, textBox_City.Text);
                 button_EditCityName.Text = "Rediger";
                 textBox_City.ReadOnly = true;
             }
@@ -170,7 +131,7 @@ namespace RaunstrupERP
             }
             else
             {
-                cc.EmployeeAlterPhone(ID, Convert.ToInt32(maskedTextBox_PhoneEdit.Text));
+                //cc.EmployeeAlterPhone(ID, Convert.ToInt32(maskedTextBox_PhoneEdit.Text));
                 button_EditPhoneNumber.Text = "Rediger";
                 textBox_Phone.Visible = true;
                 textBox_Phone.Text = maskedTextBox_PhoneEdit.Text;
@@ -184,12 +145,12 @@ namespace RaunstrupERP
             {
                 button_EditSalary.Text = "Gem";
                 textBox_Salary.Visible = false;
-                numericUpDown_EditSalary.Value = Convert.ToDecimal(cc.GetEmployee(ID).GetSalary());
+                //numericUpDown_EditSalary.Value = Convert.ToDecimal(cc.GetEmployee(ID).GetSalary());
                 numericUpDown_EditSalary.Visible = true;
             }
             else
             {
-                cc.EmployeeAlterSalary(ID, Convert.ToDouble(numericUpDown_EditSalary.Value));
+                //cc.EmployeeAlterSalary(ID, Convert.ToDouble(numericUpDown_EditSalary.Value));
                 button_EditSalary.Text = "Rediger";
                 textBox_Salary.Visible = true;
                 textBox_Salary.Text = numericUpDown_EditSalary.Value.ToString();
@@ -203,24 +164,38 @@ namespace RaunstrupERP
             {
                 button_EditSpecial.Text = "Gem";
                 textBox_Special.Visible = false;
-                comboBox_SpecialEdit.SelectedValue = cc.GetEmployee(ID).GetSpeciality();
+                //comboBox_SpecialEdit.SelectedValue = cc.GetEmployee(ID).GetSpeciality();
                 comboBox_SpecialEdit.Visible = true;
             }
             else
             {
                 if (comboBox_SpecialEdit.SelectedIndex == 0)
                 {
-                    cc.GetEmployee(ID).SetSalesMan();
+                    //cc.GetEmployee(ID).SetSalesMan();
                 }
                 if (comboBox_SpecialEdit.SelectedIndex == 1)
                 {
-                    cc.GetEmployee(ID).SetCraftsMan();
+                    //cc.GetEmployee(ID).SetCraftsMan();
                 }
                 button_EditSpecial.Text = "Rediger";
                 textBox_Special.Visible = true;
-                textBox_Special.Text = cc.GetEmployee(ID).GetSpeciality();
+                //textBox_Special.Text = cc.GetEmployee(ID).GetSpeciality();
                 comboBox_SpecialEdit.Visible = false;
             }
+        }
+
+        private void numericUpDown_CustomerID_ValueChanged(object sender, EventArgs e)
+        {
+            EmployeeID = Convert.ToInt32(numericUpDown_CustomerID.Value);
+            textBox_FirstName.Text = cc.FindEmployee(EmployeeID).GetFirstName();
+            textBox_SirName.Text = cc.FindEmployee(EmployeeID).GetSurName();
+            comboBox_Adresses.Items.Clear();
+            foreach (var adress in cc.FindEmployee(EmployeeID).GetAdresses())
+            {
+                comboBox_Adresses.Items.Add(adress.GetAdress());
+            }
+            textBox_Salary.Text = cc.FindEmployee(EmployeeID).GetSalary().ToString();
+            textBox_Special.Text = cc.FindCustomer(EmployeeID).getsp
         }
     }
 }

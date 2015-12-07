@@ -32,7 +32,7 @@ namespace RaunstrupERP
         /*
          * DatabaseControl Calls
          */
-         // GET POSTALS LIST
+        // GET POSTALS LIST
         public List<int> GetPostalCodes()
         {
             return dbc.CDB.GetPostalCodes();
@@ -78,6 +78,15 @@ namespace RaunstrupERP
         {
             dbc.CDB.CreateCustomerAdress(id, NewAdress, NewPostalCode);
         }
+        //EMPLOYEE CALLS
+        public Employee FindEmployee(int ID)
+        {
+            return dbc.EDB.FindEmployee(ID);
+        }
+
+
+
+
 
         /*
          * EmployeeCatalog Method Calls
