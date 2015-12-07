@@ -8,7 +8,8 @@ namespace RaunstrupERP
 {
     class ControllerCatalog
     {
-        private CustomerDB dc;
+     //   private CustomerDB dc;
+        private DBController dbc;
         private EmployeeCatalog ec;
         private TaskCatalog tc;
         private OrderCatalog oc;
@@ -18,7 +19,8 @@ namespace RaunstrupERP
 
         public ControllerCatalog()
         {
-            dc = new CustomerDB();
+          //  dc = new CustomerDB();
+            dbc = new DBController();
             ec = new EmployeeCatalog();
             tc = new TaskCatalog();
             oc = new OrderCatalog();
@@ -34,11 +36,11 @@ namespace RaunstrupERP
          */
         public Customer FindCustomer(int id)
         {
-            return dc.FindCustomer(id);
+            return dbc.CDB.FindCustomer(id);
         }
         public void CreateCustomer(String FN, String SN)
         {
-            dc.InsertCustomer(FN, SN);
+            dbc.CDB.InsertCustomer(FN, SN);
         }
 
         /*

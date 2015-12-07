@@ -7,15 +7,19 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 
 
-//TODO: transaction
+//TODO: transaction i FindCustomer?
+//TODO: singleton
 
 
 namespace RaunstrupERP
 {
-    class CustomerDB
+    public class CustomerDB
     {
-        SqlConnection conn = new SqlConnection("Data Source=SEJRLAPTOP\\SQLSERVER;Initial Catalog=Raunstrup; Integrated security=true");
-
+        SqlConnection conn;
+        public CustomerDB(SqlConnection sqlC)
+        {
+            conn = sqlC;
+        }
         public void InsertCustomer(string FN, string SN)
         {
             string insert = "insert into Customer (FirstName, SurName) values " + "('" + FN + "','" + SN + ")";
