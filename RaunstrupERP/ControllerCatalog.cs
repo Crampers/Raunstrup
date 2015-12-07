@@ -8,7 +8,6 @@ namespace RaunstrupERP
 {
     class ControllerCatalog
     {
-     //   private CustomerDB dc;
         private DBController dbc;
         private EmployeeCatalog ec;
         private TaskCatalog tc;
@@ -19,7 +18,6 @@ namespace RaunstrupERP
 
         public ControllerCatalog()
         {
-          //  dc = new CustomerDB();
             dbc = new DBController();
             ec = new EmployeeCatalog();
             tc = new TaskCatalog();
