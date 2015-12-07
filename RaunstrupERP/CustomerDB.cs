@@ -28,7 +28,7 @@ namespace RaunstrupERP
             com.ExecuteNonQuery();
             conn.Close();
             int ID = FindNewCustomerID();
-            string insertCustomerAdress = "insert into CustomerAdress(CustomerID, Adress, PostalCode)values(" + ID + ", '" + adress + "', " + postalCode +")";
+            string insertCustomerAdress = "insert into CustomerAdress(CustomerID, Adress, PostalCode)values(" + ID + ", '" + adress + "', " + postalCode + ")";
             string insertCustomerNumber = "insert into CustomerPhone(CustomerID, Number)values (" + ID + ", " + phoneNumber + ")";
             SqlCommand com1 = new SqlCommand(insertCustomerAdress, conn);
             SqlCommand com2 = new SqlCommand(insertCustomerNumber, conn);
@@ -95,7 +95,6 @@ namespace RaunstrupERP
             int PC;
             string StringPhone = "";
             int Phone;
-            string City = "";
 
             List<int> PhoneNumbers = new List<int>();
             List<CustomerAdress> Adresses = new List<CustomerAdress>();
@@ -144,7 +143,7 @@ namespace RaunstrupERP
             conn.Close();
 
 
-            
+
             //string find = "select c.CustomerID, FirstName, SurName, ca.PostalCode, City, Adress, Number from Customer c join CustomerPhone cp on cp.CustomerID = c.CustomerID join CustomerAdress ca on ca.CustomerID = c.CustomerID join City on City.PostalCode = ca.PostalCode where  c.CustomerID = " + CustomerID;
             //conn.Open();
             //SqlCommand com = new SqlCommand(@find, conn);
@@ -175,7 +174,7 @@ namespace RaunstrupERP
             //List<int> PhoneNumbersNoDupes = PhoneNumbers.Distinct().ToList();
             //List<CustomerAdress> AdressesNoDupes = Adresses.Distinct().ToList();
 
-           // cd = new CustomerDBkobling(ID, FN, SN, PhoneNumbersNoDupes, AdressesNoDupes);
+            // cd = new CustomerDBkobling(ID, FN, SN, PhoneNumbersNoDupes, AdressesNoDupes);
 
             Int32.TryParse(StringID, out ID);
 
