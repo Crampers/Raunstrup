@@ -10,7 +10,7 @@ namespace RaunstrupERP
 {
     public class EmployeeDB
     {
-               SqlConnection conn;
+        SqlConnection conn;
         public EmployeeDB(SqlConnection sqlC)
         {
             conn = sqlC;
@@ -38,7 +38,6 @@ namespace RaunstrupERP
             int PC;
             string StringPhone = "";
             int Phone;
-            string City = "";
             double Salary;
             string StringSalary = "";
             DateTime Seniority;
@@ -61,7 +60,7 @@ namespace RaunstrupERP
                 StringID = reader["EmployeeID"].ToString();
                 StringSalary = reader["Salary"].ToString();
                 StringSeniority = reader["Seniority"].ToString();
-               
+
             }
             conn.Close();
 
@@ -105,7 +104,7 @@ namespace RaunstrupERP
         }
         public void SQLQueryHelper(string SQLCommand)
         {
-            
+
             SqlTransaction transaction = null;
             try
             {
@@ -165,7 +164,7 @@ namespace RaunstrupERP
             string update = "update Employee set Salary= '" + Salary + "' where EmployeeID = " + ID;
             SQLQueryHelper(update);
         }
-        
+
 
         //Delete 
 
