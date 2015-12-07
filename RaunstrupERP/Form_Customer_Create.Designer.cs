@@ -56,6 +56,7 @@
             this.textBox_CityName.Name = "textBox_CityName";
             this.textBox_CityName.Size = new System.Drawing.Size(100, 20);
             this.textBox_CityName.TabIndex = 27;
+            this.textBox_CityName.Visible = false;
             // 
             // textBox_SirName
             // 
@@ -88,6 +89,7 @@
             this.label_City.Size = new System.Drawing.Size(43, 13);
             this.label_City.TabIndex = 23;
             this.label_City.Text = "Bynavn";
+            this.label_City.Visible = false;
             // 
             // label_PostalCode
             // 

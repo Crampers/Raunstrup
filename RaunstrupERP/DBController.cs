@@ -12,7 +12,7 @@ namespace RaunstrupERP
         //TODO: singletons
 
         //Tilpas denne til din egen database, eneste sted det skal gøres
-        private SqlConnection conn = new SqlConnection("Data Source=SEJRLAPTOP\\SQLSERVER;Initial Catalog=Raunstrup; Integrated security=true");
+        SqlConnection conn = new SqlConnection("Data Source=SEJRLAPTOP\\SQLSERVER;Initial Catalog=Raunstrup; Integrated security=true");
 
         public CustomerDB CDB;
         public EmployeeDB EDB;

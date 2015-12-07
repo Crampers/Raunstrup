@@ -32,13 +32,37 @@ namespace RaunstrupERP
         /*
          * DatabaseControl Calls
          */
+        // CUSTOMER CALLS
+        // READ
         public Customer FindCustomer(int id)
         {
             return dbc.CDB.FindCustomer(id);
         }
-        public void CreateCustomer(String FN, String SN)
+        // ALTER
+        public void AlterCustomerFirstName(int CustomerID, string NewName)
         {
-            dbc.CDB.InsertCustomer(FN, SN);
+            dbc.CDB.AlterCustomerFirstName(CustomerID, NewName);
+        }
+        public void AlterCustomerSurName(int CustomerID, string NewName)
+        {
+            dbc.CDB.AlterCustomerSurName(CustomerID, NewName);
+        }
+        public void AlterCustomerAdress(int CustomerID, string OldAdress, string NewAdress, int NewPostalCode)
+        {
+            dbc.CDB.AlterCustomerAdress(CustomerID, OldAdress, NewAdress, NewPostalCode);
+        }
+        public void AlterCustomerNumber(int CustomerID, int OldNumber, int NewNumber)
+        {
+            dbc.CDB.AlterCustomerPhoneNumber(CustomerID, OldNumber, NewNumber);
+        }
+        // CREATE
+        public void CreateCustomer(string FN, string SN, string adress, int postalCode, int phoneNumber)
+        {
+            dbc.CDB.InsertCustomer(FN, SN, adress, postalCode, phoneNumber);
+        }
+        public void CreateCustomerNumber(int CustomerID, int NewNumber)
+        {
+            dbc.CDB.CreateCustomerPhone(CustomerID, NewNumber);
         }
 
         /*

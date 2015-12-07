@@ -20,15 +20,37 @@ namespace RaunstrupERP
         {
             conn = sqlC;
         }
-        public void InsertCustomer(string FN, string SN)
+        public void InsertCustomer(string FN, string SN, string adress, int postalCode, int phoneNumber)
         {
-            string insert = "insert into Customer (FirstName, SurName) values " + "('" + FN + "','" + SN + ")";
-
+            string insert = "insert into Customer(FirstName, SurName)values('" + FN + "', '" + SN + "')";
             conn.Open();
             SqlCommand com = new SqlCommand(@insert, conn);
             com.ExecuteNonQuery();
-
             conn.Close();
+            int ID = FindNewCustomerID();
+            string insertCustomerAdress = "insert into CustomerAdress(CustomerID, Adress, PostalCode)values(" + ID + ", '" + adress + "', " + postalCode +")";
+            string insertCustomerNumber = "insert into CustomerPhone(CustomerID, Number)values (" + ID + ", " + phoneNumber + ")";
+            SqlCommand com1 = new SqlCommand(insertCustomerAdress, conn);
+            SqlCommand com2 = new SqlCommand(insertCustomerNumber, conn);
+            conn.Open();
+            com1.ExecuteNonQuery();
+            com2.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        private int FindNewCustomerID()
+        {
+            int newID = 0;
+            string selectNEWID = "select IDENT_CURRENT ('Customer') as 'newid'";
+            conn.Open();
+            SqlCommand comSelect = new SqlCommand(selectNEWID, conn);
+            SqlDataReader reader = comSelect.ExecuteReader();
+            while (reader.Read())
+            {
+                newID = Convert.ToInt32(reader["newid"]);
+            }
+            conn.Close();
+            return newID;
         }
 
         public Customer FindCustomer(int CustomerID)

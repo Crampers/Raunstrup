@@ -62,7 +62,7 @@
             // label_Id
             // 
             this.label_Id.AutoSize = true;
-            this.label_Id.Location = new System.Drawing.Point(12, 9);
+            this.label_Id.Location = new System.Drawing.Point(106, 9);
             this.label_Id.Name = "label_Id";
             this.label_Id.Size = new System.Drawing.Size(18, 13);
             this.label_Id.TabIndex = 0;
@@ -71,7 +71,7 @@
             // label_Firstname
             // 
             this.label_Firstname.AutoSize = true;
-            this.label_Firstname.Location = new System.Drawing.Point(11, 40);
+            this.label_Firstname.Location = new System.Drawing.Point(105, 40);
             this.label_Firstname.Name = "label_Firstname";
             this.label_Firstname.Size = new System.Drawing.Size(46, 13);
             this.label_Firstname.TabIndex = 1;
@@ -80,7 +80,7 @@
             // label_SirName
             // 
             this.label_SirName.AutoSize = true;
-            this.label_SirName.Location = new System.Drawing.Point(12, 66);
+            this.label_SirName.Location = new System.Drawing.Point(106, 66);
             this.label_SirName.Name = "label_SirName";
             this.label_SirName.Size = new System.Drawing.Size(53, 13);
             this.label_SirName.TabIndex = 2;
@@ -89,7 +89,7 @@
             // label_Adress
             // 
             this.label_Adress.AutoSize = true;
-            this.label_Adress.Location = new System.Drawing.Point(12, 92);
+            this.label_Adress.Location = new System.Drawing.Point(106, 92);
             this.label_Adress.Name = "label_Adress";
             this.label_Adress.Size = new System.Drawing.Size(45, 13);
             this.label_Adress.TabIndex = 3;
@@ -98,7 +98,7 @@
             // label_PostalCode
             // 
             this.label_PostalCode.AutoSize = true;
-            this.label_PostalCode.Location = new System.Drawing.Point(11, 119);
+            this.label_PostalCode.Location = new System.Drawing.Point(105, 119);
             this.label_PostalCode.Name = "label_PostalCode";
             this.label_PostalCode.Size = new System.Drawing.Size(65, 13);
             this.label_PostalCode.TabIndex = 4;
@@ -107,7 +107,7 @@
             // label_City
             // 
             this.label_City.AutoSize = true;
-            this.label_City.Location = new System.Drawing.Point(14, 182);
+            this.label_City.Location = new System.Drawing.Point(108, 182);
             this.label_City.Name = "label_City";
             this.label_City.Size = new System.Drawing.Size(43, 13);
             this.label_City.TabIndex = 5;
@@ -117,7 +117,7 @@
             // label_Tlf
             // 
             this.label_Tlf.AutoSize = true;
-            this.label_Tlf.Location = new System.Drawing.Point(11, 145);
+            this.label_Tlf.Location = new System.Drawing.Point(105, 145);
             this.label_Tlf.Name = "label_Tlf";
             this.label_Tlf.Size = new System.Drawing.Size(85, 13);
             this.label_Tlf.TabIndex = 6;
@@ -125,7 +125,7 @@
             // 
             // textBox_FirstName
             // 
-            this.textBox_FirstName.Location = new System.Drawing.Point(103, 37);
+            this.textBox_FirstName.Location = new System.Drawing.Point(197, 37);
             this.textBox_FirstName.Name = "textBox_FirstName";
             this.textBox_FirstName.ReadOnly = true;
             this.textBox_FirstName.Size = new System.Drawing.Size(100, 20);
@@ -133,7 +133,7 @@
             // 
             // textBox_SirName
             // 
-            this.textBox_SirName.Location = new System.Drawing.Point(103, 63);
+            this.textBox_SirName.Location = new System.Drawing.Point(197, 63);
             this.textBox_SirName.Name = "textBox_SirName";
             this.textBox_SirName.ReadOnly = true;
             this.textBox_SirName.Size = new System.Drawing.Size(100, 20);
@@ -141,7 +141,7 @@
             // 
             // button_SearchCustomer
             // 
-            this.button_SearchCustomer.Location = new System.Drawing.Point(209, 4);
+            this.button_SearchCustomer.Location = new System.Drawing.Point(303, 4);
             this.button_SearchCustomer.Name = "button_SearchCustomer";
             this.button_SearchCustomer.Size = new System.Drawing.Size(75, 23);
             this.button_SearchCustomer.TabIndex = 14;
@@ -153,7 +153,7 @@
             // 
             this.comboBox_PhoneNumbers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_PhoneNumbers.FormattingEnabled = true;
-            this.comboBox_PhoneNumbers.Location = new System.Drawing.Point(103, 142);
+            this.comboBox_PhoneNumbers.Location = new System.Drawing.Point(197, 142);
             this.comboBox_PhoneNumbers.Name = "comboBox_PhoneNumbers";
             this.comboBox_PhoneNumbers.Size = new System.Drawing.Size(100, 21);
             this.comboBox_PhoneNumbers.TabIndex = 15;
@@ -162,7 +162,7 @@
             // 
             this.comboBox_Adresses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Adresses.FormattingEnabled = true;
-            this.comboBox_Adresses.Location = new System.Drawing.Point(63, 89);
+            this.comboBox_Adresses.Location = new System.Drawing.Point(157, 89);
             this.comboBox_Adresses.Name = "comboBox_Adresses";
             this.comboBox_Adresses.Size = new System.Drawing.Size(140, 21);
             this.comboBox_Adresses.TabIndex = 16;
@@ -170,7 +170,7 @@
             // 
             // textBox_CityName
             // 
-            this.textBox_CityName.Location = new System.Drawing.Point(63, 179);
+            this.textBox_CityName.Location = new System.Drawing.Point(157, 179);
             this.textBox_CityName.Name = "textBox_CityName";
             this.textBox_CityName.ReadOnly = true;
             this.textBox_CityName.Size = new System.Drawing.Size(100, 20);
@@ -179,7 +179,7 @@
             // 
             // textBox_PostalCode
             // 
-            this.textBox_PostalCode.Location = new System.Drawing.Point(103, 116);
+            this.textBox_PostalCode.Location = new System.Drawing.Point(197, 116);
             this.textBox_PostalCode.Name = "textBox_PostalCode";
             this.textBox_PostalCode.ReadOnly = true;
             this.textBox_PostalCode.Size = new System.Drawing.Size(100, 20);
@@ -231,7 +231,7 @@
             this.panel_Edit.Controls.Add(this.button_EditPhone);
             this.panel_Edit.Controls.Add(this.button_EditFName);
             this.panel_Edit.Controls.Add(this.button_EditSurName);
-            this.panel_Edit.Location = new System.Drawing.Point(209, 33);
+            this.panel_Edit.Location = new System.Drawing.Point(12, 33);
             this.panel_Edit.Name = "panel_Edit";
             this.panel_Edit.Size = new System.Drawing.Size(84, 167);
             this.panel_Edit.TabIndex = 25;
@@ -239,7 +239,7 @@
             // 
             // button_ToggleEdit
             // 
-            this.button_ToggleEdit.Location = new System.Drawing.Point(212, 205);
+            this.button_ToggleEdit.Location = new System.Drawing.Point(15, 4);
             this.button_ToggleEdit.Name = "button_ToggleEdit";
             this.button_ToggleEdit.Size = new System.Drawing.Size(75, 23);
             this.button_ToggleEdit.TabIndex = 26;
@@ -250,7 +250,7 @@
             // 
             // maskedTextBox_PhoneCreate
             // 
-            this.maskedTextBox_PhoneCreate.Location = new System.Drawing.Point(103, 142);
+            this.maskedTextBox_PhoneCreate.Location = new System.Drawing.Point(197, 142);
             this.maskedTextBox_PhoneCreate.Mask = "00000000";
             this.maskedTextBox_PhoneCreate.Name = "maskedTextBox_PhoneCreate";
             this.maskedTextBox_PhoneCreate.Size = new System.Drawing.Size(100, 20);
@@ -259,7 +259,7 @@
             // 
             // button_CreateCustomer
             // 
-            this.button_CreateCustomer.Location = new System.Drawing.Point(116, 205);
+            this.button_CreateCustomer.Location = new System.Drawing.Point(210, 205);
             this.button_CreateCustomer.Name = "button_CreateCustomer";
             this.button_CreateCustomer.Size = new System.Drawing.Size(87, 23);
             this.button_CreateCustomer.TabIndex = 28;
@@ -269,7 +269,7 @@
             // 
             // numericUpDown_CustomerID
             // 
-            this.numericUpDown_CustomerID.Location = new System.Drawing.Point(145, 7);
+            this.numericUpDown_CustomerID.Location = new System.Drawing.Point(239, 7);
             this.numericUpDown_CustomerID.Maximum = new decimal(new int[] {
             1316134911,
             2328,
@@ -303,7 +303,7 @@
             // 
             this.panel_Additions.Controls.Add(this.button_AddAdress);
             this.panel_Additions.Controls.Add(this.button_AddNumber);
-            this.panel_Additions.Location = new System.Drawing.Point(299, 33);
+            this.panel_Additions.Location = new System.Drawing.Point(303, 33);
             this.panel_Additions.Name = "panel_Additions";
             this.panel_Additions.Size = new System.Drawing.Size(84, 167);
             this.panel_Additions.TabIndex = 32;
@@ -316,10 +316,10 @@
             this.ClientSize = new System.Drawing.Size(588, 252);
             this.Controls.Add(this.panel_Additions);
             this.Controls.Add(this.numericUpDown_CustomerID);
+            this.Controls.Add(this.panel_Edit);
             this.Controls.Add(this.button_CreateCustomer);
             this.Controls.Add(this.maskedTextBox_PhoneCreate);
             this.Controls.Add(this.button_ToggleEdit);
-            this.Controls.Add(this.panel_Edit);
             this.Controls.Add(this.textBox_PostalCode);
             this.Controls.Add(this.textBox_CityName);
             this.Controls.Add(this.comboBox_Adresses);
