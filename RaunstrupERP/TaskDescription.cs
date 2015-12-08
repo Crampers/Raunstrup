@@ -60,6 +60,10 @@ namespace RaunstrupERP
         }
 
         /*Getters*/
+        public List<ItemLine> GetItemLines()
+        {
+            return materials;
+        }
         public Double GetTotal()
         {
             Double total = 0;

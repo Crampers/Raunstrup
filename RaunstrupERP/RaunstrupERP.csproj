@@ -162,6 +162,7 @@
     <Compile Include="TaskDescription.cs" />
     <Compile Include="SalesEmployee.cs" />
     <Compile Include="Test_Data_Class.cs" />
+    <Compile Include="XML.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

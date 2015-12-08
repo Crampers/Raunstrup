@@ -15,12 +15,21 @@ namespace RaunstrupERP
             
            
             ControllerCatalog ccc = new ControllerCatalog();
+            /*XML TESTING*/
             //Test_Data_Class TDC = new Test_Data_Class();
+
+            //XML typer = new XML();
+            //typer.WriteOrderStatusXML(ccc.GetOrder(4));
+
+            /*FORMS!*/
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form_Main_1());
             Console.ReadKey();
             
+
+
+
             ///* THIS IS A TEST PROGRAM! COMMENT IT OUT WHEN WORKING ON NEXT STEPS! */
             ///
             //DatabaseKobling test
