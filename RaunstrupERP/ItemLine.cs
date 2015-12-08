@@ -9,16 +9,22 @@ namespace RaunstrupERP
     class ItemLine
     {
         private ItemDescription item;
+        private int itemLineID;
         private int amount;
         private int isCompleted = 0;
         private Boolean isComplete = false;
-        public ItemLine(ItemDescription item, int amount)
+        public ItemLine(int id, ItemDescription item, int amount)
         {
+            itemLineID = id;
             this.item = item;
             this.amount = amount;
         }
 
         /*GETTERS*/
+        public int GetLineID()
+        {
+            return itemLineID;
+        }
         public int GetUncompletedAmount()
         {
             int uncompleted = this.amount - this.isCompleted;
@@ -55,6 +61,10 @@ namespace RaunstrupERP
             return TotalShopsPrice;
         }
         /*SETTERS*/
+        public void SetAmountCompleted(int amount)
+        {
+            isCompleted = amount;
+        }
         public void addCompleted(int amount)
         {
             isCompleted += amount;
@@ -66,7 +76,7 @@ namespace RaunstrupERP
         /*TESTERS*/
         public void PrintItemLine()
         {
-            Console.WriteLine("ItemID: " + item.GetID() + " " + item.GetDesc() + ", " + amount + " Stk. ");
+            Console.WriteLine("ItemID: " + item.GetID() + " " + item.GetDesc() + ", " + amount + " Stk. " + "Færdige: " + isCompleted);
         }
     }
 }

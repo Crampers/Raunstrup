@@ -34,10 +34,21 @@
             this.button_findOrder = new System.Windows.Forms.Button();
             this.panel_CustomerSalesInfo = new System.Windows.Forms.Panel();
             this.panel_MaterialInfo = new System.Windows.Forms.Panel();
+            this.button_AddCompleteItems = new System.Windows.Forms.Button();
+            this.numericUpDown_AmountCompleted = new System.Windows.Forms.NumericUpDown();
             this.checkBox_ItemLineIsComplete = new System.Windows.Forms.CheckBox();
             this.textBox_MaterialeName = new System.Windows.Forms.TextBox();
             this.label_MaterialInformation = new System.Windows.Forms.Label();
             this.panel_OrderInfo = new System.Windows.Forms.Panel();
+            this.label_OrderCost = new System.Windows.Forms.Label();
+            this.textBox_OrderCost = new System.Windows.Forms.TextBox();
+            this.label_OrderValue = new System.Windows.Forms.Label();
+            this.textBox_OrderValue = new System.Windows.Forms.TextBox();
+            this.textBox_TaskValueCompletedTotal = new System.Windows.Forms.TextBox();
+            this.checkBox_TaskIsComplete = new System.Windows.Forms.CheckBox();
+            this.label_TaskValueCompleted = new System.Windows.Forms.Label();
+            this.label_TaskValueTotal = new System.Windows.Forms.Label();
+            this.textBox_TaskValueTotal = new System.Windows.Forms.TextBox();
             this.panel_TasksInfo = new System.Windows.Forms.Panel();
             this.label_Items = new System.Windows.Forms.Label();
             this.listBox_Materials = new System.Windows.Forms.ListBox();
@@ -60,23 +71,14 @@
             this.textBox_CustomerName = new System.Windows.Forms.TextBox();
             this.label_CustomerName = new System.Windows.Forms.Label();
             this.numericUpDown_OrderID = new System.Windows.Forms.NumericUpDown();
-            this.checkBox_TaskIsComplete = new System.Windows.Forms.CheckBox();
-            this.label_TaskValueTotal = new System.Windows.Forms.Label();
-            this.textBox_TaskValueTotal = new System.Windows.Forms.TextBox();
-            this.textBox_TaskValueCompletedTotal = new System.Windows.Forms.TextBox();
-            this.label_TaskValueCompleted = new System.Windows.Forms.Label();
-            this.numericUpDown_AmountCompleted = new System.Windows.Forms.NumericUpDown();
-            this.button_AddCompleteItems = new System.Windows.Forms.Button();
-            this.label_OrderValue = new System.Windows.Forms.Label();
-            this.textBox_OrderValue = new System.Windows.Forms.TextBox();
-            this.label_OrderCost = new System.Windows.Forms.Label();
-            this.textBox_OrderCost = new System.Windows.Forms.TextBox();
+            this.button_PrintXML = new System.Windows.Forms.Button();
+            this.button_ReadXML = new System.Windows.Forms.Button();
             this.panel_CustomerSalesInfo.SuspendLayout();
             this.panel_MaterialInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_AmountCompleted)).BeginInit();
             this.panel_OrderInfo.SuspendLayout();
             this.panel_TasksInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_OrderID)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_AmountCompleted)).BeginInit();
             this.SuspendLayout();
             // 
             // label_OrderID
@@ -154,6 +156,23 @@
             this.panel_MaterialInfo.Size = new System.Drawing.Size(243, 110);
             this.panel_MaterialInfo.TabIndex = 24;
             // 
+            // button_AddCompleteItems
+            // 
+            this.button_AddCompleteItems.Location = new System.Drawing.Point(6, 68);
+            this.button_AddCompleteItems.Name = "button_AddCompleteItems";
+            this.button_AddCompleteItems.Size = new System.Drawing.Size(75, 23);
+            this.button_AddCompleteItems.TabIndex = 28;
+            this.button_AddCompleteItems.Text = "Afregn";
+            this.button_AddCompleteItems.UseVisualStyleBackColor = true;
+            this.button_AddCompleteItems.Click += new System.EventHandler(this.button_AddCompleteItems_Click);
+            // 
+            // numericUpDown_AmountCompleted
+            // 
+            this.numericUpDown_AmountCompleted.Location = new System.Drawing.Point(6, 42);
+            this.numericUpDown_AmountCompleted.Name = "numericUpDown_AmountCompleted";
+            this.numericUpDown_AmountCompleted.Size = new System.Drawing.Size(100, 20);
+            this.numericUpDown_AmountCompleted.TabIndex = 27;
+            // 
             // checkBox_ItemLineIsComplete
             // 
             this.checkBox_ItemLineIsComplete.AutoSize = true;
@@ -199,6 +218,84 @@
             this.panel_OrderInfo.Name = "panel_OrderInfo";
             this.panel_OrderInfo.Size = new System.Drawing.Size(320, 312);
             this.panel_OrderInfo.TabIndex = 23;
+            // 
+            // label_OrderCost
+            // 
+            this.label_OrderCost.AutoSize = true;
+            this.label_OrderCost.Location = new System.Drawing.Point(109, 257);
+            this.label_OrderCost.Name = "label_OrderCost";
+            this.label_OrderCost.Size = new System.Drawing.Size(101, 13);
+            this.label_OrderCost.TabIndex = 30;
+            this.label_OrderCost.Text = "Ordre Omkostninger";
+            // 
+            // textBox_OrderCost
+            // 
+            this.textBox_OrderCost.Location = new System.Drawing.Point(112, 273);
+            this.textBox_OrderCost.Name = "textBox_OrderCost";
+            this.textBox_OrderCost.ReadOnly = true;
+            this.textBox_OrderCost.Size = new System.Drawing.Size(100, 20);
+            this.textBox_OrderCost.TabIndex = 31;
+            // 
+            // label_OrderValue
+            // 
+            this.label_OrderValue.AutoSize = true;
+            this.label_OrderValue.Location = new System.Drawing.Point(3, 257);
+            this.label_OrderValue.Name = "label_OrderValue";
+            this.label_OrderValue.Size = new System.Drawing.Size(64, 13);
+            this.label_OrderValue.TabIndex = 28;
+            this.label_OrderValue.Text = "Ordre Værdi";
+            // 
+            // textBox_OrderValue
+            // 
+            this.textBox_OrderValue.Location = new System.Drawing.Point(6, 273);
+            this.textBox_OrderValue.Name = "textBox_OrderValue";
+            this.textBox_OrderValue.ReadOnly = true;
+            this.textBox_OrderValue.Size = new System.Drawing.Size(100, 20);
+            this.textBox_OrderValue.TabIndex = 29;
+            // 
+            // textBox_TaskValueCompletedTotal
+            // 
+            this.textBox_TaskValueCompletedTotal.Location = new System.Drawing.Point(112, 234);
+            this.textBox_TaskValueCompletedTotal.Name = "textBox_TaskValueCompletedTotal";
+            this.textBox_TaskValueCompletedTotal.ReadOnly = true;
+            this.textBox_TaskValueCompletedTotal.Size = new System.Drawing.Size(100, 20);
+            this.textBox_TaskValueCompletedTotal.TabIndex = 27;
+            // 
+            // checkBox_TaskIsComplete
+            // 
+            this.checkBox_TaskIsComplete.AutoSize = true;
+            this.checkBox_TaskIsComplete.Location = new System.Drawing.Point(233, 16);
+            this.checkBox_TaskIsComplete.Name = "checkBox_TaskIsComplete";
+            this.checkBox_TaskIsComplete.Size = new System.Drawing.Size(59, 17);
+            this.checkBox_TaskIsComplete.TabIndex = 27;
+            this.checkBox_TaskIsComplete.Text = "Færdig";
+            this.checkBox_TaskIsComplete.UseVisualStyleBackColor = true;
+            // 
+            // label_TaskValueCompleted
+            // 
+            this.label_TaskValueCompleted.AutoSize = true;
+            this.label_TaskValueCompleted.Location = new System.Drawing.Point(109, 218);
+            this.label_TaskValueCompleted.Name = "label_TaskValueCompleted";
+            this.label_TaskValueCompleted.Size = new System.Drawing.Size(113, 13);
+            this.label_TaskValueCompleted.TabIndex = 26;
+            this.label_TaskValueCompleted.Text = "Opgave Omkostninger";
+            // 
+            // label_TaskValueTotal
+            // 
+            this.label_TaskValueTotal.AutoSize = true;
+            this.label_TaskValueTotal.Location = new System.Drawing.Point(3, 218);
+            this.label_TaskValueTotal.Name = "label_TaskValueTotal";
+            this.label_TaskValueTotal.Size = new System.Drawing.Size(76, 13);
+            this.label_TaskValueTotal.TabIndex = 24;
+            this.label_TaskValueTotal.Text = "Opgave Værdi";
+            // 
+            // textBox_TaskValueTotal
+            // 
+            this.textBox_TaskValueTotal.Location = new System.Drawing.Point(6, 234);
+            this.textBox_TaskValueTotal.Name = "textBox_TaskValueTotal";
+            this.textBox_TaskValueTotal.ReadOnly = true;
+            this.textBox_TaskValueTotal.Size = new System.Drawing.Size(100, 20);
+            this.textBox_TaskValueTotal.TabIndex = 25;
             // 
             // panel_TasksInfo
             // 
@@ -394,106 +491,33 @@
             this.numericUpDown_OrderID.Size = new System.Drawing.Size(49, 20);
             this.numericUpDown_OrderID.TabIndex = 6;
             // 
-            // checkBox_TaskIsComplete
+            // button_PrintXML
             // 
-            this.checkBox_TaskIsComplete.AutoSize = true;
-            this.checkBox_TaskIsComplete.Location = new System.Drawing.Point(233, 16);
-            this.checkBox_TaskIsComplete.Name = "checkBox_TaskIsComplete";
-            this.checkBox_TaskIsComplete.Size = new System.Drawing.Size(59, 17);
-            this.checkBox_TaskIsComplete.TabIndex = 27;
-            this.checkBox_TaskIsComplete.Text = "Færdig";
-            this.checkBox_TaskIsComplete.UseVisualStyleBackColor = true;
+            this.button_PrintXML.Location = new System.Drawing.Point(227, 3);
+            this.button_PrintXML.Name = "button_PrintXML";
+            this.button_PrintXML.Size = new System.Drawing.Size(75, 23);
+            this.button_PrintXML.TabIndex = 7;
+            this.button_PrintXML.Text = "Gem til XML";
+            this.button_PrintXML.UseVisualStyleBackColor = true;
+            this.button_PrintXML.Click += new System.EventHandler(this.button_PrintXML_Click);
             // 
-            // label_TaskValueTotal
+            // button_ReadXML
             // 
-            this.label_TaskValueTotal.AutoSize = true;
-            this.label_TaskValueTotal.Location = new System.Drawing.Point(3, 218);
-            this.label_TaskValueTotal.Name = "label_TaskValueTotal";
-            this.label_TaskValueTotal.Size = new System.Drawing.Size(76, 13);
-            this.label_TaskValueTotal.TabIndex = 24;
-            this.label_TaskValueTotal.Text = "Opgave Værdi";
-            // 
-            // textBox_TaskValueTotal
-            // 
-            this.textBox_TaskValueTotal.Location = new System.Drawing.Point(6, 234);
-            this.textBox_TaskValueTotal.Name = "textBox_TaskValueTotal";
-            this.textBox_TaskValueTotal.ReadOnly = true;
-            this.textBox_TaskValueTotal.Size = new System.Drawing.Size(100, 20);
-            this.textBox_TaskValueTotal.TabIndex = 25;
-            // 
-            // textBox_TaskValueCompletedTotal
-            // 
-            this.textBox_TaskValueCompletedTotal.Location = new System.Drawing.Point(112, 234);
-            this.textBox_TaskValueCompletedTotal.Name = "textBox_TaskValueCompletedTotal";
-            this.textBox_TaskValueCompletedTotal.ReadOnly = true;
-            this.textBox_TaskValueCompletedTotal.Size = new System.Drawing.Size(100, 20);
-            this.textBox_TaskValueCompletedTotal.TabIndex = 27;
-            // 
-            // label_TaskValueCompleted
-            // 
-            this.label_TaskValueCompleted.AutoSize = true;
-            this.label_TaskValueCompleted.Location = new System.Drawing.Point(109, 218);
-            this.label_TaskValueCompleted.Name = "label_TaskValueCompleted";
-            this.label_TaskValueCompleted.Size = new System.Drawing.Size(113, 13);
-            this.label_TaskValueCompleted.TabIndex = 26;
-            this.label_TaskValueCompleted.Text = "Opgave Omkostninger";
-            // 
-            // numericUpDown_AmountCompleted
-            // 
-            this.numericUpDown_AmountCompleted.Location = new System.Drawing.Point(6, 42);
-            this.numericUpDown_AmountCompleted.Name = "numericUpDown_AmountCompleted";
-            this.numericUpDown_AmountCompleted.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDown_AmountCompleted.TabIndex = 27;
-            // 
-            // button_AddCompleteItems
-            // 
-            this.button_AddCompleteItems.Location = new System.Drawing.Point(6, 68);
-            this.button_AddCompleteItems.Name = "button_AddCompleteItems";
-            this.button_AddCompleteItems.Size = new System.Drawing.Size(75, 23);
-            this.button_AddCompleteItems.TabIndex = 28;
-            this.button_AddCompleteItems.Text = "Afregn";
-            this.button_AddCompleteItems.UseVisualStyleBackColor = true;
-            this.button_AddCompleteItems.Click += new System.EventHandler(this.button_AddCompleteItems_Click);
-            // 
-            // label_OrderValue
-            // 
-            this.label_OrderValue.AutoSize = true;
-            this.label_OrderValue.Location = new System.Drawing.Point(3, 257);
-            this.label_OrderValue.Name = "label_OrderValue";
-            this.label_OrderValue.Size = new System.Drawing.Size(64, 13);
-            this.label_OrderValue.TabIndex = 28;
-            this.label_OrderValue.Text = "Ordre Værdi";
-            // 
-            // textBox_OrderValue
-            // 
-            this.textBox_OrderValue.Location = new System.Drawing.Point(6, 273);
-            this.textBox_OrderValue.Name = "textBox_OrderValue";
-            this.textBox_OrderValue.ReadOnly = true;
-            this.textBox_OrderValue.Size = new System.Drawing.Size(100, 20);
-            this.textBox_OrderValue.TabIndex = 29;
-            // 
-            // label_OrderCost
-            // 
-            this.label_OrderCost.AutoSize = true;
-            this.label_OrderCost.Location = new System.Drawing.Point(109, 257);
-            this.label_OrderCost.Name = "label_OrderCost";
-            this.label_OrderCost.Size = new System.Drawing.Size(101, 13);
-            this.label_OrderCost.TabIndex = 30;
-            this.label_OrderCost.Text = "Ordre Omkostninger";
-            // 
-            // textBox_OrderCost
-            // 
-            this.textBox_OrderCost.Location = new System.Drawing.Point(112, 273);
-            this.textBox_OrderCost.Name = "textBox_OrderCost";
-            this.textBox_OrderCost.ReadOnly = true;
-            this.textBox_OrderCost.Size = new System.Drawing.Size(100, 20);
-            this.textBox_OrderCost.TabIndex = 31;
+            this.button_ReadXML.Location = new System.Drawing.Point(308, 3);
+            this.button_ReadXML.Name = "button_ReadXML";
+            this.button_ReadXML.Size = new System.Drawing.Size(75, 23);
+            this.button_ReadXML.TabIndex = 8;
+            this.button_ReadXML.Text = "Indlæs XML";
+            this.button_ReadXML.UseVisualStyleBackColor = true;
+            this.button_ReadXML.Click += new System.EventHandler(this.button_ReadXML_Click);
             // 
             // Form_Status_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(840, 503);
+            this.Controls.Add(this.button_ReadXML);
+            this.Controls.Add(this.button_PrintXML);
             this.Controls.Add(this.numericUpDown_OrderID);
             this.Controls.Add(this.panel_CustomerSalesInfo);
             this.Controls.Add(this.button_findOrder);
@@ -507,12 +531,12 @@
             this.panel_CustomerSalesInfo.PerformLayout();
             this.panel_MaterialInfo.ResumeLayout(false);
             this.panel_MaterialInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_AmountCompleted)).EndInit();
             this.panel_OrderInfo.ResumeLayout(false);
             this.panel_OrderInfo.PerformLayout();
             this.panel_TasksInfo.ResumeLayout(false);
             this.panel_TasksInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_OrderID)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_AmountCompleted)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -563,5 +587,7 @@
         private System.Windows.Forms.TextBox textBox_OrderValue;
         private System.Windows.Forms.Label label_OrderCost;
         private System.Windows.Forms.TextBox textBox_OrderCost;
+        private System.Windows.Forms.Button button_PrintXML;
+        private System.Windows.Forms.Button button_ReadXML;
     }
 }

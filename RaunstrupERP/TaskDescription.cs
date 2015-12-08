@@ -24,6 +24,10 @@ namespace RaunstrupERP
             description = desc;
         }
         /*SETTERS*/
+        public void SetStatus(Boolean status)
+        {
+            complete = status;
+        }
         public void AddEmployee(EmployeeDescription employee)
         {
             employeelList.Add(employee);
@@ -31,7 +35,20 @@ namespace RaunstrupERP
         }
         public void AddItems(ItemDescription Item, int amount)
         {
-            materials.Add(new ItemLine(Item, amount));
+            materials.Add(new ItemLine(GetNewItemLineID(),Item, amount));
+        }
+        private int GetNewItemLineID()
+        {
+            int newID = 0;
+            foreach (ItemLine item in materials)
+            {
+                if (item.GetLineID() > newID)
+                {
+                    newID = item.GetLineID();
+                }
+            }
+            newID += 1;
+            return newID;
         }
         public void CheckComplete()
         {
@@ -60,6 +77,10 @@ namespace RaunstrupERP
         }
 
         /*Getters*/
+        public List<ItemLine> GetItemLines()
+        {
+            return materials;
+        }
         public Double GetTotal()
         {
             Double total = 0;
@@ -83,9 +104,18 @@ namespace RaunstrupERP
         {
             return complete;
         }
+        /*HER HER HER HER HER HER HER HER HER HER HER HER HER HER HER */
         public ItemLine getItemLine(int id)
         {
-            return materials[id];
+            ItemLine itemLine = null;
+            foreach (ItemLine item in materials)
+            {
+                if (item.GetLineID() == id)
+                {
+                    itemLine = item;
+                }
+            }
+            return itemLine;
         }
         public List<ItemLine> getMaterials()
         {

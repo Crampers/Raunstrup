@@ -113,10 +113,10 @@ namespace RaunstrupERP
             cc.GetOffer(4).SetBuyer(cc.GetCustommer(4));
 
             /*CREATE ORDERS*/
-            cc.AddOrder(cc.GetOffer(1));
-            cc.AddOrder(cc.GetOffer(2));
-            cc.AddOrder(cc.GetOffer(3));
-            cc.AddOrder(cc.GetOffer(4));
+            //cc.AddOrder(cc.GetOffer(1));
+            //cc.AddOrder(cc.GetOffer(2));
+            //cc.AddOrder(cc.GetOffer(3));
+            //cc.AddOrder(cc.GetOffer(4));
 
             /*ENDS*/
         }

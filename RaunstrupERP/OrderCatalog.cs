@@ -41,6 +41,10 @@ namespace RaunstrupERP
         }
 
         /*SETTERS*/
+        public void AddOrderDesc(OrderDescription order)
+        {
+            orders.Add(order);
+        }
         public void AddOrder(OfferDescription offer)
         {
             orders.Add(new OrderDescription(GetNewId(), offer));

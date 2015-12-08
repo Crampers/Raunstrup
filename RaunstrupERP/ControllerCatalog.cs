@@ -15,6 +15,7 @@ namespace RaunstrupERP
         private CustomerCatalog cc;
         private OfferCatalog ofc;
         private ItemCatalog ic;
+        private XML xml;
 
         public ControllerCatalog()
         {
@@ -25,10 +26,18 @@ namespace RaunstrupERP
             cc = new CustomerCatalog();
             ofc = new OfferCatalog();
             ic = new ItemCatalog();
+            xml = new XML();
         }
-
-
-
+        // XML CALLS
+        public void WriteOrderXML(int orderID)
+        {
+            OrderDescription ordre = oc.GetOrder(orderID);
+            xml.WriteOrderStatusXML(ordre);
+        }
+        public void ReadOrderXML()
+        {
+            xml.ReadOrderStatusXML();
+        }
         /*
          * DatabaseControl Calls
          */

@@ -149,6 +149,7 @@
     <Compile Include="ItemCatalog_Singleton.cs" />
     <Compile Include="ItemDescription.cs" />
     <Compile Include="ItemLine.cs" />
+    <Compile Include="Offer.cs" />
     <Compile Include="OfferCatalog.cs" />
     <Compile Include="OfferCatalog_Singleton.cs" />
     <Compile Include="OfferDescription.cs" />
@@ -161,6 +162,7 @@
     <Compile Include="TaskDescription.cs" />
     <Compile Include="SalesEmployee.cs" />
     <Compile Include="Test_Data_Class.cs" />
+    <Compile Include="XML.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
