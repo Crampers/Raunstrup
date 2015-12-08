@@ -41,7 +41,6 @@
             this.textBox_SirName = new System.Windows.Forms.TextBox();
             this.textBox_PostalCode = new System.Windows.Forms.TextBox();
             this.textBox_City = new System.Windows.Forms.TextBox();
-            this.textBox_Phone = new System.Windows.Forms.TextBox();
             this.textBox_Salary = new System.Windows.Forms.TextBox();
             this.textBox_Special = new System.Windows.Forms.TextBox();
             this.button_Create = new System.Windows.Forms.Button();
@@ -61,6 +60,7 @@
             this.comboBox_SpecialEdit = new System.Windows.Forms.ComboBox();
             this.numericUpDown_CustomerID = new System.Windows.Forms.NumericUpDown();
             this.comboBox_Adresses = new System.Windows.Forms.ComboBox();
+            this.comboBox_PhoneNumbers = new System.Windows.Forms.ComboBox();
             this.panel_edit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_EditSalary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_CustomerID)).BeginInit();
@@ -178,14 +178,6 @@
             this.textBox_City.ReadOnly = true;
             this.textBox_City.Size = new System.Drawing.Size(100, 20);
             this.textBox_City.TabIndex = 14;
-            // 
-            // textBox_Phone
-            // 
-            this.textBox_Phone.Location = new System.Drawing.Point(80, 162);
-            this.textBox_Phone.Name = "textBox_Phone";
-            this.textBox_Phone.ReadOnly = true;
-            this.textBox_Phone.Size = new System.Drawing.Size(100, 20);
-            this.textBox_Phone.TabIndex = 15;
             // 
             // textBox_Salary
             // 
@@ -389,12 +381,23 @@
             this.comboBox_Adresses.Name = "comboBox_Adresses";
             this.comboBox_Adresses.Size = new System.Drawing.Size(140, 21);
             this.comboBox_Adresses.TabIndex = 33;
+            this.comboBox_Adresses.SelectedIndexChanged += new System.EventHandler(this.comboBox_Adresses_SelectedIndexChanged);
+            // 
+            // comboBox_PhoneNumbers
+            // 
+            this.comboBox_PhoneNumbers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_PhoneNumbers.FormattingEnabled = true;
+            this.comboBox_PhoneNumbers.Location = new System.Drawing.Point(80, 162);
+            this.comboBox_PhoneNumbers.Name = "comboBox_PhoneNumbers";
+            this.comboBox_PhoneNumbers.Size = new System.Drawing.Size(140, 21);
+            this.comboBox_PhoneNumbers.TabIndex = 34;
             // 
             // Form_Employee_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(742, 484);
+            this.Controls.Add(this.comboBox_PhoneNumbers);
             this.Controls.Add(this.comboBox_Adresses);
             this.Controls.Add(this.numericUpDown_CustomerID);
             this.Controls.Add(this.button_toggleEdit);
@@ -402,7 +405,6 @@
             this.Controls.Add(this.button_Create);
             this.Controls.Add(this.textBox_Special);
             this.Controls.Add(this.textBox_Salary);
-            this.Controls.Add(this.textBox_Phone);
             this.Controls.Add(this.textBox_City);
             this.Controls.Add(this.textBox_PostalCode);
             this.Controls.Add(this.textBox_SirName);
@@ -445,7 +447,6 @@
         private System.Windows.Forms.TextBox textBox_SirName;
         private System.Windows.Forms.TextBox textBox_PostalCode;
         private System.Windows.Forms.TextBox textBox_City;
-        private System.Windows.Forms.TextBox textBox_Phone;
         private System.Windows.Forms.TextBox textBox_Salary;
         private System.Windows.Forms.TextBox textBox_Special;
         private System.Windows.Forms.Button button_Create;
@@ -465,5 +466,6 @@
         private System.Windows.Forms.ComboBox comboBox_SpecialEdit;
         private System.Windows.Forms.NumericUpDown numericUpDown_CustomerID;
         private System.Windows.Forms.ComboBox comboBox_Adresses;
+        private System.Windows.Forms.ComboBox comboBox_PhoneNumbers;
     }
 }

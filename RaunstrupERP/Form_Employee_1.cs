@@ -13,6 +13,7 @@ namespace RaunstrupERP
     public partial class Form_Employee_1 : Form
     {
         ControllerCatalog cc = new ControllerCatalog();
+        List<EmployeeAdress> adressList = new List<EmployeeAdress>();
         int EmployeeID;
         public Form_Employee_1()
         {
@@ -125,16 +126,16 @@ namespace RaunstrupERP
             if (maskedTextBox_PhoneEdit.Visible == false)
             {
                 button_EditPhoneNumber.Text = "Gem";
-                textBox_Phone.Visible = false;
-                maskedTextBox_PhoneEdit.Text = textBox_Phone.Text;
+                //textBox_Phone.Visible = false;
+                //maskedTextBox_PhoneEdit.Text = textBox_Phone.Text;
                 maskedTextBox_PhoneEdit.Visible = true;
             }
             else
             {
                 //cc.EmployeeAlterPhone(ID, Convert.ToInt32(maskedTextBox_PhoneEdit.Text));
                 button_EditPhoneNumber.Text = "Rediger";
-                textBox_Phone.Visible = true;
-                textBox_Phone.Text = maskedTextBox_PhoneEdit.Text;
+                //textBox_Phone.Visible = true;
+                //textBox_Phone.Text = maskedTextBox_PhoneEdit.Text;
                 maskedTextBox_PhoneEdit.Visible = false;
             }
         }
@@ -189,13 +190,23 @@ namespace RaunstrupERP
             EmployeeID = Convert.ToInt32(numericUpDown_CustomerID.Value);
             textBox_FirstName.Text = cc.FindEmployee(EmployeeID).GetFirstName();
             textBox_SirName.Text = cc.FindEmployee(EmployeeID).GetSurName();
+            adressList = cc.FindEmployee(EmployeeID).GetAdresses();
             comboBox_Adresses.Items.Clear();
-            foreach (var adress in cc.FindEmployee(EmployeeID).GetAdresses())
+            foreach (var adress in adressList)
             {
                 comboBox_Adresses.Items.Add(adress.GetAdress());
             }
             textBox_Salary.Text = cc.FindEmployee(EmployeeID).GetSalary().ToString();
-            textBox_Special.Text = cc.FindCustomer(EmployeeID).getsp
+            comboBox_PhoneNumbers.Items.Clear();
+            foreach (var phone in cc.FindEmployee(EmployeeID).getTlf())
+            {
+                comboBox_PhoneNumbers.Items.Add(phone);
+            }
+        }
+
+        private void comboBox_Adresses_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
