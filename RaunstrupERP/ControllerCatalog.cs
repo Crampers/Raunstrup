@@ -212,6 +212,10 @@ namespace RaunstrupERP
         {
             return oc.GetOrder(id);
         }
+        public void PrintOrder(int id)
+        {
+            oc.PrintOrder(id);
+        }
 
         /*SETTERS*/
         public void AddOrder(OfferDescription offer)

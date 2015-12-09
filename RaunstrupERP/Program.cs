@@ -17,6 +17,8 @@ namespace RaunstrupERP
             ControllerCatalog cc = new ControllerCatalog();
             /*XML TESTING*/
             Test_Data_Class TDC = new Test_Data_Class();
+            //cc.PrintOrder(4);
+            
             //cc.WriteOrderXML(4);
 
             //cc.ReadOrderXML();
