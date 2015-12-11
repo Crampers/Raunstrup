@@ -13,6 +13,7 @@ namespace RaunstrupERP
     public partial class Form_Status_1 : Form
     {
         ControllerCatalog cc = new ControllerCatalog();
+        OrderDescription currentOrder;
         int orderID;
 
         public Form_Status_1()
@@ -40,27 +41,28 @@ namespace RaunstrupERP
             panel_MaterialInfo.Visible = false;
             panel_TasksInfo.Visible = false;
             checkBox_TaskIsComplete.Visible = false;
+            currentOrder = cc.FindInquiry(orderID);
             /*CHECK IF ORDER EXISTS*/
-            if (cc.GetOrder(orderID) != null)
+            if (currentOrder != null)
             {
                 /*LOAD CUSTOMER INFO*/
-                textBox_CustomerName.Text = cc.GetOrder(orderID).GetOffer().GetBuyer().getFullName();
-                textBox_CustomerAdress.Text = cc.GetOrder(orderID).GetOffer().GetBuyer().getAdress();
-                textBox_CustomerCity.Text = cc.GetOrder(orderID).GetOffer().GetBuyer().getCity();
-                textBox_CustomerPostalCode.Text = cc.GetOrder(orderID).GetOffer().GetBuyer().getPostal().ToString();
-                textBox_CustomerPhone.Text = cc.GetOrder(orderID).GetOffer().GetBuyer().getTlf().ToString();
-                textBox_CustomerId.Text = cc.GetOrder(orderID).GetOffer().GetBuyer().getID().ToString();
+                textBox_CustomerName.Text = currentOrder.GetOffer().GetBuyer().GetFullName();
+                textBox_CustomerAdress.Text = "";
+                textBox_CustomerCity.Text = "";
+                textBox_CustomerPostalCode.Text = "";
+                textBox_CustomerPhone.Text = currentOrder.GetOffer().GetBuyer().getTlf()[0].ToString();
+                textBox_CustomerId.Text = currentOrder.GetOffer().GetBuyer().GetID().ToString();
                 /*LOAD SALESMAN INFO*/
-                textBox_Salesman.Text = cc.GetOrder(orderID).GetOffer().GetSalesMan().GetFullName();
-                textBox_SalesmanPhone.Text = cc.GetOrder(orderID).GetOffer().GetSalesMan().GetPhone().ToString();
+                textBox_Salesman.Text = currentOrder.GetOffer().GetSalesMan().GetFullName();
+                textBox_SalesmanPhone.Text = currentOrder.GetOffer().GetSalesMan().GetPhone().ToString();
 
                 /*LOAD ORDER AND TASK INFO*/
-                textBox_OrderValue.Text = cc.GetOrder(orderID).getOrderValue().ToString();
-                textBox_OrderCost.Text = cc.GetOrder(orderID).getOrderCost().ToString();
+                textBox_OrderValue.Text = currentOrder.getOrderValue().ToString();
+                textBox_OrderCost.Text = currentOrder.getOrderCost().ToString();
                 /*ONLY DO THIS, IF WORK TASKS EXIST!*/
-                if (cc.GetOrder(orderID).GetOffer().GetWorkTasks() != null)
+                if (currentOrder.GetOffer().GetWorkTasks() != null)
                 {
-                    foreach (TaskDescription item in cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTasks())
+                    foreach (TaskDescription item in currentOrder.GetOffer().GetWorkTasks().GetTasks())
                     {
                         listBox_WorkTasks.Items.Add(item.GetDesc());
                     }
@@ -90,8 +92,8 @@ namespace RaunstrupERP
             listBox_Materials.Items.Clear();
             textBox_MaterialeName.Text = "";
             panel_MaterialInfo.Visible = false;
-            cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).CheckComplete();
-            checkBox_TaskIsComplete.Checked = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetStatus();
+            currentOrder.GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).CheckComplete();
+            checkBox_TaskIsComplete.Checked = currentOrder.GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetStatus();
             if (listBox_WorkTasks.SelectedItem != null)
             {
                 checkBox_TaskIsComplete.Visible = true;
@@ -106,15 +108,15 @@ namespace RaunstrupERP
             }
 
             /*DO THIS*/
-            textBox_TaskValueTotal.Text = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetTotal().ToString();
-            textBox_TaskValueCompletedTotal.Text = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetTotalCompleted().ToString();
-            foreach (EmployeeDescription item in cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getEmployees())
+            textBox_TaskValueTotal.Text = currentOrder.GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetTotal().ToString();
+            textBox_TaskValueCompletedTotal.Text = currentOrder.GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetTotalCompleted().ToString();
+            foreach (EmployeeDescription item in currentOrder.GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getEmployees())
             {
                 listBox_Employees.Items.Add("Id: " + item.GetId() + " " + item.GetFullName());
             }
-            foreach (ItemLine item in cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getMaterials())
+            foreach (ItemLine item in currentOrder.GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getMaterials())
             {
-                listBox_Materials.Items.Add("Antal: " + item.GetAmount() + " - " + item.GetItem().GetDesc() + " - Pris: " + item.GetTotalSalesPrice() + " Kr.");
+                listBox_Materials.Items.Add(item.GetLineID() + " Antal: " + item.GetAmount() + " - " + item.GetItem().GetDesc() + " - Pris: " + item.GetTotalSalesPrice() + " Kr.");
             }
         }
 
@@ -125,9 +127,9 @@ namespace RaunstrupERP
             panel_MaterialInfo.Visible = true;
             /*FUNCTIONS*/
             /*SHOW VALUES*/
-            textBox_TaskValueTotal.Text = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetTotal().ToString();
-            textBox_TaskValueCompletedTotal.Text = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetTotalCompleted().ToString();
-            if (cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getItemLine(listBox_Materials.SelectedIndex + 1).GetStatus() == false)
+            textBox_TaskValueTotal.Text = currentOrder.GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetTotal().ToString();
+            textBox_TaskValueCompletedTotal.Text = currentOrder.GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetTotalCompleted().ToString();
+            if (currentOrder.GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetItemLineAtIndex(listBox_Materials.SelectedIndex).GetUncompletedAmount() > 0)
             {
                 numericUpDown_AmountCompleted.Visible = true;
                 button_AddCompleteItems.Visible = true;
@@ -139,9 +141,9 @@ namespace RaunstrupERP
                 button_AddCompleteItems.Visible = false;
                 checkBox_ItemLineIsComplete.Visible = true;
             }
-            numericUpDown_AmountCompleted.Maximum = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getItemLine(listBox_Materials.SelectedIndex + 1).GetUncompletedAmount();
-            textBox_MaterialeName.Text = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getItemLine(listBox_Materials.SelectedIndex + 1).GetItem().GetDesc();
-            checkBox_ItemLineIsComplete.Checked = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getItemLine(listBox_Materials.SelectedIndex + 1).GetStatus();
+            numericUpDown_AmountCompleted.Maximum = currentOrder.GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetItemLineAtIndex(listBox_Materials.SelectedIndex).GetUncompletedAmount();
+            textBox_MaterialeName.Text = currentOrder.GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetItemLineAtIndex(listBox_Materials.SelectedIndex).GetItem().GetDesc();
+            checkBox_ItemLineIsComplete.Checked = currentOrder.GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetItemLineAtIndex(listBox_Materials.SelectedIndex).GetStatus();
         }
 
         private void checkBox_IsComplete_CheckedChanged(object sender, EventArgs e)
@@ -157,8 +159,8 @@ namespace RaunstrupERP
 
         private void button_AddCompleteItems_Click(object sender, EventArgs e)
         {
-            cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getItemLine(listBox_Materials.SelectedIndex + 1).addCompleted(Convert.ToInt32(numericUpDown_AmountCompleted.Value));
-            if (cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getItemLine(listBox_Materials.SelectedIndex + 1).GetUncompletedAmount() > 0)
+            currentOrder.GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetItemLineAtIndex(listBox_Materials.SelectedIndex).addCompleted(Convert.ToInt32(numericUpDown_AmountCompleted.Value));
+            if (currentOrder.GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetItemLineAtIndex(listBox_Materials.SelectedIndex).GetUncompletedAmount() > 0)
             {
                 numericUpDown_AmountCompleted.Visible = true;
                 button_AddCompleteItems.Visible = true;
@@ -168,13 +170,13 @@ namespace RaunstrupERP
             {
                 numericUpDown_AmountCompleted.Visible = false;
                 button_AddCompleteItems.Visible = false;
-                checkBox_ItemLineIsComplete.Checked = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getItemLine(listBox_Materials.SelectedIndex + 1).GetStatus();
+                checkBox_ItemLineIsComplete.Checked = currentOrder.GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetItemLineAtIndex(listBox_Materials.SelectedIndex).GetStatus();
                 checkBox_ItemLineIsComplete.Visible = true;
             }
-            numericUpDown_AmountCompleted.Maximum = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getItemLine(listBox_Materials.SelectedIndex + 1).GetUncompletedAmount();
-            textBox_TaskValueTotal.Text = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetTotal().ToString();
-            textBox_TaskValueCompletedTotal.Text = cc.GetOrder(orderID).GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetTotalCompleted().ToString();
-            textBox_OrderCost.Text = cc.GetOrder(orderID).getOrderCost().ToString();
+            numericUpDown_AmountCompleted.Maximum = currentOrder.GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetItemLineAtIndex(listBox_Materials.SelectedIndex).GetUncompletedAmount();
+            textBox_TaskValueTotal.Text = currentOrder.GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetTotal().ToString();
+            textBox_TaskValueCompletedTotal.Text = currentOrder.GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).GetTotalCompleted().ToString();
+            textBox_OrderCost.Text = currentOrder.getOrderCost().ToString();
         }
 
         private void button_PrintXML_Click(object sender, EventArgs e)

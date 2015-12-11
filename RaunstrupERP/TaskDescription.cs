@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RaunstrupERP
 {
-    class TaskDescription
+    public class TaskDescription
     {
         /*Members*/
         private int ID;
@@ -33,9 +33,9 @@ namespace RaunstrupERP
             employeelList.Add(employee);
             //_employee = employee;
         }
-        public void AddItems(ItemDescription Item, int amount)
+        public void AddItems(int itemLineId, ItemDescription Item, int amount)
         {
-            materials.Add(new ItemLine(GetNewItemLineID(),Item, amount));
+            materials.Add(new ItemLine(itemLineId, Item, amount));
         }
         private int GetNewItemLineID()
         {
@@ -104,18 +104,21 @@ namespace RaunstrupERP
         {
             return complete;
         }
-        /*HER HER HER HER HER HER HER HER HER HER HER HER HER HER HER */
-        public ItemLine getItemLine(int id)
+        public ItemLine GetItemLineAtIndex(int index)
         {
-            ItemLine itemLine = null;
+            return materials[index];
+        }
+        public ItemLine GetItemLine(int id)
+        {
+            ItemLine line = new ItemLine(0, new ItemDescription("", 0, 0, 0), 0);
             foreach (ItemLine item in materials)
             {
                 if (item.GetLineID() == id)
                 {
-                    itemLine = item;
+                    line = item;
                 }
             }
-            return itemLine;
+            return line;
         }
         public List<ItemLine> getMaterials()
         {

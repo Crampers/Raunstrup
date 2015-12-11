@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RaunstrupERP
 {
-    class OfferCatalog_Singleton
+    public class OfferCatalog_Singleton
     {
         private static List<OfferDescription> offers;
         private OfferCatalog_Singleton()

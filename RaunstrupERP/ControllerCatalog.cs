@@ -28,10 +28,15 @@ namespace RaunstrupERP
             ic = new ItemCatalog();
             xml = new XML();
         }
+        // LOAD ITEMS FROM DB!
+        public void LoadItems()
+        {
+            dbc.IDB.LoadItems();
+        }
         // XML CALLS
         public void WriteOrderXML(int orderID)
         {
-            OrderDescription ordre = oc.GetOrder(orderID);
+            OrderDescription ordre = dbc.OSDB.FindOrderStatus(orderID);
             xml.WriteOrderStatusXML(ordre);
         }
         public void ReadOrderXML()
@@ -52,12 +57,12 @@ namespace RaunstrupERP
             return dbc.CDB.GetCityName(PostalCode);
         }
         // CUSTOMER CALLS
-        // READ
+        // READ CUSTOMER
         public Customer FindCustomer(int id)
         {
             return dbc.CDB.FindCustomer(id);
         }
-        // ALTER
+        // ALTER CUSTOMER
         public void AlterCustomerFirstName(int CustomerID, string NewName)
         {
             dbc.CDB.AlterCustomerFirstName(CustomerID, NewName);
@@ -74,7 +79,7 @@ namespace RaunstrupERP
         {
             dbc.CDB.AlterCustomerPhoneNumber(CustomerID, OldNumber, NewNumber);
         }
-        // CREATE
+        // CREATE CUSTOMER
         public void CreateCustomer(string FN, string SN, string adress, int postalCode, int phoneNumber)
         {
             dbc.CDB.InsertCustomer(FN, SN, adress, postalCode, phoneNumber);
@@ -91,6 +96,11 @@ namespace RaunstrupERP
         public Employee FindEmployee(int ID)
         {
             return dbc.EDB.FindEmployee(ID);
+        }
+        //ORDER CALLS
+        public OrderDescription FindInquiry(int id)
+        {
+            return dbc.OSDB.FindOrderStatus(id);
         }
 
 
@@ -168,9 +178,9 @@ namespace RaunstrupERP
          * TaskCatalog Method Calls
          */
 
-        public void AddTask(String desc)
+        public void AddTask(int id, String desc)
         {
-            tc.AddTask(desc);
+            tc.AddTask(id, desc);
         }
         public void SetTaskEmployee(int id, EmployeeDescription employee)
         {
@@ -211,10 +221,6 @@ namespace RaunstrupERP
         public OrderDescription GetOrder(int id)
         {
             return oc.GetOrder(id);
-        }
-        public void PrintOrder(int id)
-        {
-            oc.PrintOrder(id);
         }
 
         /*SETTERS*/
@@ -298,9 +304,9 @@ namespace RaunstrupERP
         } 
 
         /*Setters*/
-        public void AddItem(String desc, double salesPrice, double shopsPrice)
+        public void AddItem(int id, String desc, double salesPrice, double shopsPrice)
         {
-            ic.AddItem(desc, salesPrice, shopsPrice);
+            ic.AddItem(id, desc, salesPrice, shopsPrice);
         }
         public void UpdateItemDesc(int id, String newDesc)
         {

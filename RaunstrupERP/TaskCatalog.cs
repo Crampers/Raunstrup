@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RaunstrupERP
 {
-    class TaskCatalog
+    public class TaskCatalog
     {
         private List<TaskDescription> tasks;
         public TaskCatalog()
@@ -14,9 +14,9 @@ namespace RaunstrupERP
             tasks = new List<TaskDescription>();
         }
         /*Setters*/
-        public void AddTask(String desc)
+        public void AddTask(int id, String desc)
         {
-            tasks.Add(new TaskDescription(GetNewId(), desc));
+            tasks.Add(new TaskDescription(id, desc));
         }
         public void SetTaskEmployee(int id, EmployeeDescription employee)
         {
@@ -34,7 +34,7 @@ namespace RaunstrupERP
             {
                 if (Item.GetId() == id)
                 {
-                    Item.AddItems(item, amount);
+                    Item.AddItems(id, item, amount);
                 }
             }
         }

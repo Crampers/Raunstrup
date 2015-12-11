@@ -15,9 +15,13 @@ namespace RaunstrupERP
             
            
             ControllerCatalog cc = new ControllerCatalog();
+            cc.LoadItems();
+            //OrderDescription currentOrder = cc.FindInquiry(1);
+            //currentOrder.PrintOrder();
+            //currentOrder.WriteOrderStatusXML();
             /*XML TESTING*/
-            Test_Data_Class TDC = new Test_Data_Class();
-            //cc.PrintOrder(4);
+            //Test_Data_Class TDC = new Test_Data_Class();
+            //cc.PrintOrder(1);
             
             //cc.WriteOrderXML(4);
 

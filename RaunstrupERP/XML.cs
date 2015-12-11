@@ -98,7 +98,7 @@ namespace RaunstrupERP
                                 {
                                     taskDesc = reader.Value.Trim();
                                 }
-                                tc.AddTask(taskDesc);
+                                tc.AddTask(taskID, taskDesc);
                                 //Console.WriteLine(taskDesc);
                                 break;
                             case "Taskcomplete":
@@ -143,7 +143,7 @@ namespace RaunstrupERP
                                 }
                                 if (itemIsCompleted != 0)
                                 {
-                                    tc.GetTask(taskID).getItemLine(itemLineID).SetAmountCompleted(itemIsCompleted);
+                                    tc.GetTask(taskID).GetItemLine(itemLineID).SetAmountCompleted(itemIsCompleted);
                                 }
                                 //Console.WriteLine("   " + itemIsCompleted);
                                 break;
@@ -155,7 +155,7 @@ namespace RaunstrupERP
                                 }
                                 if (itemIsComplete != false)
                                 {
-                                    tc.GetTask(taskID).getItemLine(itemLineID).setStatus(itemIsComplete);
+                                    tc.GetTask(taskID).GetItemLine(itemLineID).setStatus(itemIsComplete);
                                 }
                                 //Console.WriteLine("   " + itemIsComplete);
                                 break;

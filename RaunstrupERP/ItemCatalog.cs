@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RaunstrupERP
 {
-    class ItemCatalog
+    public class ItemCatalog
     {
         private List<ItemDescription> items;
         public ItemCatalog()
@@ -39,9 +39,9 @@ namespace RaunstrupERP
         }
 
         /*Setters*/
-        public void AddItem(String desc, double salesPrice, double shopsPrice)
+        public void AddItem(int id, String desc, double salesPrice, double shopsPrice)
         {
-            items.Add(new ItemDescription(desc, GetNewId(), salesPrice, shopsPrice));
+            items.Add(new ItemDescription(desc, id, salesPrice, shopsPrice));
         }
         public void UpdateItemDesc(int id, String newDesc)
         {

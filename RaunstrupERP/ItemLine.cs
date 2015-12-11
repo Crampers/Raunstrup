@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RaunstrupERP
 {
-    class ItemLine
+    public class ItemLine
     {
         private ItemDescription item;
         private int itemLineID;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RaunstrupERP
 {
-    class OrderCatalog
+    public class OrderCatalog
     {
         private List<OrderDescription> orders;
         public OrderCatalog()
@@ -144,8 +144,9 @@ namespace RaunstrupERP
             lineBuilds.Add("Order ID : " + GetOrder(id).GetId().ToString());
             lineBuilds.Add("");
             lineBuilds.Add("Kunde");
-            lineBuilds.Add("      " + SpacerText("Navn") + ": " + GetOrder(id).GetOffer().GetBuyer().getFullName());
-            lineBuilds.Add("      " + SpacerText("Adresse") + ": " + GetOrder(id).GetOffer().GetBuyer().getAdress() + ", " + GetOrder(id).GetOffer().GetBuyer().getCity() + " " + GetOrder(id).GetOffer().GetBuyer().getPostal());
+            lineBuilds.Add("      " + SpacerText("Navn") + ": " + GetOrder(id).GetOffer().GetBuyer().GetFullName());
+            // THIS NEXT LIME MIGHT BE A PROBLEM AS GETADRESSES IS A FUCKING LIST CAUSE REDUNDENCY IN CODE.
+            lineBuilds.Add("      " + SpacerText("Adresse") + ": " + GetOrder(id).GetOffer().GetBuyer().GetAdresses() + ", " + GetOrder(id).GetOffer().GetBuyer());
             lineBuilds.Add("");
             lineBuilds.Add("Sælger");
             lineBuilds.Add("      " + SpacerText("Navn") + ": " + GetOrder(id).GetOffer().GetSalesMan().GetFullName());

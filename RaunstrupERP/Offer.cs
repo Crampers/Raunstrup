@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RaunstrupERP
 {
-    class Offer
+    public class Offer
     {
         public readonly int OfferID;
         private double Price;

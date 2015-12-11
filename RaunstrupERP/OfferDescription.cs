@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace RaunstrupERP
 {
-    class OfferDescription
+    public class OfferDescription
     {
         private int offerID;
         private TaskCatalog workTasks;
-        private CustomerDescription buyer;
+        private Customer buyer;
         private EmployeeDescription salesman;
         public OfferDescription(int id, TaskCatalog tc)
         {
@@ -27,16 +27,20 @@ namespace RaunstrupERP
             if (workTasks == null)
             {
                 TaskCatalog empty = new TaskCatalog();
-                empty.AddTask("Empty");
+                empty.AddTask(0, "Empty");
                 return empty;
             }
             return workTasks;
         }
-        public CustomerDescription GetBuyer()
+        public Customer GetBuyer()
         {
             if (buyer == null)
             {
-                CustomerDescription empty = new CustomerDescription(0, "N/A", "", "N/A", 0000, "N/A", 00000000);
+                List<int> emptyPN = new List<int>();
+                emptyPN.Add(00000000);
+                List<CustomerAdress> emptyAdress = new List<CustomerAdress>();
+                emptyAdress.Add(new CustomerAdress("N/A", 0000));
+                Customer empty = new Customer(0, "N/A", "N/A", emptyPN, emptyAdress);
                 return empty;
             }
             return buyer;
@@ -60,7 +64,7 @@ namespace RaunstrupERP
         {
             workTasks = tc;
         }
-        public void SetBuyer(CustomerDescription buyer)
+        public void SetBuyer(Customer buyer)
         {
             this.buyer = buyer;
         }

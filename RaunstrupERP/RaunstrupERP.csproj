@@ -147,6 +147,7 @@
     </Compile>
     <Compile Include="ItemCatalog.cs" />
     <Compile Include="ItemCatalog_Singleton.cs" />
+    <Compile Include="ItemDB.cs" />
     <Compile Include="ItemDescription.cs" />
     <Compile Include="ItemLine.cs" />
     <Compile Include="Offer.cs" />
@@ -156,6 +157,7 @@
     <Compile Include="OrderCatalog.cs" />
     <Compile Include="Ordercatalog_Singleton.cs" />
     <Compile Include="OrderDescription.cs" />
+    <Compile Include="OrderStatusDB.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaskCatalog.cs" />

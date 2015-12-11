@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RaunstrupERP
 {
-    class OfferCatalog
+    public class OfferCatalog
     {
         List<OfferDescription> Offers;
         public OfferCatalog()

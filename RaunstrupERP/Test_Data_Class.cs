@@ -11,24 +11,51 @@ namespace RaunstrupERP
         ControllerCatalog cc = new ControllerCatalog();
         public Test_Data_Class()
         {
+
+            // DEPCRECATED DO NOT USEEEE!
+            // DEPCRECATED DO NOT USEEEE!
+            // DEPCRECATED DO NOT USEEEE!
+            // DEPCRECATED DO NOT USEEEE!
+            // DEPCRECATED DO NOT USEEEE!
+            // DEPCRECATED DO NOT USEEEE!
+            // DEPCRECATED DO NOT USEEEE!
+            // DEPCRECATED DO NOT USEEEE!
+            // DEPCRECATED DO NOT USEEEE!
+            // DEPCRECATED DO NOT USEEEE!
+            // DEPCRECATED DO NOT USEEEE!
+            // DEPCRECATED DO NOT USEEEE!
+            // DEPCRECATED DO NOT USEEEE!
+            // DEPCRECATED DO NOT USEEEE!
+            // DEPCRECATED DO NOT USEEEE!
+            // DEPCRECATED DO NOT USEEEE!
+            // DEPCRECATED DO NOT USEEEE!
+            // DEPCRECATED DO NOT USEEEE!
+            // DEPCRECATED DO NOT USEEEE!
+            // DEPCRECATED DO NOT USEEEE!
+            // DEPCRECATED DO NOT USEEEE!
+            // DEPCRECATED DO NOT USEEEE!
+            // DEPCRECATED DO NOT USEEEE!
+            // DEPCRECATED DO NOT USEEEE!
+            // DEPCRECATED DO NOT USEEEE!
+            // DEPCRECATED DO NOT USEEEE!
             //1
-            cc.AddItem("Vindue Liste", 100, 20);
+            cc.AddItem(1,"Vindue Liste", 100, 20);
             //2
-            cc.AddItem("Vindue Ramme", 200, 40);
+            cc.AddItem(2, "Vindue Ramme", 200, 40);
             //3
-            cc.AddItem("Vidue Glas", 500, 100);
+            cc.AddItem(3, "Vidue Glas", 500, 100);
             //4
-            cc.AddItem("Radiator", 100, 20);
+            cc.AddItem(4, "Radiator", 100, 20);
             //5
-            cc.AddItem("Thermostat", 10, 2);
+            cc.AddItem(5, "Thermostat", 10, 2);
             //6
-            cc.AddItem("N/A", 0, 0);
+            cc.AddItem(6, "N/A", 0, 0);
             //7
-            cc.AddItem("Dørkam", 20, 2);
+            cc.AddItem(7, "Dørkam", 20, 2);
             //8
-            cc.AddItem("Dør", 50, 10);
+            cc.AddItem(8, "Dør", 50, 10);
             //9
-            cc.AddItem("Timebrug", 140, 90);
+            cc.AddItem(9, "Timebrug", 140, 90);
 
             //1
             cc.AddEmployee("Daniel", "Olsen", "Gadevej", 9999, "Bynavn", 99999999, 20.00);
@@ -58,7 +85,7 @@ namespace RaunstrupERP
 
             /*TEST DATA CATALOG 1*/
             TaskCatalog tc = new TaskCatalog();
-            tc.AddTask("Installation af Radiator");
+            tc.AddTask(1, "Installation af Radiator");
             tc.AddTaskItems(1, cc.GetItem(4), 1);
             tc.AddTaskItems(1, cc.GetItem(5), 1);
             tc.AddTaskItems(1, cc.GetItem(9), 3);
@@ -66,7 +93,7 @@ namespace RaunstrupERP
 
             /*TEST DATA CATALOG 2*/
             TaskCatalog tc1 = new TaskCatalog();
-            tc1.AddTask("Installation af Vindue");
+            tc1.AddTask(1, "Installation af Vindue");
             tc1.AddTaskItems(1, cc.GetItem(1), 2);
             tc1.AddTaskItems(1, cc.GetItem(2), 1);
             tc1.AddTaskItems(1, cc.GetItem(3), 4);
@@ -75,7 +102,7 @@ namespace RaunstrupERP
 
             /*TEST DATA CATALOG 3*/
             TaskCatalog tc2 = new TaskCatalog();
-            tc2.AddTask("Installation af Dør");
+            tc2.AddTask(1, "Installation af Dør");
             tc2.AddTaskItems(1, cc.GetItem(7), 1);
             tc2.AddTaskItems(1, cc.GetItem(8), 1);
             tc2.AddTaskItems(1, cc.GetItem(9), 1);
@@ -83,20 +110,20 @@ namespace RaunstrupERP
 
             /*TEST DATA CATALOG 4*/
             TaskCatalog tc3 = new TaskCatalog();
-            tc3.AddTask("Installation af Radiator");
+            tc3.AddTask(1, "Installation af Radiator");
             tc3.AddTaskItems(1, cc.GetItem(4), 1);
             tc3.AddTaskItems(1, cc.GetItem(5), 1);
             tc3.AddTaskItems(1, cc.GetItem(9), 3);
             tc3.SetTaskEmployee(1, cc.GetEmployee(2));
 
-            tc3.AddTask("Installation af Vindue");
+            tc3.AddTask(2, "Installation af Vindue");
             tc3.AddTaskItems(2, cc.GetItem(1), 2);
             tc3.AddTaskItems(2, cc.GetItem(2), 1);
             tc3.AddTaskItems(2, cc.GetItem(3), 4);
             tc3.AddTaskItems(2, cc.GetItem(9), 2);
             tc3.SetTaskEmployee(2, cc.GetEmployee(3));
 
-            tc3.AddTask("Installation af Dør");
+            tc3.AddTask(3, "Installation af Dør");
             tc3.AddTaskItems(3, cc.GetItem(7), 1);
             tc3.AddTaskItems(3, cc.GetItem(8), 1);
             tc3.AddTaskItems(3, cc.GetItem(9), 1);
@@ -115,10 +142,10 @@ namespace RaunstrupERP
            // cc.GetOffer(4).SetSalesMan(cc.GetEmployee(1));
 
             /*ADD BUYER TO OFFER*/
-            cc.GetOffer(1).SetBuyer(cc.GetCustommer(1));
-            cc.GetOffer(2).SetBuyer(cc.GetCustommer(2));
-            cc.GetOffer(3).SetBuyer(cc.GetCustommer(3));
-            cc.GetOffer(4).SetBuyer(cc.GetCustommer(4));
+            cc.GetOffer(1).SetBuyer(cc.FindCustomer(1));
+            cc.GetOffer(2).SetBuyer(cc.FindCustomer(2));
+            cc.GetOffer(3).SetBuyer(cc.FindCustomer(3));
+            cc.GetOffer(4).SetBuyer(cc.FindCustomer(4));
 
             /*CREATE ORDERS*/
             cc.AddOrder(cc.GetOffer(1));
