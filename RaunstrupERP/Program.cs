@@ -15,6 +15,7 @@ namespace RaunstrupERP
             
            
             ControllerCatalog cc = new ControllerCatalog();
+            //Loads all items in the database currently. might find fix for this !
             cc.LoadItems();
             //OrderDescription currentOrder = cc.FindInquiry(1);
             //currentOrder.PrintOrder();

@@ -47,9 +47,9 @@ namespace RaunstrupERP
             {
                 /*LOAD CUSTOMER INFO*/
                 textBox_CustomerName.Text = currentOrder.GetOffer().GetBuyer().GetFullName();
-                textBox_CustomerAdress.Text = "";
-                textBox_CustomerCity.Text = "";
-                textBox_CustomerPostalCode.Text = "";
+                textBox_CustomerAdress.Text = currentOrder.GetOffer().GetBuyer().GetAdresses()[0].GetAdress();
+                textBox_CustomerCity.Text = cc.GetCityName(currentOrder.GetOffer().GetBuyer().GetAdresses()[0].GetPostalCode());
+                textBox_CustomerPostalCode.Text = currentOrder.GetOffer().GetBuyer().GetAdresses()[0].GetPostalCode().ToString();
                 textBox_CustomerPhone.Text = currentOrder.GetOffer().GetBuyer().getTlf()[0].ToString();
                 textBox_CustomerId.Text = currentOrder.GetOffer().GetBuyer().GetID().ToString();
                 /*LOAD SALESMAN INFO*/

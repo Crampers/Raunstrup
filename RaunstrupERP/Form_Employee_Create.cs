@@ -16,6 +16,10 @@ namespace RaunstrupERP
         public Form_Employee_Create()
         {
             InitializeComponent();
+            foreach (int postalCode in cc.GetPostalCodes())
+            {
+                comboBox1.Items.Add(postalCode);
+            }
         }
 
         private void button_Confirm_Click(object sender, EventArgs e)
@@ -23,11 +27,14 @@ namespace RaunstrupERP
             String fn = textBox_Firstname.Text;
             String sn = textBox_Surname.Text;
             String adress = textBox_Adress.Text;
-            int postal = Convert.ToInt32(maskedTextBox_PostalCode.Text);
+            int postal = Convert.ToInt32(comboBox1.SelectedItem);
             String city = textBox_CityName.Text;
             int phone = Convert.ToInt32(maskedTextBox_PhoneNumber.Text);
             Double salary = Convert.ToDouble(numericUpDown_Salary.Value);
-            cc.AddEmployee(fn, sn, adress, postal, city, phone, salary);
+
+            
+            
+            
             /*SETS WETHER CRAFTMAN OR SALESMAN!*/
             if (comboBox_Special.SelectedIndex == 0)
             {
@@ -38,6 +45,11 @@ namespace RaunstrupERP
                 cc.GetEmployee(cc.GetLastUsedEmployeeId()).SetCraftsMan();
             }
             this.Close();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBox_CityName.Text = cc.GetCityName(Convert.ToInt32(comboBox1.SelectedItem));
         }
     }
 }

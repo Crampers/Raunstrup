@@ -367,6 +367,7 @@
             this.textBox_SalesmanPhone.ReadOnly = true;
             this.textBox_SalesmanPhone.Size = new System.Drawing.Size(100, 20);
             this.textBox_SalesmanPhone.TabIndex = 17;
+            this.textBox_SalesmanPhone.Visible = false;
             // 
             // label_SalesmanPhone
             // 
@@ -376,6 +377,7 @@
             this.label_SalesmanPhone.Size = new System.Drawing.Size(60, 13);
             this.label_SalesmanPhone.TabIndex = 16;
             this.label_SalesmanPhone.Text = "Telefon Nr.";
+            this.label_SalesmanPhone.Visible = false;
             // 
             // textBox_CustomerPhone
             // 
@@ -452,6 +454,7 @@
             this.textBox_Salesman.ReadOnly = true;
             this.textBox_Salesman.Size = new System.Drawing.Size(100, 20);
             this.textBox_Salesman.TabIndex = 7;
+            this.textBox_Salesman.Visible = false;
             // 
             // label_Salesman
             // 
@@ -461,6 +464,7 @@
             this.label_Salesman.Size = new System.Drawing.Size(41, 13);
             this.label_Salesman.TabIndex = 6;
             this.label_Salesman.Text = "Sælger";
+            this.label_Salesman.Visible = false;
             // 
             // textBox_CustomerName
             // 

@@ -38,13 +38,13 @@
             this.label_FirstName = new System.Windows.Forms.Label();
             this.button_Confirm = new System.Windows.Forms.Button();
             this.comboBox_Special = new System.Windows.Forms.ComboBox();
-            this.maskedTextBox_PostalCode = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox_PhoneNumber = new System.Windows.Forms.MaskedTextBox();
             this.textBox_Firstname = new System.Windows.Forms.TextBox();
             this.textBox_Surname = new System.Windows.Forms.TextBox();
             this.textBox_Adress = new System.Windows.Forms.TextBox();
             this.textBox_CityName = new System.Windows.Forms.TextBox();
             this.numericUpDown_Salary = new System.Windows.Forms.NumericUpDown();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Salary)).BeginInit();
             this.SuspendLayout();
             // 
@@ -142,14 +142,6 @@
             this.comboBox_Special.Size = new System.Drawing.Size(100, 21);
             this.comboBox_Special.TabIndex = 8;
             // 
-            // maskedTextBox_PostalCode
-            // 
-            this.maskedTextBox_PostalCode.Location = new System.Drawing.Point(83, 84);
-            this.maskedTextBox_PostalCode.Mask = "0000";
-            this.maskedTextBox_PostalCode.Name = "maskedTextBox_PostalCode";
-            this.maskedTextBox_PostalCode.Size = new System.Drawing.Size(33, 20);
-            this.maskedTextBox_PostalCode.TabIndex = 4;
-            // 
             // maskedTextBox_PhoneNumber
             // 
             this.maskedTextBox_PhoneNumber.Location = new System.Drawing.Point(83, 136);
@@ -183,6 +175,7 @@
             // 
             this.textBox_CityName.Location = new System.Drawing.Point(83, 110);
             this.textBox_CityName.Name = "textBox_CityName";
+            this.textBox_CityName.ReadOnly = true;
             this.textBox_CityName.Size = new System.Drawing.Size(100, 20);
             this.textBox_CityName.TabIndex = 5;
             // 
@@ -204,18 +197,28 @@
             0,
             0});
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(83, 84);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 28;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // Form_Employee_Create
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(217, 274);
+            this.ClientSize = new System.Drawing.Size(249, 281);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.numericUpDown_Salary);
             this.Controls.Add(this.textBox_CityName);
             this.Controls.Add(this.textBox_Adress);
             this.Controls.Add(this.textBox_Surname);
             this.Controls.Add(this.textBox_Firstname);
             this.Controls.Add(this.maskedTextBox_PhoneNumber);
-            this.Controls.Add(this.maskedTextBox_PostalCode);
             this.Controls.Add(this.comboBox_Special);
             this.Controls.Add(this.button_Confirm);
             this.Controls.Add(this.label_Special);
@@ -246,12 +249,12 @@
         private System.Windows.Forms.Label label_FirstName;
         private System.Windows.Forms.Button button_Confirm;
         private System.Windows.Forms.ComboBox comboBox_Special;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox_PostalCode;
         private System.Windows.Forms.MaskedTextBox maskedTextBox_PhoneNumber;
         private System.Windows.Forms.TextBox textBox_Firstname;
         private System.Windows.Forms.TextBox textBox_Surname;
         private System.Windows.Forms.TextBox textBox_Adress;
         private System.Windows.Forms.TextBox textBox_CityName;
         private System.Windows.Forms.NumericUpDown numericUpDown_Salary;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

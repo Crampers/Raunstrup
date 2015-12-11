@@ -36,6 +36,7 @@ namespace RaunstrupERP
 
         }
 
+        //START EDITING
         private void button_toggleEdit_Click(object sender, EventArgs e)
         {
             if (panel_edit.Visible == false)
@@ -46,12 +47,12 @@ namespace RaunstrupERP
             }
             else
             {
-
                 panel_edit.Visible = false;
                 button_toggleEdit.Text = "Redigér";
             }
         }
 
+        //EDIT FIRST NAME
         private void button_EditFName_Click(object sender, EventArgs e)
         {
             if (textBox_FirstName.ReadOnly == true)
@@ -67,6 +68,7 @@ namespace RaunstrupERP
             }
         }
 
+        //EDIT SUR NAME
         private void button_EditSurName_Click(object sender, EventArgs e)
         {
             if (textBox_SirName.ReadOnly == true)
@@ -82,45 +84,12 @@ namespace RaunstrupERP
             }
         }
 
+        //EDIT ADRESS
         private void button_EditAdress_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void button_EditPostal_Click(object sender, EventArgs e)
-        {
-            if (maskedTextBox_PostalEdit.Visible == false)
-            {
-                button_EditPostal.Text = "Gem";
-                textBox_PostalCode.Visible = false;
-                maskedTextBox_PostalEdit.Text = textBox_PostalCode.Text;
-                maskedTextBox_PostalEdit.Visible = true;
-            }
-            else
-            {
-                //cc.EmployeeAlterPostalCode(ID, Convert.ToInt32(maskedTextBox_PostalEdit.Text));
-                button_EditPostal.Text = "Rediger";
-                textBox_PostalCode.Visible = true;
-                textBox_PostalCode.Text = maskedTextBox_PostalEdit.Text;
-                maskedTextBox_PostalEdit.Visible = false;
-            }
-        }
-
-        private void button_EditCityName_Click(object sender, EventArgs e)
-        {
-            if (textBox_City.ReadOnly == true)
-            {
-                button_EditCityName.Text = "Gem";
-                textBox_City.ReadOnly = false;
-            }
-            else
-            {
-                //cc.EmployeeAlterCity(ID, textBox_City.Text);
-                button_EditCityName.Text = "Rediger";
-                textBox_City.ReadOnly = true;
-            }
-        }
-
+        //EDIT SELECTED PHONENUMBER
         private void button_EditPhoneNumber_Click(object sender, EventArgs e)
         {
             if (maskedTextBox_PhoneEdit.Visible == false)
@@ -140,6 +109,7 @@ namespace RaunstrupERP
             }
         }
 
+        //EDIT SALARY
         private void button_EditSalary_Click(object sender, EventArgs e)
         {
             if (numericUpDown_EditSalary.Visible == false)
@@ -159,6 +129,7 @@ namespace RaunstrupERP
             }
         }
 
+        //EDIT EMPLOYEES SPECIALTY
         private void button_EditSpecial_Click(object sender, EventArgs e)
         {
             if (comboBox_SpecialEdit.Visible == false)
@@ -185,6 +156,7 @@ namespace RaunstrupERP
             }
         }
 
+        //SEARCH FOR EMPLOYEE
         private void numericUpDown_CustomerID_ValueChanged(object sender, EventArgs e)
         {
             EmployeeID = Convert.ToInt32(numericUpDown_CustomerID.Value);
@@ -202,11 +174,14 @@ namespace RaunstrupERP
             {
                 comboBox_PhoneNumbers.Items.Add(phone);
             }
+            textBox_Special.Text = cc.FindEmployee(EmployeeID).GetProfesion();
         }
 
+        //ONE ADRESS SELECT
         private void comboBox_Adresses_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            textBox_PostalCode.Text = adressList[comboBox_Adresses.SelectedIndex].GetPostalCode().ToString();
+            textBox_City.Text = cc.GetCityName(adressList[comboBox_Adresses.SelectedIndex].GetPostalCode());
         }
     }
 }
