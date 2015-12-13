@@ -23,6 +23,7 @@ namespace RaunstrupERP
             panel_MaterialInfo.Visible = false;
             panel_TasksInfo.Visible = false;
             checkBox_TaskIsComplete.Visible = false;
+            cc.LoadItems();
         }
 
         private void Form_Status_1_FormClosed(object sender, FormClosedEventArgs e)
@@ -192,6 +193,11 @@ namespace RaunstrupERP
         private void button_PrintReceipt_Click(object sender, EventArgs e)
         {
             currentOrder.PrintOrder();
+        }
+
+        private void Form_Status_1_MouseClick(object sender, MouseEventArgs e)
+        {
+            cc.LoadItems();
         }
     }
 }

@@ -543,6 +543,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_Status_1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_Status_1_FormClosed);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form_Status_1_MouseClick);
             this.panel_CustomerSalesInfo.ResumeLayout(false);
             this.panel_CustomerSalesInfo.PerformLayout();
             this.panel_MaterialInfo.ResumeLayout(false);

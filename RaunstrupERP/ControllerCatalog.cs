@@ -28,11 +28,29 @@ namespace RaunstrupERP
             ic = new ItemCatalog();
             xml = new XML();
         }
-        // LOAD ITEMS FROM DB!
+        //READ ITEMS
         public void LoadItems()
         {
             dbc.IDB.LoadItems();
         }
+        public ItemDescription FindItem(int id)
+        {
+            return dbc.IDB.FindItem(id);
+        }
+        //ALTER ITEMS
+        public void AlterItemDesc(int id, string newDesc)
+        {
+            dbc.IDB.AlterItemDesc(id, newDesc);
+        }
+        public void AlterItemMSRP(int id, double newPrice)
+        {
+            dbc.IDB.AlterItemMSRP(id, newPrice);
+        }
+        public void AlterItemPurchasingPrice(int id, double newPrice)
+        {
+            dbc.IDB.AlterItemPurchasingPrice(id, newPrice);
+        }
+
         // XML CALLS
         public void WriteOrderXML(int orderID)
         {

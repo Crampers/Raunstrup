@@ -39,6 +39,10 @@ namespace RaunstrupERP
         }
 
         /*Setters*/
+        public void DeleteAllItems()
+        {
+            items.Clear();
+        }
         public void AddItem(int id, String desc, double salesPrice, double shopsPrice)
         {
             items.Add(new ItemDescription(desc, id, salesPrice, shopsPrice));
