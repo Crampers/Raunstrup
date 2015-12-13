@@ -23,16 +23,25 @@ namespace RaunstrupERP
             /*XML TESTING*/
             //Test_Data_Class TDC = new Test_Data_Class();
             //cc.PrintOrder(1);
-            
+
             //cc.WriteOrderXML(4);
 
             //cc.ReadOrderXML();
 
             //cc.GetOrder(4).GetOffer().GetWorkTasks().PrintAllTasks();
-            
+
             //XML typer = new XML();
             //typer.WriteOrderStatusXML(ccc.GetOrder(4));
             //typer.ReadOrderStatusXML();
+
+            /*DateTime now = DateTime.Now;
+            string DateNow = "";
+            DateNow += now.Year;
+            DateNow += "-";
+            DateNow += now.Month;
+            DateNow += "-";
+            DateNow += now.Day;
+            Console.WriteLine(DateNow);*/
 
             /*FORMS!*/
             Application.EnableVisualStyles();

@@ -93,9 +93,50 @@ namespace RaunstrupERP
             dbc.CDB.CreateCustomerAdress(id, NewAdress, NewPostalCode);
         }
         //EMPLOYEE CALLS
+        //READ EMPLOYEE
         public Employee FindEmployee(int ID)
         {
             return dbc.EDB.FindEmployee(ID);
+        }
+        //CREATEEMPLOYEE
+        public void CreateNewEmployee(string FN, string SN, double Salary, string Adress, int postalCode, int phone)
+        {
+            DateTime now = DateTime.Now;
+            dbc.EDB.InsertEmployee(FN, SN, Salary, now, Adress, postalCode, phone);
+        }
+        public void CreateNewCraftsManEmployee(int id, string prof)
+        {
+            dbc.EDB.CreateCraftsmanEmployee(id, prof);
+        }
+        public void CreateNewSalesEmployee(int id)
+        {
+            dbc.EDB.CreateSalesEmployee(id);
+        }
+
+        //ALTEREMPLOYEE
+        public void AlterEmployeeFirstName(int id, string NewName)
+        {
+            dbc.EDB.AlterEmployeeFirstName(id, NewName);
+        }
+        public void AlterEmployeeSurName(int id, string NewName)
+        {
+            dbc.EDB.AlterEmployeeSurName(id, NewName);
+        }
+        public void AlterEmployeeAdress(int id, string OldAdress, string NewAdress, int NewPostalCode)
+        {
+            dbc.EDB.AlterEmployeeAdress(id, OldAdress, NewAdress, NewPostalCode);
+        }
+        public void AlterEmployeePhone(int id, int OldNumber, int NewNumber)
+        {
+            dbc.EDB.AlterEmployeePhoneNumber(id, OldNumber, NewNumber);
+        }
+        public void AlterEmployeePostalCode(int ID, int OldPostal, int NewPostal)
+        {
+            dbc.EDB.AlterEmployeePostalCode(ID, OldPostal, NewPostal);
+        }
+        public void AlterEmployeeSalary(int id, double Salary)
+        {
+            dbc.EDB.AlterEmployeeSalary(id, Salary);
         }
         //ORDER CALLS
         public OrderDescription FindInquiry(int id)
@@ -111,7 +152,7 @@ namespace RaunstrupERP
          * EmployeeCatalog Method Calls
          */
 
-        public List<EmployeeDescription> GetEmployeeList()
+        /*public List<EmployeeDescription> GetEmployeeList()
         {
             return ec.GetEmployees();
         }
@@ -172,7 +213,7 @@ namespace RaunstrupERP
         public void EmployeeAlterSalary(int id, Double salary)
         {
             ec.AlterSalary(id, salary);
-        }
+        } */
 
         /*
          * TaskCatalog Method Calls

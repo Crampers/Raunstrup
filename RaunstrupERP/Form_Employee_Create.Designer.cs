@@ -56,6 +56,7 @@
             this.label_Special.Size = new System.Drawing.Size(48, 13);
             this.label_Special.TabIndex = 27;
             this.label_Special.Text = "Speciale";
+            this.label_Special.Visible = false;
             // 
             // label_Salary
             // 
@@ -141,6 +142,7 @@
             this.comboBox_Special.Name = "comboBox_Special";
             this.comboBox_Special.Size = new System.Drawing.Size(100, 21);
             this.comboBox_Special.TabIndex = 8;
+            this.comboBox_Special.Visible = false;
             // 
             // maskedTextBox_PhoneNumber
             // 

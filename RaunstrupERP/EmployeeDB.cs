@@ -15,15 +15,40 @@ namespace RaunstrupERP
         {
             conn = sqlC;
         }
-        public void InsertEmployee(string FN, string SN, double Salary, DateTime seniority)
+        public void InsertEmployee(string FN, string SN, double Salary, DateTime seniority, string Adress, int postalCode, int phone)
         {
-            string insert = "insert into Employee (FirstName, SurName, Salary, Seniority) values " + "('" + FN + "','" + SN + "','" + Salary + "','" + seniority + ")";
-
+            String Datenow = seniority.Year + "-" + seniority.Month + "-" + seniority.Day;
+            string insert = "insert into Employee (FirstName, SurName, Salary, Seniority) values " + "('" + FN + "','" + SN + "','" + Salary + "','" + Datenow + "')";
             conn.Open();
             SqlCommand com = new SqlCommand(@insert, conn);
             com.ExecuteNonQuery();
-
             conn.Close();
+            int CurrentID = FindCurrentID();
+            conn.Open();
+            string insertAdress = "insert into EmployeeAdress(EmployeeID, Adress, PostalCode)values (" + CurrentID + ", '" + Adress + "', " + postalCode + ")";
+            com = new SqlCommand(insertAdress, conn);
+            com.ExecuteNonQuery();
+            conn.Close();
+            conn.Open();
+            string insertPhone = "insert into EmployeePhone(EmployeeID, Number)values (" + CurrentID + ", " + phone + ")";
+            com = new SqlCommand(insertPhone, conn);
+            com.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        public int FindCurrentID()
+        {
+            int newID = 0;
+            string selectNEWID = "select IDENT_CURRENT ('Employee') as 'newid'";
+            conn.Open();
+            SqlCommand comSelect = new SqlCommand(selectNEWID, conn);
+            SqlDataReader reader = comSelect.ExecuteReader();
+            while (reader.Read())
+            {
+                newID = Convert.ToInt32(reader["newid"]);
+            }
+            conn.Close();
+            return newID;
         }
 
         public Employee FindEmployee(int EmployeeID)

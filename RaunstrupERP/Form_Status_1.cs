@@ -188,5 +188,10 @@ namespace RaunstrupERP
         {
             cc.ReadOrderXML();
         }
+
+        private void button_PrintReceipt_Click(object sender, EventArgs e)
+        {
+            currentOrder.PrintOrder();
+        }
     }
 }

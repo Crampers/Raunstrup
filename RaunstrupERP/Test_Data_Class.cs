@@ -56,7 +56,7 @@ namespace RaunstrupERP
             cc.AddItem(8, "Dør", 50, 10);
             //9
             cc.AddItem(9, "Timebrug", 140, 90);
-
+            /*
             //1
             cc.AddEmployee("Daniel", "Olsen", "Gadevej", 9999, "Bynavn", 99999999, 20.00);
             cc.GetEmployee(1).SetSalesMan();
@@ -76,7 +76,7 @@ namespace RaunstrupERP
             cc.AddEmployee("Mathias", "DataTest", "Gadevej", 9999, "Bynavn", 99999999, 40.40);
             cc.GetEmployee(4).SetCraftsMan();
 
-            cc.DeleteEmployee(5);
+            cc.DeleteEmployee(5);*/
 
             //3
             cc.AddCustomer("Erik", "Sørensen", "Boulevarden 20", 7100, "Vejle", 99999999);
@@ -89,7 +89,7 @@ namespace RaunstrupERP
             tc.AddTaskItems(1, cc.GetItem(4), 1);
             tc.AddTaskItems(1, cc.GetItem(5), 1);
             tc.AddTaskItems(1, cc.GetItem(9), 3);
-            tc.SetTaskEmployee(1, cc.GetEmployee(2));
+            //tc.SetTaskEmployee(1, cc.GetEmployee(2));
 
             /*TEST DATA CATALOG 2*/
             TaskCatalog tc1 = new TaskCatalog();
@@ -98,7 +98,7 @@ namespace RaunstrupERP
             tc1.AddTaskItems(1, cc.GetItem(2), 1);
             tc1.AddTaskItems(1, cc.GetItem(3), 4);
             tc1.AddTaskItems(1, cc.GetItem(9), 2);
-            tc1.SetTaskEmployee(1, cc.GetEmployee(3));
+            //tc1.SetTaskEmployee(1, cc.GetEmployee(3));
 
             /*TEST DATA CATALOG 3*/
             TaskCatalog tc2 = new TaskCatalog();
@@ -106,7 +106,7 @@ namespace RaunstrupERP
             tc2.AddTaskItems(1, cc.GetItem(7), 1);
             tc2.AddTaskItems(1, cc.GetItem(8), 1);
             tc2.AddTaskItems(1, cc.GetItem(9), 1);
-            tc2.SetTaskEmployee(1, cc.GetEmployee(4));
+            //tc2.SetTaskEmployee(1, cc.GetEmployee(4));
 
             /*TEST DATA CATALOG 4*/
             TaskCatalog tc3 = new TaskCatalog();
@@ -114,20 +114,20 @@ namespace RaunstrupERP
             tc3.AddTaskItems(1, cc.GetItem(4), 1);
             tc3.AddTaskItems(1, cc.GetItem(5), 1);
             tc3.AddTaskItems(1, cc.GetItem(9), 3);
-            tc3.SetTaskEmployee(1, cc.GetEmployee(2));
+           // tc3.SetTaskEmployee(1, cc.GetEmployee(2));
 
             tc3.AddTask(2, "Installation af Vindue");
             tc3.AddTaskItems(2, cc.GetItem(1), 2);
             tc3.AddTaskItems(2, cc.GetItem(2), 1);
             tc3.AddTaskItems(2, cc.GetItem(3), 4);
             tc3.AddTaskItems(2, cc.GetItem(9), 2);
-            tc3.SetTaskEmployee(2, cc.GetEmployee(3));
+          //  tc3.SetTaskEmployee(2, cc.GetEmployee(3));
 
             tc3.AddTask(3, "Installation af Dør");
             tc3.AddTaskItems(3, cc.GetItem(7), 1);
             tc3.AddTaskItems(3, cc.GetItem(8), 1);
             tc3.AddTaskItems(3, cc.GetItem(9), 1);
-            tc3.SetTaskEmployee(3, cc.GetEmployee(4));
+          //  tc3.SetTaskEmployee(3, cc.GetEmployee(4));
 
             /*CREATE OFFERS*/
             cc.AddOffer(tc);
@@ -136,9 +136,9 @@ namespace RaunstrupERP
             cc.AddOffer(tc3);
 
             /*ADD SALESMAN TO OFFER*/
-            cc.GetOffer(1).SetSalesMan(cc.GetEmployee(1));
-            cc.GetOffer(2).SetSalesMan(cc.GetEmployee(1));
-            cc.GetOffer(3).SetSalesMan(cc.GetEmployee(1));
+          //  cc.GetOffer(1).SetSalesMan(cc.GetEmployee(1));
+         //   cc.GetOffer(2).SetSalesMan(cc.GetEmployee(1));
+         //   cc.GetOffer(3).SetSalesMan(cc.GetEmployee(1));
            // cc.GetOffer(4).SetSalesMan(cc.GetEmployee(1));
 
             /*ADD BUYER TO OFFER*/

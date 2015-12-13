@@ -160,7 +160,10 @@ namespace RaunstrupERP
             {
                 button_EditAdress.Text = "Gem";
                 textBox_CreateNewAdress.Visible = true;
-                textBox_CreateNewAdress.Text = comboBox_Adresses.SelectedItem.ToString();
+                if (comboBox_Adresses.SelectedItem != null)
+                {
+                    textBox_CreateNewAdress.Text = comboBox_Adresses.SelectedItem.ToString();
+                }
                 textBox_CreateCity.Visible = true;
                 comboBox_PostalCodeSelect.Visible = true;
                 comboBox_Adresses.Visible = false;

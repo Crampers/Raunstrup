@@ -24,6 +24,7 @@ namespace RaunstrupERP
 
         private void button_Confirm_Click(object sender, EventArgs e)
         {
+            //TODO: UPDATE TO INSERT INTO DATABASE!
             String fn = textBox_Firstname.Text;
             String sn = textBox_Surname.Text;
             String adress = textBox_Adress.Text;
@@ -32,17 +33,17 @@ namespace RaunstrupERP
             int phone = Convert.ToInt32(maskedTextBox_PhoneNumber.Text);
             Double salary = Convert.ToDouble(numericUpDown_Salary.Value);
 
-            
+            cc.CreateNewEmployee(fn, sn, salary, adress, postal, phone);
             
             
             /*SETS WETHER CRAFTMAN OR SALESMAN!*/
             if (comboBox_Special.SelectedIndex == 0)
             {
-                cc.GetEmployee(cc.GetLastUsedEmployeeId()).SetSalesMan();
+                //cc.GetEmployee(cc.GetLastUsedEmployeeId()).SetSalesMan();
             }
             if (comboBox_Special.SelectedIndex == 1)
             {
-                cc.GetEmployee(cc.GetLastUsedEmployeeId()).SetCraftsMan();
+                //cc.GetEmployee(cc.GetLastUsedEmployeeId()).SetCraftsMan();
             }
             this.Close();
         }

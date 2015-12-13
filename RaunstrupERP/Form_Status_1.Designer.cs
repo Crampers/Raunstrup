@@ -73,6 +73,7 @@
             this.numericUpDown_OrderID = new System.Windows.Forms.NumericUpDown();
             this.button_PrintXML = new System.Windows.Forms.Button();
             this.button_ReadXML = new System.Windows.Forms.Button();
+            this.button_PrintReceipt = new System.Windows.Forms.Button();
             this.panel_CustomerSalesInfo.SuspendLayout();
             this.panel_MaterialInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_AmountCompleted)).BeginInit();
@@ -515,11 +516,22 @@
             this.button_ReadXML.UseVisualStyleBackColor = true;
             this.button_ReadXML.Click += new System.EventHandler(this.button_ReadXML_Click);
             // 
+            // button_PrintReceipt
+            // 
+            this.button_PrintReceipt.Location = new System.Drawing.Point(389, 3);
+            this.button_PrintReceipt.Name = "button_PrintReceipt";
+            this.button_PrintReceipt.Size = new System.Drawing.Size(133, 23);
+            this.button_PrintReceipt.TabIndex = 9;
+            this.button_PrintReceipt.Text = "Print Kvittering";
+            this.button_PrintReceipt.UseVisualStyleBackColor = true;
+            this.button_PrintReceipt.Click += new System.EventHandler(this.button_PrintReceipt_Click);
+            // 
             // Form_Status_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(840, 503);
+            this.Controls.Add(this.button_PrintReceipt);
             this.Controls.Add(this.button_ReadXML);
             this.Controls.Add(this.button_PrintXML);
             this.Controls.Add(this.numericUpDown_OrderID);
@@ -593,5 +605,6 @@
         private System.Windows.Forms.TextBox textBox_OrderCost;
         private System.Windows.Forms.Button button_PrintXML;
         private System.Windows.Forms.Button button_ReadXML;
+        private System.Windows.Forms.Button button_PrintReceipt;
     }
 }

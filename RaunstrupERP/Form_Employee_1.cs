@@ -18,6 +18,10 @@ namespace RaunstrupERP
         public Form_Employee_1()
         {
             InitializeComponent();
+            foreach (int postalCode in cc.GetPostalCodes())
+            {
+                comboBox_EditPostalCode.Items.Add(postalCode);
+            }
         }
 
         private void Form_Employee_1_Load(object sender, EventArgs e)
@@ -31,17 +35,11 @@ namespace RaunstrupERP
             CreateNew.ShowDialog();
         }
 
-        private void Form_Employee_1_MouseClick(object sender, MouseEventArgs e)
-        {
-
-        }
-
         //START EDITING
         private void button_toggleEdit_Click(object sender, EventArgs e)
         {
             if (panel_edit.Visible == false)
             {
-
                 panel_edit.Visible = true;
                 button_toggleEdit.Text = "Gem";
             }
@@ -62,7 +60,7 @@ namespace RaunstrupERP
             }
             else
             {
-                //cc.EmployeeAlterFirstName(ID, textBox_FirstName.Text);
+                cc.AlterEmployeeFirstName(EmployeeID, textBox_FirstName.Text);
                 button_EditFName.Text = "Rediger";
                 textBox_FirstName.ReadOnly = true;
             }
@@ -78,7 +76,7 @@ namespace RaunstrupERP
             }
             else
             {
-                //cc.EmployeeAlterSurname(ID, textBox_SirName.Text);
+                cc.AlterEmployeeSurName(EmployeeID, textBox_SirName.Text);
                 button_EditSurName.Text = "Rediger";
                 textBox_SirName.ReadOnly = true;
             }
@@ -87,7 +85,33 @@ namespace RaunstrupERP
         //EDIT ADRESS
         private void button_EditAdress_Click(object sender, EventArgs e)
         {
-
+            if (textBox_EditAdress.Visible == false)
+            {
+                button_EditAdress.Text = "Gem";
+                comboBox_Adresses.Visible = false;
+                textBox_PostalCode.Visible = false;
+                textBox_EditAdress.Visible = true;
+                if (comboBox_Adresses.SelectedItem != null)
+                {
+                    textBox_EditAdress.Text = comboBox_Adresses.SelectedItem.ToString();
+                }
+                textBox_EditCity.Visible = true;
+                comboBox_EditPostalCode.Visible = true;
+                comboBox_EditPostalCode.SelectedIndex = comboBox_Adresses.SelectedIndex;
+            }
+            else
+            {
+                if (comboBox_Adresses.SelectedItem != null)
+                {
+                    cc.AlterEmployeeAdress(EmployeeID, comboBox_Adresses.SelectedItem.ToString(), textBox_EditAdress.Text, Convert.ToInt32(comboBox_EditPostalCode.SelectedItem));
+                }
+                button_EditAdress.Text = "Rediger";
+                comboBox_Adresses.Visible = true;
+                textBox_PostalCode.Visible = true;
+                textBox_EditAdress.Visible = false;
+                textBox_EditCity.Visible = false;
+                comboBox_EditPostalCode.Visible = false;
+            }
         }
         //EDIT SELECTED PHONENUMBER
         private void button_EditPhoneNumber_Click(object sender, EventArgs e)
@@ -95,16 +119,16 @@ namespace RaunstrupERP
             if (maskedTextBox_PhoneEdit.Visible == false)
             {
                 button_EditPhoneNumber.Text = "Gem";
-                //textBox_Phone.Visible = false;
-                //maskedTextBox_PhoneEdit.Text = textBox_Phone.Text;
+                maskedTextBox_PhoneEdit.Text = comboBox_PhoneNumbers.SelectedItem.ToString();
                 maskedTextBox_PhoneEdit.Visible = true;
+                comboBox_PhoneNumbers.Visible = false;
             }
             else
             {
-                //cc.EmployeeAlterPhone(ID, Convert.ToInt32(maskedTextBox_PhoneEdit.Text));
+                cc.AlterEmployeePhone(EmployeeID, Convert.ToInt32(comboBox_PhoneNumbers.SelectedItem), Convert.ToInt32(maskedTextBox_PhoneEdit.Text));
                 button_EditPhoneNumber.Text = "Rediger";
-                //textBox_Phone.Visible = true;
-                //textBox_Phone.Text = maskedTextBox_PhoneEdit.Text;
+                comboBox_PhoneNumbers.SelectedItem = maskedTextBox_PhoneEdit.Text;
+                comboBox_PhoneNumbers.Visible = true;
                 maskedTextBox_PhoneEdit.Visible = false;
             }
         }
@@ -116,12 +140,12 @@ namespace RaunstrupERP
             {
                 button_EditSalary.Text = "Gem";
                 textBox_Salary.Visible = false;
-                //numericUpDown_EditSalary.Value = Convert.ToDecimal(cc.GetEmployee(ID).GetSalary());
+                numericUpDown_EditSalary.Value = Convert.ToDecimal(textBox_Salary.Text);
                 numericUpDown_EditSalary.Visible = true;
             }
             else
             {
-                //cc.EmployeeAlterSalary(ID, Convert.ToDouble(numericUpDown_EditSalary.Value));
+                cc.AlterEmployeeSalary(EmployeeID, Convert.ToInt32(numericUpDown_EditSalary.Value));
                 button_EditSalary.Text = "Rediger";
                 textBox_Salary.Visible = true;
                 textBox_Salary.Text = numericUpDown_EditSalary.Value.ToString();
@@ -129,7 +153,7 @@ namespace RaunstrupERP
             }
         }
 
-        //EDIT EMPLOYEES SPECIALTY
+        //EDIT EMPLOYEES SPECIALTY - CURRENT UNUSUED: CAN BE IMPLEMENTED LATER
         private void button_EditSpecial_Click(object sender, EventArgs e)
         {
             if (comboBox_SpecialEdit.Visible == false)
@@ -159,6 +183,8 @@ namespace RaunstrupERP
         //SEARCH FOR EMPLOYEE
         private void numericUpDown_CustomerID_ValueChanged(object sender, EventArgs e)
         {
+            textBox_PostalCode.Text = "";
+            textBox_City.Text = "";
             EmployeeID = Convert.ToInt32(numericUpDown_CustomerID.Value);
             textBox_FirstName.Text = cc.FindEmployee(EmployeeID).GetFirstName();
             textBox_SirName.Text = cc.FindEmployee(EmployeeID).GetSurName();
@@ -177,11 +203,16 @@ namespace RaunstrupERP
             textBox_Special.Text = cc.FindEmployee(EmployeeID).GetProfesion();
         }
 
-        //ONE ADRESS SELECT
+        //ON ADRESS SELECT
         private void comboBox_Adresses_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBox_PostalCode.Text = adressList[comboBox_Adresses.SelectedIndex].GetPostalCode().ToString();
             textBox_City.Text = cc.GetCityName(adressList[comboBox_Adresses.SelectedIndex].GetPostalCode());
+        }
+        //ON ADRESSEDIT SELECT
+        private void comboBox_EditPostalCode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBox_EditCity.Text = cc.GetCityName(Convert.ToInt32( comboBox_EditPostalCode.SelectedItem));
         }
     }
 }

@@ -58,6 +58,9 @@
             this.numericUpDown_CustomerID = new System.Windows.Forms.NumericUpDown();
             this.comboBox_Adresses = new System.Windows.Forms.ComboBox();
             this.comboBox_PhoneNumbers = new System.Windows.Forms.ComboBox();
+            this.comboBox_EditPostalCode = new System.Windows.Forms.ComboBox();
+            this.textBox_EditAdress = new System.Windows.Forms.TextBox();
+            this.textBox_EditCity = new System.Windows.Forms.TextBox();
             this.panel_edit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_EditSalary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_CustomerID)).BeginInit();
@@ -143,6 +146,7 @@
             this.label_Special.Size = new System.Drawing.Size(48, 13);
             this.label_Special.TabIndex = 8;
             this.label_Special.Text = "Speciale";
+            this.label_Special.Visible = false;
             // 
             // textBox_FirstName
             // 
@@ -191,6 +195,7 @@
             this.textBox_Special.ReadOnly = true;
             this.textBox_Special.Size = new System.Drawing.Size(100, 20);
             this.textBox_Special.TabIndex = 19;
+            this.textBox_Special.Visible = false;
             // 
             // button_Create
             // 
@@ -204,7 +209,7 @@
             // 
             // button_EditFName
             // 
-            this.button_EditFName.Location = new System.Drawing.Point(3, 21);
+            this.button_EditFName.Location = new System.Drawing.Point(3, 18);
             this.button_EditFName.Name = "button_EditFName";
             this.button_EditFName.Size = new System.Drawing.Size(75, 23);
             this.button_EditFName.TabIndex = 21;
@@ -214,7 +219,7 @@
             // 
             // button_EditSurName
             // 
-            this.button_EditSurName.Location = new System.Drawing.Point(3, 47);
+            this.button_EditSurName.Location = new System.Drawing.Point(3, 44);
             this.button_EditSurName.Name = "button_EditSurName";
             this.button_EditSurName.Size = new System.Drawing.Size(75, 23);
             this.button_EditSurName.TabIndex = 22;
@@ -224,7 +229,7 @@
             // 
             // button_EditAdress
             // 
-            this.button_EditAdress.Location = new System.Drawing.Point(3, 73);
+            this.button_EditAdress.Location = new System.Drawing.Point(3, 96);
             this.button_EditAdress.Name = "button_EditAdress";
             this.button_EditAdress.Size = new System.Drawing.Size(75, 23);
             this.button_EditAdress.TabIndex = 23;
@@ -234,7 +239,7 @@
             // 
             // button_EditPhoneNumber
             // 
-            this.button_EditPhoneNumber.Location = new System.Drawing.Point(3, 151);
+            this.button_EditPhoneNumber.Location = new System.Drawing.Point(3, 148);
             this.button_EditPhoneNumber.Name = "button_EditPhoneNumber";
             this.button_EditPhoneNumber.Size = new System.Drawing.Size(75, 23);
             this.button_EditPhoneNumber.TabIndex = 26;
@@ -244,7 +249,7 @@
             // 
             // button_EditSalary
             // 
-            this.button_EditSalary.Location = new System.Drawing.Point(3, 177);
+            this.button_EditSalary.Location = new System.Drawing.Point(3, 174);
             this.button_EditSalary.Name = "button_EditSalary";
             this.button_EditSalary.Size = new System.Drawing.Size(75, 23);
             this.button_EditSalary.TabIndex = 27;
@@ -254,28 +259,26 @@
             // 
             // button_EditSpecial
             // 
-            this.button_EditSpecial.Location = new System.Drawing.Point(3, 203);
+            this.button_EditSpecial.Location = new System.Drawing.Point(3, 200);
             this.button_EditSpecial.Name = "button_EditSpecial";
             this.button_EditSpecial.Size = new System.Drawing.Size(75, 23);
             this.button_EditSpecial.TabIndex = 28;
             this.button_EditSpecial.Text = "Rediger";
             this.button_EditSpecial.UseVisualStyleBackColor = true;
+            this.button_EditSpecial.Visible = false;
             this.button_EditSpecial.Click += new System.EventHandler(this.button_EditSpecial_Click);
             // 
             // panel_edit
             // 
             this.panel_edit.Controls.Add(this.button_EditFName);
             this.panel_edit.Controls.Add(this.button_EditSpecial);
-            this.panel_edit.Controls.Add(this.comboBox_SpecialEdit);
             this.panel_edit.Controls.Add(this.button_EditSurName);
-            this.panel_edit.Controls.Add(this.maskedTextBox_PhoneEdit);
-            this.panel_edit.Controls.Add(this.numericUpDown_EditSalary);
             this.panel_edit.Controls.Add(this.button_EditAdress);
             this.panel_edit.Controls.Add(this.button_EditSalary);
             this.panel_edit.Controls.Add(this.button_EditPhoneNumber);
-            this.panel_edit.Location = new System.Drawing.Point(226, 12);
+            this.panel_edit.Location = new System.Drawing.Point(186, 12);
             this.panel_edit.Name = "panel_edit";
-            this.panel_edit.Size = new System.Drawing.Size(224, 243);
+            this.panel_edit.Size = new System.Drawing.Size(280, 243);
             this.panel_edit.TabIndex = 29;
             // 
             // comboBox_SpecialEdit
@@ -285,7 +288,7 @@
             this.comboBox_SpecialEdit.Items.AddRange(new object[] {
             "Sælger",
             "Håndværker"});
-            this.comboBox_SpecialEdit.Location = new System.Drawing.Point(84, 205);
+            this.comboBox_SpecialEdit.Location = new System.Drawing.Point(80, 214);
             this.comboBox_SpecialEdit.Name = "comboBox_SpecialEdit";
             this.comboBox_SpecialEdit.Size = new System.Drawing.Size(100, 21);
             this.comboBox_SpecialEdit.TabIndex = 29;
@@ -293,7 +296,7 @@
             // 
             // maskedTextBox_PhoneEdit
             // 
-            this.maskedTextBox_PhoneEdit.Location = new System.Drawing.Point(84, 154);
+            this.maskedTextBox_PhoneEdit.Location = new System.Drawing.Point(80, 162);
             this.maskedTextBox_PhoneEdit.Mask = "00000000";
             this.maskedTextBox_PhoneEdit.Name = "maskedTextBox_PhoneEdit";
             this.maskedTextBox_PhoneEdit.Size = new System.Drawing.Size(100, 20);
@@ -303,7 +306,7 @@
             // numericUpDown_EditSalary
             // 
             this.numericUpDown_EditSalary.DecimalPlaces = 2;
-            this.numericUpDown_EditSalary.Location = new System.Drawing.Point(84, 180);
+            this.numericUpDown_EditSalary.Location = new System.Drawing.Point(80, 189);
             this.numericUpDown_EditSalary.Maximum = new decimal(new int[] {
             1215752191,
             23,
@@ -326,14 +329,14 @@
             // 
             // numericUpDown_CustomerID
             // 
-            this.numericUpDown_CustomerID.Location = new System.Drawing.Point(122, 6);
+            this.numericUpDown_CustomerID.Location = new System.Drawing.Point(80, 7);
             this.numericUpDown_CustomerID.Maximum = new decimal(new int[] {
             1316134911,
             2328,
             0,
             0});
             this.numericUpDown_CustomerID.Name = "numericUpDown_CustomerID";
-            this.numericUpDown_CustomerID.Size = new System.Drawing.Size(58, 20);
+            this.numericUpDown_CustomerID.Size = new System.Drawing.Size(100, 20);
             this.numericUpDown_CustomerID.TabIndex = 32;
             this.numericUpDown_CustomerID.ValueChanged += new System.EventHandler(this.numericUpDown_CustomerID_ValueChanged);
             // 
@@ -341,9 +344,9 @@
             // 
             this.comboBox_Adresses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Adresses.FormattingEnabled = true;
-            this.comboBox_Adresses.Location = new System.Drawing.Point(80, 85);
+            this.comboBox_Adresses.Location = new System.Drawing.Point(80, 83);
             this.comboBox_Adresses.Name = "comboBox_Adresses";
-            this.comboBox_Adresses.Size = new System.Drawing.Size(140, 21);
+            this.comboBox_Adresses.Size = new System.Drawing.Size(184, 21);
             this.comboBox_Adresses.TabIndex = 33;
             this.comboBox_Adresses.SelectedIndexChanged += new System.EventHandler(this.comboBox_Adresses_SelectedIndexChanged);
             // 
@@ -353,16 +356,50 @@
             this.comboBox_PhoneNumbers.FormattingEnabled = true;
             this.comboBox_PhoneNumbers.Location = new System.Drawing.Point(80, 162);
             this.comboBox_PhoneNumbers.Name = "comboBox_PhoneNumbers";
-            this.comboBox_PhoneNumbers.Size = new System.Drawing.Size(140, 21);
+            this.comboBox_PhoneNumbers.Size = new System.Drawing.Size(100, 21);
             this.comboBox_PhoneNumbers.TabIndex = 34;
+            // 
+            // comboBox_EditPostalCode
+            // 
+            this.comboBox_EditPostalCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_EditPostalCode.FormattingEnabled = true;
+            this.comboBox_EditPostalCode.Location = new System.Drawing.Point(80, 110);
+            this.comboBox_EditPostalCode.Name = "comboBox_EditPostalCode";
+            this.comboBox_EditPostalCode.Size = new System.Drawing.Size(100, 21);
+            this.comboBox_EditPostalCode.TabIndex = 32;
+            this.comboBox_EditPostalCode.Visible = false;
+            this.comboBox_EditPostalCode.SelectedIndexChanged += new System.EventHandler(this.comboBox_EditPostalCode_SelectedIndexChanged);
+            // 
+            // textBox_EditAdress
+            // 
+            this.textBox_EditAdress.Location = new System.Drawing.Point(80, 84);
+            this.textBox_EditAdress.Name = "textBox_EditAdress";
+            this.textBox_EditAdress.Size = new System.Drawing.Size(184, 20);
+            this.textBox_EditAdress.TabIndex = 33;
+            this.textBox_EditAdress.Visible = false;
+            // 
+            // textBox_EditCity
+            // 
+            this.textBox_EditCity.Location = new System.Drawing.Point(80, 136);
+            this.textBox_EditCity.Name = "textBox_EditCity";
+            this.textBox_EditCity.ReadOnly = true;
+            this.textBox_EditCity.Size = new System.Drawing.Size(100, 20);
+            this.textBox_EditCity.TabIndex = 35;
+            this.textBox_EditCity.Visible = false;
             // 
             // Form_Employee_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(742, 484);
+            this.Controls.Add(this.textBox_EditCity);
             this.Controls.Add(this.comboBox_PhoneNumbers);
+            this.Controls.Add(this.comboBox_SpecialEdit);
+            this.Controls.Add(this.comboBox_EditPostalCode);
+            this.Controls.Add(this.textBox_EditAdress);
+            this.Controls.Add(this.numericUpDown_EditSalary);
             this.Controls.Add(this.comboBox_Adresses);
+            this.Controls.Add(this.maskedTextBox_PhoneEdit);
             this.Controls.Add(this.numericUpDown_CustomerID);
             this.Controls.Add(this.button_toggleEdit);
             this.Controls.Add(this.panel_edit);
@@ -386,9 +423,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_Employee_1";
             this.Load += new System.EventHandler(this.Form_Employee_1_Load);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form_Employee_1_MouseClick);
             this.panel_edit.ResumeLayout(false);
-            this.panel_edit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_EditSalary)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_CustomerID)).EndInit();
             this.ResumeLayout(false);
@@ -428,5 +463,8 @@
         private System.Windows.Forms.NumericUpDown numericUpDown_CustomerID;
         private System.Windows.Forms.ComboBox comboBox_Adresses;
         private System.Windows.Forms.ComboBox comboBox_PhoneNumbers;
+        private System.Windows.Forms.ComboBox comboBox_EditPostalCode;
+        private System.Windows.Forms.TextBox textBox_EditAdress;
+        private System.Windows.Forms.TextBox textBox_EditCity;
     }
 }
