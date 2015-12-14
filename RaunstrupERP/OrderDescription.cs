@@ -198,7 +198,7 @@ namespace RaunstrupERP
                 lines[counter2] = line;
                 counter2 += 1;
             }
-            System.IO.File.WriteAllLines("Kvittering2.txt", lines);
+            System.IO.File.WriteAllLines("Kvittering.txt", lines);
         }
         public void WriteOrderStatusXML()
         {
