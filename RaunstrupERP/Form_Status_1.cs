@@ -117,7 +117,7 @@ namespace RaunstrupERP
             }
             foreach (ItemLine item in currentOrder.GetOffer().GetWorkTasks().GetTask(listBox_WorkTasks.SelectedIndex + 1).getMaterials())
             {
-                listBox_Materials.Items.Add(item.GetLineID() + " Antal: " + item.GetAmount() + " - " + item.GetItem().GetDesc() + " - Pris: " + item.GetTotalSalesPrice() + " Kr.");
+                listBox_Materials.Items.Add(" Antal: " + item.GetAmount() + " - " + item.GetItem().GetDesc() + " - Pris: " + item.GetTotalSalesPrice() + " Kr.");
             }
         }
 
