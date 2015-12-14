@@ -34,6 +34,7 @@ namespace RaunstrupERP
                         writer.WriteStartElement("ItemLine");
                         writer.WriteElementString("itemID", item.GetItem().GetID().ToString());
                         /*writer.WriteElementString("itemDesc", item.GetItem().GetDesc());*/
+                        writer.WriteElementString("itemAmountExtra", item.GetAmountExtra().ToString());
                         writer.WriteElementString("itemAmount", item.GetAmount().ToString());
                         writer.WriteElementString("itemIsCompleted", item.GetAmountCompleted().ToString());
                         writer.WriteElementString("itemIsComplete", item.GetStatus().ToString());
@@ -49,10 +50,12 @@ namespace RaunstrupERP
         }
         public void /*OrderDescription*/ ReadOrderStatusXML()
         {
+            //TODO: MAKE IT UPDATE DATABASE!
             int itemLineID = 0;
             int taskID = 0;
             int itemID = 0;
             int itemAmount = 0;
+            int itemAmountExtra = 0;
             int orderID = 0;
             int offerID = 0;
             int itemIsCompleted = 0;
@@ -128,13 +131,19 @@ namespace RaunstrupERP
                                 }
                                 //Console.WriteLine("   " + itemDesc);
                                 break;*/
+                            case "itemAmountExtra":
+                                if (reader.Read())
+                                {
+                                    itemAmountExtra = Convert.ToInt32(reader.Value.Trim());
+                                }
+                                break;
                             case "itemAmount":
                                 if (reader.Read())
                                 {
                                     itemAmount = Convert.ToInt32(reader.Value.Trim());
                                 }
                                 //Console.WriteLine("   " + itemAmount);
-                                tc.AddTaskItems(taskID, ic.GetItem(itemID), itemAmount);
+                                tc.AddTaskItems(taskID, ic.GetItem(itemID), itemAmount, itemAmountExtra);
                                 break;
                             case "itemIsCompleted":
                                 if (reader.Read())

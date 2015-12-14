@@ -108,5 +108,11 @@ namespace RaunstrupERP
                 numericUpDown_EditPurchasePrice.Visible = false;
             }
         }
+
+        private void button_CreateItem_Click(object sender, EventArgs e)
+        {
+            Form_Items_Create ItemCreate = new Form_Items_Create();
+            ItemCreate.ShowDialog();
+        }
     }
 }

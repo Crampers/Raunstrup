@@ -28,13 +28,13 @@ namespace RaunstrupERP
                 }
             }
         }
-        public void AddTaskItems(int id, ItemDescription item, int amount)
+        public void AddTaskItems(int id, ItemDescription item, int amount, int amountExtra)
         {
             foreach (TaskDescription Item in tasks)
             {
                 if (Item.GetId() == id)
                 {
-                    Item.AddItems(id, item, amount);
+                    Item.AddItems(id, item, amount, amountExtra);
                 }
             }
         }

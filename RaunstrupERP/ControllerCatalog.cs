@@ -37,6 +37,11 @@ namespace RaunstrupERP
         {
             return dbc.IDB.FindItem(id);
         }
+        //CREATE ITEMS
+        public void CreateItem(string Desc, double MSRP, double PurchasePrice)
+        {
+            dbc.IDB.InsertItem(Desc, MSRP, PurchasePrice);
+        }
         //ALTER ITEMS
         public void AlterItemDesc(int id, string newDesc)
         {
@@ -245,9 +250,9 @@ namespace RaunstrupERP
         {
             tc.SetTaskEmployee(id,employee);
         }
-        public void AddTaskItems(int id, ItemDescription item, int amount)
+        public void AddTaskItems(int id, ItemDescription item, int amount, int amountExtra)
         {
-            tc.AddTaskItems(id,item,amount);
+            tc.AddTaskItems(id,item,amount, amountExtra);
         }
         public void SetTaskDesc(int id, String newDesc)
         {

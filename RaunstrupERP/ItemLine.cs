@@ -11,16 +11,22 @@ namespace RaunstrupERP
         private ItemDescription item;
         private int itemLineID;
         private int amount;
+        private int amountExtra;
         private int isCompleted = 0;
         private Boolean isComplete = false;
-        public ItemLine(int id, ItemDescription item, int amount)
+        public ItemLine(int id, ItemDescription item, int amount, int amountExtra)
         {
             itemLineID = id;
             this.item = item;
             this.amount = amount;
+            this.amountExtra = amountExtra;
         }
 
         /*GETTERS*/
+        public int GetAmountExtra()
+        {
+            return amountExtra;
+        }
         public int GetLineID()
         {
             return itemLineID;

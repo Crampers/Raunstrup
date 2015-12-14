@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="ControllerCatalog.cs" />
     <Compile Include="CraftsmanEmployee.cs" />
+    <Compile Include="DBInit.cs" />
     <Compile Include="CustomerAdress.cs" />
     <Compile Include="CustomerCatalog.cs" />
     <Compile Include="CustomerCatalog_Singleton.cs" />
@@ -102,6 +103,12 @@
     </Compile>
     <Compile Include="Form_Items_1.Designer.cs">
       <DependentUpon>Form_Items_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Items_Create.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Items_Create.Designer.cs">
+      <DependentUpon>Form_Items_Create.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_Main_1.cs">
       <SubType>Form</SubType>
@@ -163,7 +170,6 @@
     <Compile Include="TaskCatalog.cs" />
     <Compile Include="TaskDescription.cs" />
     <Compile Include="SalesEmployee.cs" />
-    <Compile Include="Test_Data_Class.cs" />
     <Compile Include="XML.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -201,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Items_1.resx">
       <DependentUpon>Form_Items_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Items_Create.resx">
+      <DependentUpon>Form_Items_Create.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Main_1.resx">
       <DependentUpon>Form_Main_1.cs</DependentUpon>

@@ -33,9 +33,9 @@ namespace RaunstrupERP
             employeelList.Add(employee);
             //_employee = employee;
         }
-        public void AddItems(int itemLineId, ItemDescription Item, int amount)
+        public void AddItems(int itemLineId, ItemDescription Item, int amount, int amountExtra)
         {
-            materials.Add(new ItemLine(itemLineId, Item, amount));
+            materials.Add(new ItemLine(itemLineId, Item, amount, amountExtra));
         }
         private int GetNewItemLineID()
         {
@@ -110,7 +110,7 @@ namespace RaunstrupERP
         }
         public ItemLine GetItemLine(int id)
         {
-            ItemLine line = new ItemLine(0, new ItemDescription("", 0, 0, 0), 0);
+            ItemLine line = new ItemLine(0, new ItemDescription("", 0, 0, 0), 0, 0);
             foreach (ItemLine item in materials)
             {
                 if (item.GetLineID() == id)

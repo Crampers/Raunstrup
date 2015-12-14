@@ -17,7 +17,7 @@ namespace RaunstrupERP
             conn = sqlC;
         }
 
-
+        //READ
         public ItemDescription FindItem(int id)
         {
             ItemDescription item = null;
@@ -39,7 +39,6 @@ namespace RaunstrupERP
             conn.Close();
             return item;
         }
-
         public void LoadItems()
         {
             string findAllItems = "select * from Items";
@@ -60,7 +59,19 @@ namespace RaunstrupERP
             }
             conn.Close();
         }
+        //CREATE
+        public void InsertItem(string Desc, double MSRP, double PurchasePrice)
+        {
+            string InsertItem = "insert into Items(ItemlDescription, MSRP, PurchasingPrice)values('" + Desc + "', " + MSRP + ", " + PurchasePrice + ")";
+            SqlCommand com = new SqlCommand(InsertItem, conn);
+            conn.Open();
+            com.ExecuteNonQuery();
+            conn.Close();
+        }
 
+
+
+        //ALTER
         public void AlterItemDesc(int id, string newDesc)
         {
             string UpdateItemDesc = "update Items set ItemlDescription = '" + newDesc +"' where ItemID =" + id;

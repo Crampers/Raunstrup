@@ -12,11 +12,13 @@ namespace RaunstrupERP
     {
         SqlConnection conn;
         CustomerDB custDB;
+        ItemDB ItemDB;
         ItemCatalog ic = new ItemCatalog();
         public OrderStatusDB(SqlConnection conn)
         {
             this.conn = conn;
             custDB = new CustomerDB(conn);
+            ItemDB = new ItemDB(conn);
         }
 
         public OrderDescription FindOrderStatus(int orderID)
@@ -80,7 +82,7 @@ namespace RaunstrupERP
                     int amount = Convert.ToInt32(stringAmount);
                     String stringAmountExtra = reader["AmountExtra"].ToString();
                     int amountExtra = Convert.ToInt32(stringAmountExtra);
-                    task.AddItems(itemLineID, ic.GetItem(itemID), amount);
+                    task.AddItems(itemLineID, ic.GetItem(itemID), amount, amountExtra);
                 }
                 conn.Close();
             }
@@ -93,5 +95,7 @@ namespace RaunstrupERP
             OrderDescription order = new OrderDescription(orderID, offer);
             return order;
         }
+
+        //TODO: ADD UPDATE STATEMENTS
     }
 }
