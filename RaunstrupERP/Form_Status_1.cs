@@ -193,6 +193,7 @@ namespace RaunstrupERP
         private void button_PrintReceipt_Click(object sender, EventArgs e)
         {
             currentOrder.PrintOrder();
+            System.Diagnostics.Process.Start("kvittering.txt");
         }
 
         private void Form_Status_1_MouseClick(object sender, MouseEventArgs e)

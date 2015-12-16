@@ -136,5 +136,10 @@ namespace RaunstrupERP
             salesStripMenuItem1.Visible = false;
             craftsmanToolStripMenuItem.Visible = false;
         }
+
+        private void hjælpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("help.pdf");
+        }
     }
 }
