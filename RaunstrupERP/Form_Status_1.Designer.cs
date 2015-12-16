@@ -152,7 +152,7 @@
             this.panel_MaterialInfo.Controls.Add(this.checkBox_ItemLineIsComplete);
             this.panel_MaterialInfo.Controls.Add(this.textBox_MaterialeName);
             this.panel_MaterialInfo.Controls.Add(this.label_MaterialInformation);
-            this.panel_MaterialInfo.Location = new System.Drawing.Point(568, 337);
+            this.panel_MaterialInfo.Location = new System.Drawing.Point(332, 337);
             this.panel_MaterialInfo.Name = "panel_MaterialInfo";
             this.panel_MaterialInfo.Size = new System.Drawing.Size(243, 110);
             this.panel_MaterialInfo.TabIndex = 24;
@@ -312,7 +312,7 @@
             // label_Items
             // 
             this.label_Items.AutoSize = true;
-            this.label_Items.Location = new System.Drawing.Point(233, 0);
+            this.label_Items.Location = new System.Drawing.Point(3, 0);
             this.label_Items.Name = "label_Items";
             this.label_Items.Size = new System.Drawing.Size(53, 13);
             this.label_Items.TabIndex = 23;
@@ -321,7 +321,7 @@
             // listBox_Materials
             // 
             this.listBox_Materials.FormattingEnabled = true;
-            this.listBox_Materials.Location = new System.Drawing.Point(233, 16);
+            this.listBox_Materials.Location = new System.Drawing.Point(3, 16);
             this.listBox_Materials.Name = "listBox_Materials";
             this.listBox_Materials.Size = new System.Drawing.Size(238, 160);
             this.listBox_Materials.TabIndex = 22;
@@ -330,19 +330,21 @@
             // listBox_Employees
             // 
             this.listBox_Employees.FormattingEnabled = true;
-            this.listBox_Employees.Location = new System.Drawing.Point(6, 16);
+            this.listBox_Employees.Location = new System.Drawing.Point(250, 16);
             this.listBox_Employees.Name = "listBox_Employees";
             this.listBox_Employees.Size = new System.Drawing.Size(221, 160);
             this.listBox_Employees.TabIndex = 21;
+            this.listBox_Employees.Visible = false;
             // 
             // label_TaskEmployees
             // 
             this.label_TaskEmployees.AutoSize = true;
-            this.label_TaskEmployees.Location = new System.Drawing.Point(3, 0);
+            this.label_TaskEmployees.Location = new System.Drawing.Point(247, 0);
             this.label_TaskEmployees.Name = "label_TaskEmployees";
             this.label_TaskEmployees.Size = new System.Drawing.Size(72, 13);
             this.label_TaskEmployees.TabIndex = 20;
             this.label_TaskEmployees.Text = "Medarbejdere";
+            this.label_TaskEmployees.Visible = false;
             // 
             // textBox_CustomerId
             // 
@@ -530,7 +532,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(840, 503);
+            this.ClientSize = new System.Drawing.Size(606, 503);
             this.Controls.Add(this.button_PrintReceipt);
             this.Controls.Add(this.button_ReadXML);
             this.Controls.Add(this.button_PrintXML);
@@ -538,10 +540,12 @@
             this.Controls.Add(this.panel_CustomerSalesInfo);
             this.Controls.Add(this.button_findOrder);
             this.Controls.Add(this.label_OrderID);
+            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form_Status_1";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form_Status_1";
+            this.Text = "Ordre Status";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_Status_1_FormClosed);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form_Status_1_MouseClick);
             this.panel_CustomerSalesInfo.ResumeLayout(false);

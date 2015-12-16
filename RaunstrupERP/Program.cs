@@ -27,7 +27,7 @@ namespace RaunstrupERP
             */
             
             //THIS PART BELOW IS THE REGULAR PROGRAM!
-            ControllerCatalog cc = new ControllerCatalog();
+            ControllerCatalog cc = new ControllerCatalog(); 
             cc.LoadItems();
 
             /*FORMS!*/

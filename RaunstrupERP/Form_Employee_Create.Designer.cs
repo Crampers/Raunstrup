@@ -231,9 +231,12 @@
             this.Controls.Add(this.label_Adress);
             this.Controls.Add(this.label_SirName);
             this.Controls.Add(this.label_FirstName);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_Employee_Create";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form_Employee_Create";
+            this.Text = "Opret Medarbejder";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Salary)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

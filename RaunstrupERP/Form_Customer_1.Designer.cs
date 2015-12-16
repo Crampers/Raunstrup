@@ -367,6 +367,7 @@
             this.Controls.Add(this.label_SirName);
             this.Controls.Add(this.label_Firstname);
             this.Controls.Add(this.label_Id);
+            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form_Customer_1";
             this.ShowIcon = false;

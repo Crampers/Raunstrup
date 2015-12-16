@@ -35,8 +35,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(969, 561);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_Offer_1";
-            this.Text = "Form_Offer_1";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Tilbuds Katalog";
             this.ResumeLayout(false);
 
         }

@@ -38,12 +38,12 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.button_ToggleEdit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.numericUpDown_EditPurchasePrice = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown_EditSalesPrice = new System.Windows.Forms.NumericUpDown();
-            this.richTextBox_EditDesc = new System.Windows.Forms.RichTextBox();
             this.button_EditShopsPrice = new System.Windows.Forms.Button();
             this.button_EditSalesPrice = new System.Windows.Forms.Button();
             this.button_EditDesc = new System.Windows.Forms.Button();
+            this.numericUpDown_EditPurchasePrice = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown_EditSalesPrice = new System.Windows.Forms.NumericUpDown();
+            this.richTextBox_EditDesc = new System.Windows.Forms.RichTextBox();
             this.button_CreateItem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -141,6 +141,36 @@
             this.panel1.TabIndex = 10;
             this.panel1.Visible = false;
             // 
+            // button_EditShopsPrice
+            // 
+            this.button_EditShopsPrice.Location = new System.Drawing.Point(3, 191);
+            this.button_EditShopsPrice.Name = "button_EditShopsPrice";
+            this.button_EditShopsPrice.Size = new System.Drawing.Size(75, 23);
+            this.button_EditShopsPrice.TabIndex = 2;
+            this.button_EditShopsPrice.Text = "Rediger";
+            this.button_EditShopsPrice.UseVisualStyleBackColor = true;
+            this.button_EditShopsPrice.Click += new System.EventHandler(this.button_EditShopsPrice_Click);
+            // 
+            // button_EditSalesPrice
+            // 
+            this.button_EditSalesPrice.Location = new System.Drawing.Point(3, 152);
+            this.button_EditSalesPrice.Name = "button_EditSalesPrice";
+            this.button_EditSalesPrice.Size = new System.Drawing.Size(75, 23);
+            this.button_EditSalesPrice.TabIndex = 1;
+            this.button_EditSalesPrice.Text = "Rediger";
+            this.button_EditSalesPrice.UseVisualStyleBackColor = true;
+            this.button_EditSalesPrice.Click += new System.EventHandler(this.button_EditSalesPrice_Click);
+            // 
+            // button_EditDesc
+            // 
+            this.button_EditDesc.Location = new System.Drawing.Point(3, 36);
+            this.button_EditDesc.Name = "button_EditDesc";
+            this.button_EditDesc.Size = new System.Drawing.Size(75, 23);
+            this.button_EditDesc.TabIndex = 0;
+            this.button_EditDesc.Text = "Rediger";
+            this.button_EditDesc.UseVisualStyleBackColor = true;
+            this.button_EditDesc.Click += new System.EventHandler(this.button_EditDesc_Click);
+            // 
             // numericUpDown_EditPurchasePrice
             // 
             this.numericUpDown_EditPurchasePrice.Location = new System.Drawing.Point(15, 201);
@@ -176,36 +206,6 @@
             this.richTextBox_EditDesc.Text = "";
             this.richTextBox_EditDesc.Visible = false;
             // 
-            // button_EditShopsPrice
-            // 
-            this.button_EditShopsPrice.Location = new System.Drawing.Point(3, 191);
-            this.button_EditShopsPrice.Name = "button_EditShopsPrice";
-            this.button_EditShopsPrice.Size = new System.Drawing.Size(75, 23);
-            this.button_EditShopsPrice.TabIndex = 2;
-            this.button_EditShopsPrice.Text = "Rediger";
-            this.button_EditShopsPrice.UseVisualStyleBackColor = true;
-            this.button_EditShopsPrice.Click += new System.EventHandler(this.button_EditShopsPrice_Click);
-            // 
-            // button_EditSalesPrice
-            // 
-            this.button_EditSalesPrice.Location = new System.Drawing.Point(3, 152);
-            this.button_EditSalesPrice.Name = "button_EditSalesPrice";
-            this.button_EditSalesPrice.Size = new System.Drawing.Size(75, 23);
-            this.button_EditSalesPrice.TabIndex = 1;
-            this.button_EditSalesPrice.Text = "Rediger";
-            this.button_EditSalesPrice.UseVisualStyleBackColor = true;
-            this.button_EditSalesPrice.Click += new System.EventHandler(this.button_EditSalesPrice_Click);
-            // 
-            // button_EditDesc
-            // 
-            this.button_EditDesc.Location = new System.Drawing.Point(3, 36);
-            this.button_EditDesc.Name = "button_EditDesc";
-            this.button_EditDesc.Size = new System.Drawing.Size(75, 23);
-            this.button_EditDesc.TabIndex = 0;
-            this.button_EditDesc.Text = "Rediger";
-            this.button_EditDesc.UseVisualStyleBackColor = true;
-            this.button_EditDesc.Click += new System.EventHandler(this.button_EditDesc_Click);
-            // 
             // button_CreateItem
             // 
             this.button_CreateItem.Location = new System.Drawing.Point(15, 256);
@@ -235,8 +235,11 @@
             this.Controls.Add(this.label_SalesPrice);
             this.Controls.Add(this.label_ID);
             this.Controls.Add(this.label_desc);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_Items_1";
-            this.Text = "Form_Items_1";
+            this.ShowIcon = false;
+            this.Text = "Søg Materiale";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_EditPurchasePrice)).EndInit();

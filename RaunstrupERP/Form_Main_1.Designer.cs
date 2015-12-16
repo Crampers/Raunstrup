@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main_1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.håndværkerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,21 +80,21 @@
             // håndværkerToolStripMenuItem
             // 
             this.håndværkerToolStripMenuItem.Name = "håndværkerToolStripMenuItem";
-            this.håndværkerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.håndværkerToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.håndværkerToolStripMenuItem.Text = "Håndværker";
             this.håndværkerToolStripMenuItem.Click += new System.EventHandler(this.håndværkerToolStripMenuItem_Click);
             // 
             // sælgerToolStripMenuItem
             // 
             this.sælgerToolStripMenuItem.Name = "sælgerToolStripMenuItem";
-            this.sælgerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sælgerToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.sælgerToolStripMenuItem.Text = "Sælger";
             this.sælgerToolStripMenuItem.Click += new System.EventHandler(this.sælgerToolStripMenuItem_Click);
             // 
             // administratorToolStripMenuItem
             // 
             this.administratorToolStripMenuItem.Name = "administratorToolStripMenuItem";
-            this.administratorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.administratorToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.administratorToolStripMenuItem.Text = "Administrator";
             this.administratorToolStripMenuItem.Click += new System.EventHandler(this.administratorToolStripMenuItem_Click);
             // 
@@ -233,13 +234,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(750, 464);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form_Main_1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form_Main_1";
+            this.Text = "Raunstrup Enterprice Resource Program";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Shown += new System.EventHandler(this.Form_Main_1_Shown);
             this.menuStrip1.ResumeLayout(false);

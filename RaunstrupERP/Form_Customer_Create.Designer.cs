@@ -171,8 +171,12 @@
             this.Controls.Add(this.label_Adress);
             this.Controls.Add(this.label_SirName);
             this.Controls.Add(this.label_Firstname);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_Customer_Create";
-            this.Text = "Form_Customer_Create";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Opret Kunde";
             this.ResumeLayout(false);
             this.PerformLayout();
 

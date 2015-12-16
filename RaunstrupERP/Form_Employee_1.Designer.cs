@@ -278,7 +278,7 @@
             this.panel_edit.Controls.Add(this.button_EditPhoneNumber);
             this.panel_edit.Location = new System.Drawing.Point(186, 12);
             this.panel_edit.Name = "panel_edit";
-            this.panel_edit.Size = new System.Drawing.Size(280, 243);
+            this.panel_edit.Size = new System.Drawing.Size(88, 243);
             this.panel_edit.TabIndex = 29;
             // 
             // comboBox_SpecialEdit
@@ -391,7 +391,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(742, 484);
+            this.ClientSize = new System.Drawing.Size(291, 298);
             this.Controls.Add(this.textBox_EditCity);
             this.Controls.Add(this.comboBox_PhoneNumbers);
             this.Controls.Add(this.comboBox_SpecialEdit);
@@ -419,9 +419,12 @@
             this.Controls.Add(this.label_SirName);
             this.Controls.Add(this.label_FirstName);
             this.Controls.Add(this.label_Id);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_Employee_1";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form_Employee_1";
+            this.Text = "Søg Medarbejder";
             this.Load += new System.EventHandler(this.Form_Employee_1_Load);
             this.panel_edit.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_EditSalary)).EndInit();

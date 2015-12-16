@@ -120,8 +120,11 @@
             this.Controls.Add(this.label_ShopsPrice);
             this.Controls.Add(this.label_SalesPrice);
             this.Controls.Add(this.label_desc);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_Items_Create";
-            this.Text = "Form_Items_Create";
+            this.ShowIcon = false;
+            this.Text = "Opret Materiale";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PurchasePrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_SalesPrice)).EndInit();
             this.ResumeLayout(false);

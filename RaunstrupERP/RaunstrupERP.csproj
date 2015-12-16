@@ -217,6 +217,9 @@
     <EmbeddedResource Include="Form_Offer_1.resx">
       <DependentUpon>Form_Offer_1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_Order_1.resx">
+      <DependentUpon>Form_Order_1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Salesman_Interface_1.resx">
       <DependentUpon>Form_Salesman_Interface_1.cs</DependentUpon>
     </EmbeddedResource>
