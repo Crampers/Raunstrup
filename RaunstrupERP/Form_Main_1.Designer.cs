@@ -241,7 +241,7 @@
             this.MinimizeBox = false;
             this.Name = "Form_Main_1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Raunstrup Enterprice Resource Program";
+            this.Text = "Raunstrup Enterprice Resource Planning";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Shown += new System.EventHandler(this.Form_Main_1_Shown);
             this.menuStrip1.ResumeLayout(false);
