@@ -97,5 +97,9 @@ namespace RaunstrupERP
         }
 
         //TODO: ADD UPDATE STATEMENTS
+        public void UpdateOrder(OrderDescription CurrentOrder)
+        {
+
+        }
     }
 }

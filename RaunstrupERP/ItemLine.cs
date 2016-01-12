@@ -19,7 +19,7 @@ namespace RaunstrupERP
             itemLineID = id;
             this.item = item;
             this.amount = amount;
-            this.amountExtra = amountExtra;
+            isCompleted = amountExtra; // TEMP FIX: Amount Extra is the amount done!
         }
 
         /*GETTERS*/

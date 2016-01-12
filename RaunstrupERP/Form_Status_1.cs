@@ -19,7 +19,7 @@ namespace RaunstrupERP
         public Form_Status_1()
         {
             InitializeComponent();
-            panel_CustomerSalesInfo.Visible = false;
+            panel_CustomerSalesInfo.Visible = true;
             panel_MaterialInfo.Visible = false;
             panel_TasksInfo.Visible = false;
             checkBox_TaskIsComplete.Visible = false;
@@ -28,7 +28,7 @@ namespace RaunstrupERP
 
         private void Form_Status_1_FormClosed(object sender, FormClosedEventArgs e)
         {
-
+            
         }
 
         private void button_findOrder_Click(object sender, EventArgs e)
