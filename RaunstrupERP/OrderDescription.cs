@@ -12,6 +12,7 @@ namespace RaunstrupERP
     {
         private int orderID;
         private OfferDescription offer;
+        ControllerCatalog cc = new ControllerCatalog();
         public OrderDescription(int id, OfferDescription offer)
         {
             orderID = id;
@@ -231,7 +232,10 @@ namespace RaunstrupERP
                 writer.WriteEndElement();
                 writer.WriteEndDocument();
             }
-
+        }
+        public void UpdateOrder()
+        {
+            cc.UpdateOrder(this);
         }
     }
 }

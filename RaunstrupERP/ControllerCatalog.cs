@@ -57,9 +57,9 @@ namespace RaunstrupERP
         }
 
         // XML CALLS
-        public void WriteOrderXML(int orderID)
+        public void WriteOrderXML(OrderDescription CurrentOrder)
         {
-            OrderDescription ordre = dbc.OSDB.FindOrderStatus(orderID);
+            OrderDescription ordre = CurrentOrder;
             xml.WriteOrderStatusXML(ordre);
         }
         public void ReadOrderXML()
@@ -165,6 +165,10 @@ namespace RaunstrupERP
         public OrderDescription FindInquiry(int id)
         {
             return dbc.OSDB.FindOrderStatus(id);
+        }
+        public void UpdateOrder(OrderDescription CurrentOrder)
+        {
+            dbc.OSDB.UpdateOrder(CurrentOrder);
         }
 
 

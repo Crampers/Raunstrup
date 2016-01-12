@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Data.SqlClient;
 
 namespace RaunstrupERP
 {
@@ -11,6 +12,8 @@ namespace RaunstrupERP
     {
         OrderCatalog oc = new OrderCatalog();
         ItemCatalog ic = new ItemCatalog();
+        DBController dbc = new DBController();
+        
         public XML()
         {
 
@@ -33,10 +36,12 @@ namespace RaunstrupERP
                     {
                         writer.WriteStartElement("ItemLine");
                         writer.WriteElementString("itemID", item.GetItem().GetID().ToString());
+                        writer.WriteElementString("itemLineID", item.GetLineID().ToString());
                         /*writer.WriteElementString("itemDesc", item.GetItem().GetDesc());*/
-                        writer.WriteElementString("itemAmountExtra", item.GetAmountExtra().ToString());
+                        
+                        writer.WriteElementString("itemAmountExtra", item.GetAmountCompleted().ToString()); //TEMP FIX
                         writer.WriteElementString("itemAmount", item.GetAmount().ToString());
-                        writer.WriteElementString("itemIsCompleted", item.GetAmountCompleted().ToString());
+                        //writer.WriteElementString("itemIsCompleted", item.GetAmountCompleted().ToString());
                         writer.WriteElementString("itemIsComplete", item.GetStatus().ToString());
                         writer.WriteEndElement();
                     }
@@ -113,15 +118,21 @@ namespace RaunstrupERP
                                 tc.GetTask(taskID).SetStatus(taskComplete);
                                 //Console.WriteLine(taskComplete);
                                 break;
-                            case "ItemLine":
+                          /*  case "ItemLine":
                                 itemLineID += 1;
-                                break;
+                                break;*/
                             case "itemID":
                                 if (reader.Read())
                                 {
                                     itemID = Convert.ToInt32(reader.Value.Trim());
                                 }
                                 //Console.WriteLine("   " + itemID);
+                                break;
+                            case "itemLineID":
+                                if(reader.Read())
+                                {
+                                    itemLineID = Convert.ToInt32(reader.Value.Trim());
+                                }
                                 break;
                             /*case "itemDesc":
                                 string itemDesc = "";
@@ -143,6 +154,7 @@ namespace RaunstrupERP
                                     itemAmount = Convert.ToInt32(reader.Value.Trim());
                                 }
                                 //Console.WriteLine("   " + itemAmount);
+                                dbc.OSDB.UpdateTaskEntry(itemAmountExtra, itemLineID);
                                 tc.AddTaskItems(taskID, ic.GetItem(itemID), itemAmount, itemAmountExtra);
                                 break;
                             case "itemIsCompleted":
@@ -174,8 +186,6 @@ namespace RaunstrupERP
             }
             
             OrderDescription ordre = new OrderDescription(orderID, new OfferDescription(offerID, tc));
-            oc.AddOrderDesc(ordre);
-            
         }
     }
 }

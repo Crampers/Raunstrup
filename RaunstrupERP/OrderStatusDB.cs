@@ -97,9 +97,49 @@ namespace RaunstrupERP
         }
 
         //TODO: ADD UPDATE STATEMENTS
-        public void UpdateOrder(OrderDescription CurrentOrder)
+        private void SQLQueryHelper(string SQLCommand)
         {
 
+            SqlTransaction transaction = null;
+            try
+            {
+                conn.Open();
+                SqlCommand com = new SqlCommand(@SQLCommand, conn);
+                transaction = conn.BeginTransaction();
+                com.Transaction = transaction;
+                com.ExecuteNonQuery();
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+                if (transaction == null)
+                {
+                    transaction.Rollback();
+                }
+            }
+
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public void UpdateOrder(OrderDescription CurrentOrder)
+        {
+            foreach (TaskDescription task in CurrentOrder.GetOffer().GetWorkTasks().GetTasks())
+            {
+                foreach (ItemLine taskentry in task.GetItemLines())
+                {
+                    string update = "update TaskEntry set AmountExtra = " + taskentry.GetAmountCompleted() + " where TaskEntyID = " + taskentry.GetLineID();
+                    SQLQueryHelper(update);
+                }
+            }
+        }
+        public void UpdateTaskEntry(int AmountExtra, int ItemLineID)
+        {
+            string update = "update TaskEntry set AmountExtra = " + AmountExtra + " where TaskEntyID = " + ItemLineID;
+            SQLQueryHelper(update);
         }
     }
 }

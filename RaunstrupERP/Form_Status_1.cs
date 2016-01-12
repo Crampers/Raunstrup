@@ -182,7 +182,7 @@ namespace RaunstrupERP
 
         private void button_PrintXML_Click(object sender, EventArgs e)
         {
-            cc.WriteOrderXML(orderID);
+            cc.WriteOrderXML(currentOrder);
         }
 
         private void button_ReadXML_Click(object sender, EventArgs e)
